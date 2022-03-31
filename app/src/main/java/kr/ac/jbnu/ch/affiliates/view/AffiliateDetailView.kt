@@ -1,0 +1,147 @@
+package kr.ac.jbnu.ch.affiliates.view
+
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.net.Uri
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import com.example.awesomedialog.*
+import com.google.android.material.snackbar.Snackbar
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.*
+import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.util.MarkerIcons
+import kr.ac.jbnu.ch.R
+import kr.ac.jbnu.ch.affiliates.models.AffiliateDataModel
+import kr.ac.jbnu.ch.databinding.LayoutAffiliateDetailBinding
+import kr.ac.jbnu.ch.frameworks.models.GlideApp
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
+
+class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , OnMapReadyCallback{
+    private lateinit var view : LinearLayout
+    private lateinit var mapView : MapView
+
+    companion object{
+        const val PERMISSION_REQUEST_CODE = 1001
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val layout : LayoutAffiliateDetailBinding = DataBindingUtil.inflate(inflater , R.layout.layout_affiliate_detail , container , false)
+        layout.view = this
+        this.view = layout.storeDetailLL
+        this.mapView = layout.mapView
+
+        mapView.getMapAsync(this)
+
+        layout.txtStoreName.text = data.storeName
+        layout.txtBenefits.text = data.benefits
+
+        var requestOptions = RequestOptions()
+        requestOptions = requestOptions.transforms( CenterCrop(), RoundedCorners(16))
+
+        GlideApp.with(requireContext())
+            .load(data.storeLogo)
+            .placeholder(R.drawable.ic_logo_no_slogan)
+            .apply(requestOptions)
+            .into(layout.storeLogo)
+
+        if(data.menu == ""){
+            layout.menuInfoLL.visibility = View.GONE
+        }
+
+        else{
+            layout.txtMenuName.text = data.menu
+            layout.txtPrice.text = data.price + "원"
+        }
+
+        return layout.root
+    }
+
+    fun call(){
+        if(context?.let { ContextCompat.checkSelfPermission(it, Manifest.permission.CALL_PHONE) } != PackageManager.PERMISSION_GRANTED){
+            requestPermission()
+        }
+
+        else{
+            val call_Intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + data.tel))
+            startActivity(call_Intent)
+        }
+
+    }
+
+    fun requestPermission(){
+        AwesomeDialog.build(activity as MainActivity)
+            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
+            .body("전화를 걸기 위해 전화 걸기 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .icon(R.drawable.ic_warning)
+            .onPositive("확인"){
+                ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.CALL_PHONE),
+                    PERMISSION_REQUEST_CODE
+                )
+            }
+            .onNegative("취소")
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode){
+            PERMISSION_REQUEST_CODE -> {
+                if(grantResults.isEmpty()){
+                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                }
+
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    call()
+                }
+
+                else{
+                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    override fun onMapReady(p0: NaverMap) {
+        val location = data.location?.split(", ")
+
+        if(location != null && location.size == 2){
+            val cameraUpdate = CameraUpdate.scrollTo(LatLng(location[0].toDouble(), location[1].toDouble()))
+                .animate(CameraAnimation.Easing, 1000)
+
+            p0.moveCamera(cameraUpdate)
+
+            val marker = Marker()
+
+            marker.position = LatLng(location[0].toDouble(), location[1].toDouble())
+            marker.icon = MarkerIcons.BLACK
+            marker.iconTintColor = resources.getColor(R.color.accent)
+            marker.captionText = data.storeName ?: ""
+            marker.captionColor = resources.getColor(R.color.accent)
+            marker.subCaptionText = data.benefits ?: ""
+            marker.subCaptionColor = resources.getColor(R.color.black)
+            marker.map = p0
+        }
+    }
+
+}

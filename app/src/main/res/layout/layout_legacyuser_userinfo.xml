@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.userManagement.view.LegacyUserInfoView" />
+
+        <variable
+            name = "legacyUserData"
+            type = "kr.ac.jbnu.ch.userManagement.models.UserInfoModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:id = "@+id/legacyUserInfoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="8"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src = "@drawable/ic_logo_no_slogan"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_title_convertData"
+                    android:textStyle="bold"
+                    android:textSize="23sp"
+                    android:textColor="@color/txtColor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_contents_convertData"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:padding="20dp"
+                android:weightSum="6"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#60908e93">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@string/txt_nameWithColon"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@{legacyUserData.name}"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@string/txt_deptWithColon"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@{legacyUserData.college}"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@string/txt_studentNoWithColon"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@{legacyUserData.studentNo}"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@string/txt_phoneWithColon"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "@{legacyUserData.phone}"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:visibility="gone"
+                android:id="@+id/btn_nextStep"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/theme_button"
+                android:drawableEnd="@drawable/ic_chevron_right"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:elevation="15dp"
+                android:onClick="@{(v) -> view.process()}"
+                android:text="@string/txt_nextStep"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id = "@+id/progressView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

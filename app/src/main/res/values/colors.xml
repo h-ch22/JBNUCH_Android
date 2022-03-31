@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="start_gradient">#FF0099CC</color>
+    <color name="end_gradient">#FF3366CC</color>
+    <color name="accent">#FF0099CC</color>
+    <color name="primary">#FF3366CC</color>
+    <color name ="background">#FFFCFCFC</color>
+    <color name="btnColor">#FFFFFFFF</color>
+    <color name="txtColor">#FF000000</color>
+    <color name="gray">#FF8e8e93</color>
+    <color name = "black">#FF000000</color>
+    <color name = "white">#FFFFFFFF</color>
+    <color name = "red">#FFff3b30</color>
+    <color name = "orange">#FFff9500</color>
+    <color name = "green">#FF34c759</color>
+    <color name = "mint">#FF00c7bd</color>
+    <color name = "teal">#FF30b0c7</color>
+    <color name = "cyan">#FF32ade6</color>
+    <color name = "blue">#FF007bff</color>
+    <color name = "indigo">#FF5856d6</color>
+    <color name = "purple">#FFaf52de</color>
+    <color name = "pink">#FFff2d54</color>
+    <color name = "brown">#FFa2855e</color>
+    <color name = "dialogBackground">#80FFFFFF</color>
+</resources>

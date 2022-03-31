@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.more.view.InfoView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    layout = "@layout/toolbar"
+                    android:id = "@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="350dp"
+                        android:layout_height="180dp"
+                        app:cardCornerRadius="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/appstore"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="전북대 총학생회"
+                                    android:textColor="@color/txtColor"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"/>
+
+                                <TextView
+                                    android:id="@+id/txt_version"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="버전 : "
+                                    android:textColor="@color/txtColor"
+                                    android:textSize="12sp"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="5dp"/>
+
+                                <TextView
+                                    android:id="@+id/txt_build"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="빌드 번호 : "
+                                    android:textColor="@color/txtColor"
+                                    android:textSize="12sp"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"/>
+
+                                <TextView
+                                    android:id="@+id/txt_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="5dp"/>
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_update"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone"
+                                    android:text="업데이트"
+                                    android:textColor="@color/accent"
+                                    android:background="#00FFFFFF"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id = "@+id/btn_EULA"
+                        android:layout_width="350dp"
+                        android:layout_height="70dp"
+                        android:text = "서비스 이용 약관 읽기"
+                        android:elevation="5dp"
+                        android:backgroundTint="@color/btnColor"
+                        android:textColor="@color/txtColor"
+                        android:textAlignment="textStart"
+                        android:onClick="@{(v) -> view.changeView(v)}"
+                        app:iconPadding="15dp"
+                        app:icon="@drawable/ic_eula"
+                        app:iconTint="#00FFFFFF"
+                        app:iconTintMode="add"
+                        app:iconSize="20dp"
+                        app:iconGravity="start"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id = "@+id/btn_privacy"
+                        android:layout_width="350dp"
+                        android:layout_height="70dp"
+                        android:text = "개인정보 처리 방침 읽기"
+                        android:elevation="5dp"
+                        android:backgroundTint="@color/btnColor"
+                        android:textColor="@color/txtColor"
+                        android:textAlignment="textStart"
+                        android:onClick="@{(v) -> view.changeView(v)}"
+                        app:iconPadding="15dp"
+                        app:icon="@drawable/ic_privacy"
+                        app:iconTint="#00FFFFFF"
+                        app:iconTintMode="add"
+                        app:iconSize="20dp"
+                        app:iconGravity="start"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id = "@+id/btn_openSource"
+                        android:layout_width="350dp"
+                        android:layout_height="70dp"
+                        android:text = "오픈소스 라이센스 정보"
+                        android:elevation="5dp"
+                        android:backgroundTint="@color/btnColor"
+                        android:textColor="@color/txtColor"
+                        android:textAlignment="textStart"
+                        android:onClick="@{(v) -> view.changeView(v)}"
+                        app:iconPadding="15dp"
+                        app:icon="@drawable/ic_opensource"
+                        app:iconTint="#00FFFFFF"
+                        app:iconTintMode="add"
+                        app:iconSize="20dp"
+                        app:iconGravity="start"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id = "@+id/btn_gpsLicense"
+                        android:layout_width="350dp"
+                        android:layout_height="70dp"
+                        android:text = "위치기반서비스 이용약관"
+                        android:elevation="5dp"
+                        android:backgroundTint="@color/btnColor"
+                        android:textColor="@color/txtColor"
+                        android:textAlignment="textStart"
+                        android:onClick="@{(v) -> view.changeView(v)}"
+                        app:iconPadding="15dp"
+                        app:icon="@drawable/ic_gps_license"
+                        app:iconTint="#00FFFFFF"
+                        app:iconTintMode="add"
+                        app:iconSize="20dp"
+                        app:iconGravity="start"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding = "10dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="© 2022 Public Relations Department of Jeonbuk National University Student Association."
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

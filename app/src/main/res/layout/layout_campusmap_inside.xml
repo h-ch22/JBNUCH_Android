@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.campusMap.view.CampusMapInsideView" />
+    </data>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+        
+        <include
+            layout = "@layout/toolbar_campusmap"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/toolbar"
+            android:layout_alignTop="@id/toolbar"
+            android:paddingHorizontal="10dp">
+
+            <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                android:id="@+id/toggleGroup_pledgeCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:tbgCheckedButton="@+id/btn_pledgeCategory_All">
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="전체"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_All"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="취/창업 및 학사"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_Bachelor"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="문화 및 예술"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_Culture"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="복지"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_Welfare"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="생활관"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_Dorm"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="시설 및 안전"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_Facility"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="앱 (App.)"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_App"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="인권"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_pledgeCategory_HumanRights"/>
+
+            </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        </HorizontalScrollView>
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/img_insideMap"/>
+        
+    </RelativeLayout>
+
+</layout>

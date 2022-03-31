@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.home.view.HomeView" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="40dp"
+            android:id = "@+id/homeView"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_greet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "안녕하세요"
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_affiliates"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="제휴업체"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_affiliates"
+                    app:iconGravity="top"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="30dp"/>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_notice"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="공지사항"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_notice"
+                    app:iconGravity="top"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="30dp"/>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_petition"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="청원제도"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_jbnu"
+                    app:iconGravity="top"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="30dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:id="@+id/btn_feedback"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="피드백"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_feedback"
+                    app:iconTintMode="add"
+                    app:iconGravity="top"
+                    app:iconTint="#00FFFFFF"
+                    app:iconSize="30dp"/>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_products"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="대여사업"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_products"
+                    app:iconTintMode="add"
+                    app:iconGravity="top"
+                    app:iconTint="#00FFFFFF"
+                    app:iconSize="30dp"/>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_pledge"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:background="@color/background"
+                    android:text="공약"
+                    android:textSize="15sp"
+                    android:textColor="@color/txtColor"
+                    app:icon="@drawable/ic_percentage"
+                    app:iconTintMode="add"
+                    app:iconGravity="top"
+                    app:iconTint="#00FFFFFF"
+                    app:iconSize="30dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "🔔 최신 공지사항"
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/latestNoticeLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "⚽️ 스포츠로 몸을 풀어볼까요?"
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sportsLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "✨ 이런 청원은 어떤가요?"
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/petitionLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</layout>

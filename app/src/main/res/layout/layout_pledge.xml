@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.pledge.view.PledgeView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    layout = "@layout/toolbar"
+                    android:id = "@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="공약 검색" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/txt_percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text = "전체 공약 이행률"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_pledgePercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/txt_percentage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textStyle="bold"
+                        android:textColor="@color/txtColor"
+                        android:textSize="25sp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_openPledgeBook"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="정책 자료집"
+                        android:textColor="@color/accent"
+                        android:textSize="12sp"
+                        android:background="#00FFFFFF"
+                        android:layout_gravity="end"
+                        android:onClick="@{(v) -> view.onClick(v)}"
+                        app:icon="@drawable/ic_pledgebook" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingHorizontal="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_gravity="end"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:src="@drawable/shape_circle"
+                                app:tint="@color/red"/>
+
+                            <TextView
+                                android:id="@+id/txt_prepareCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="10dp"
+                                android:textColor="@color/txtColor"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:src="@drawable/shape_circle"
+                                app:tint="@color/orange"/>
+
+                            <TextView
+                                android:id="@+id/txt_inProcessCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="10dp"
+                                android:textColor="@color/txtColor"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:src="@drawable/shape_circle"
+                                app:tint="@color/green"/>
+
+                            <TextView
+                                android:id="@+id/txt_doneCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="10dp"
+                                android:textColor="@color/txtColor"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="10dp">
+
+                    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                        android:id="@+id/toggleGroup_pledgeCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:tbgCheckedButton="@+id/btn_pledgeCategory_All">
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:text="전체"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_All"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="취/창업 및 학사"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_Bachelor"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="문화 및 예술"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_Culture"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:text="복지"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_Welfare"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="생활관"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_Dorm"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="시설 및 안전"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_Facility"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="앱 (App.)"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_App"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="인권"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_pledgeCategory_HumanRights"/>
+
+                    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+                </HorizontalScrollView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pledgeLL"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

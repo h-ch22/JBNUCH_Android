@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.userManagement.view.ProfileView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id = "@+id/profileView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    layout = "@layout/toolbar"
+                    android:id = "@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id = "@+id/img_profile"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src = "@drawable/ic_logo_no_slogan"
+                    android:elevation="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_changeProfile"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:text = "프로필 이미지 변경"
+                    android:onClick="@{v -> view.onClick(v)}"
+                    android:textColor="@color/accent"
+                    android:background="#00FFFFFF"
+                    app:layout_constraintTop_toBottomOf="@id/img_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                    android:id = "@+id/margin_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/btn_changeProfile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id = "@+id/txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "name"
+                    android:textStyle="bold"
+                    android:textColor="@color/txtColor"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/margin_profile"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id = "@+id/txt_college"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "college + studentNo"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_name"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                    android:id = "@+id/margin_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/txt_college"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_changePhone"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "연락처 변경"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{v -> view.onClick(v)}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/margin_buttons"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_phone"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_changePassword"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "비밀번호 변경"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{v -> view.onClick(v)}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_changePhone"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_password"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_signOut"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "로그아웃"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{v -> view.onClick(v)}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_changePassword"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_signout"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_secession"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "회원 탈퇴"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{v -> view.onClick(v)}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_signOut"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_cancel"
+                    app:iconTint="@color/txtColor"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

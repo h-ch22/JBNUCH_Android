@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.feedbackhub.view.FeedbackHubDetailView" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <include
+            layout = "@layout/toolbar"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_type"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:tint="@color/txtColor"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_type"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:textColor="@color/txtColor"/>
+
+                        <TextView
+                            android:id="@+id/txt_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="12sp"
+                            android:gravity="end"
+                            android:textColor="@color/gray"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/txtColor"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_author"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:gravity="end"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/accent"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    app:contentPaddingLeft="10dp"
+                    app:contentPaddingRight="10dp"
+                    app:cardBackgroundColor="@color/btnColor"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="10dp">
+
+                    <TextView
+                        android:id="@+id/txt_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/txtColor"
+                        android:textSize="15sp"
+                        android:lineSpacingExtra="5dp"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/answerLL"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    app:contentPaddingLeft="10dp"
+                    app:contentPaddingRight="10dp"
+                    app:cardBackgroundColor="@color/btnColor"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="피드백에 대한 답변입니다."
+                            android:textColor="@color/txtColor"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:lineSpacingExtra="5dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"/>
+
+                        <TextView
+                            android:id="@+id/txt_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/txtColor"
+                            android:textSize="15sp"
+                            android:lineSpacingExtra="5dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"/>
+
+                        <TextView
+                            android:id = "@+id/txt_admin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green"
+                            android:drawableStart="@drawable/baseline_verified_user_black_20"
+                            android:drawableTint="@color/green"
+                            android:drawablePadding="10dp"
+                            android:textSize="12sp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"/>
+
+                        <TextView
+                            android:id = "@+id/txt_answerDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray"
+                            android:gravity="center"
+                            android:drawablePadding="10dp"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <EditText
+                    android:id="@+id/field_answer"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:paddingVertical="20dp"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="피드백의 답변을 입력해주세요."
+                    android:lineSpacingExtra="5dp"
+                    android:text = "@={view.answer}"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/txtColor" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_writeAnswer"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:background="@drawable/theme_button"
+                    android:drawableEnd="@drawable/ic_chevron_right"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/white"
+                    android:elevation="15dp"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:text="답변 등록하기"
+                    android:textColor="@color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressView"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:indeterminate="true"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

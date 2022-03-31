@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.petition.view.WritePetitionView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id = "@+id/writePetitionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include
+            layout = "@layout/toolbar"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:weightSum="5"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/field_title"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/theme_edittext"
+                android:elevation="5dp"
+                android:hint="청원 제목"
+                android:text = "@={view.title}"
+                android:inputType="text"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/accent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"/>
+
+            <EditText
+                android:id="@+id/field_contents"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"
+                android:paddingVertical="20dp"
+                android:scrollbars="vertical"
+                android:background="@drawable/theme_edittext"
+                android:elevation="5dp"
+                android:hint="청원의 내용을 입력해주세요."
+                android:lineSpacingExtra="5dp"
+                android:text = "@={view.contents}"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/accent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id = "@+id/btn_selectImage"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera"
+                    android:background="#00FFFFFF"
+                    android:onClick="@{(v) -> view.onButtonClick(v)}"
+                    app:tint="@color/accent"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id = "@+id/imageLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_nextStep"
+                android:layout_width="250dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/theme_button"
+                android:drawableEnd="@drawable/ic_chevron_right"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:elevation="15dp"
+                android:onClick="@{(v) -> view.onButtonClick(v)}"
+                android:text="@string/txt_uploadPetition"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:indeterminate="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            android:id = "@+id/progressView"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

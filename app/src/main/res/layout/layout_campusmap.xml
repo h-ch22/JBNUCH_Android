@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.campusMap.view.CampusMapView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id = "@+id/campusMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.naver.maps.map.MapView
+            android:id = "@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/scrollView_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <include
+            layout = "@layout/toolbar"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView_category"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/background"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                android:id="@+id/toggleGroup_collegeCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:tbgCheckedButton="@+id/btn_pledgeCategory_All">
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="간호대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_NUR"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="공과대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_ENG"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="농생대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_AGR"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="사범대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_COE"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="사회대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_SOC"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="상과대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_COM"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="생활대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_CHE"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="예술대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_ART"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="인문대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_COH"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="자연대"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_CON"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="대학병원"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_Hospital"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="식당"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_Restaurant"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="카페"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_Cafe"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="편의점"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_ConvenienceStore"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="학습"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_Study"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="ATM"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_ATM"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="기타"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_Others"/>
+
+            </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

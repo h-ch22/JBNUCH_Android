@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.userManagement.view.SignUpView" />
+
+    </data>
+
+        <ScrollView
+            android:id="@+id/signUpView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ic_logo_no_slogan" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="0.3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/txt_signUp"
+                        android:textColor="@color/txtColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/txt_requestUserInfo"
+                        android:textColor="@color/txtColor"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/field_email"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_email"
+                        android:text = "@={view.email}"
+                        android:inputType="textEmailAddress"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+
+                    <EditText
+                        android:id="@+id/field_password"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_resetpassword"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_password"
+                        android:text = "@={view.password}"
+                        android:inputType="textPassword"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+
+                    <EditText
+                        android:id="@+id/field_checkPassword"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_resetpassword"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_checkPassword"
+                        android:text = "@={view.checkPassword}"
+                        android:inputType="textPassword"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+
+                    <EditText
+                        android:id="@+id/field_Name"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:lines="1"
+                        android:inputType="text"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_user"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_name"
+                        android:text = "@={view.name}"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+
+                    <EditText
+                        android:id="@+id/field_studentNo"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_studentno"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_studentNo"
+                        android:text = "@={view.studentNo}"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+
+                    <EditText
+                        android:id="@+id/field_phone"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/theme_edittext"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:drawablePadding="10dp"
+                        android:elevation="5dp"
+                        android:hint="@string/txt_phone"
+                        android:text = "@={view.phone}"
+                        android:inputType="phone"
+                        android:paddingHorizontal="10dp"
+                        android:textColor="@color/accent" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="0.5"
+                    android:paddingHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:text="@string/txt_requestSelectCollege"
+                        android:textColor="@color/txtColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_selectCollege"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(v) -> view.showDialog()}"
+                        android:text='@={view.selectedCollege}'
+                        android:textColor="@color/accent" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="0.8"
+                    android:paddingHorizontal="20dp"
+                    android:orientation="vertical">
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:id="@+id/txt_idCard"
+                            android:text="@string/txt_requestToLoadIDCard"
+                            android:textColor="@color/txtColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_loadGallery"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:onClick="@{(v) -> view.onLoadBtnClick()}"
+                            android:text="@string/txt_load"
+                            android:textColor="@color/accent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:icon = "@drawable/ic_gallery_48"
+                            app:iconSize = "18dp"
+                            app:strokeColor="@color/accent"
+                            app:strokeWidth="1dp"/>
+
+                        <ImageButton
+                            android:id="@+id/btn_tutorial"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:onClick="@{(v) -> view.onTutorialButtonClick()}"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:background="#00FFFFFF"
+                            app:tint="@color/accent"
+                            android:src="@drawable/ic_help"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_signUp"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/theme_button"
+                        android:drawableEnd="@drawable/ic_chevron_right"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/white"
+                        android:elevation="15dp"
+                        android:onClick="@{(v) -> view.onSignUpButtonClick()}"
+                        android:text="@string/txt_register"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id = "@+id/progressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:indeterminate="true" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+</layout>

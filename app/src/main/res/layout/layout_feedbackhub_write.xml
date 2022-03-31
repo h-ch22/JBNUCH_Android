@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.feedbackhub.view.FeedbackHubMainView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout = "@layout/toolbar_feedbackhub_main"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:background="@color/background"
+                android:paddingHorizontal="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ic_feedbackhub_main"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "학우님의 의견을 들려주세요."
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.2">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_heart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/btnColor"
+                            android:gravity="center"
+                            android:text="칭찬해요"
+                            app:icon="@drawable/ic_heart"
+                            app:iconGravity="top"
+                            app:iconTint="@color/gray"
+                            android:textSize="12sp"
+                            android:onClick="@{(v) -> view.onClick(v)}"
+                            android:textColor="@color/gray"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_improve"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/btnColor"
+                            app:icon="@drawable/ic_improve"
+                            app:iconGravity="top"
+                            app:iconTint="@color/gray"
+                            android:gravity="center"
+                            android:text="개선해주세요"
+                            android:textSize="12sp"
+                            android:onClick="@{(v) -> view.onClick(v)}"
+                            android:textColor="@color/gray"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_question"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:backgroundTint="@color/btnColor"
+                            app:icon="@drawable/ic_question"
+                            app:iconGravity="top"
+                            app:iconTint="@color/gray"
+                            android:gravity="center"
+                            android:text="궁금해요"
+                            android:textSize="12sp"
+                            android:onClick="@{(v) -> view.onClick(v)}"
+                            android:textColor="@color/gray"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <EditText
+                    android:id="@+id/field_title"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="피드백 제목"
+                    android:text = "@={view.title}"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <EditText
+                    android:id="@+id/field_contents"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="피드백의 내용을 입력해주세요."
+                    android:lineSpacingExtra="5dp"
+                    android:text = "@={view.contents}"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/progressView"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.handWriting.view.AddHandWritingView" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/addHandWritingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout = "@layout/toolbar"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"/>
+
+        <ScrollView
+            android:background="@color/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📝 게시글 제목"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_title"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="게시글 제목"
+                    android:text = "@={view.title}"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="✏️ 시험 이름"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_examName"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="시험 이름"
+                    android:text = "@={view.examName}"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🗓 시험 날짜"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_selectDate"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:onClick="@{v -> view.onButtonClick(v)}"
+                    app:icon="@drawable/ic_time"
+                    app:iconTint="@color/txtColor"
+                    android:text="@string/txt_selectDate"
+                    android:textColor="@color/txtColor"
+                    android:backgroundTint="@color/btnColor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="💭 시험을 준비하게 된 계기"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_meter"
+                    android:layout_width="300dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="시험을 준비하게 된 계기"
+                    android:text = "@={view.meter}"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⏰ 시험 준비 기간"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_term"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="시험 준비 기간"
+                    android:text = "@={view.term}"
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🙋🏻‍ 시험을 본 후기"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_review"
+                    android:layout_width="300dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="시험을 본 후기"
+                    android:text = "@={view.review}"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📚 자신만의 공부법"
+                    android:textColor="@color/txtColor"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/field_howTO"
+                    android:layout_width="300dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_edittext"
+                    android:elevation="5dp"
+                    android:hint="자신만의 공부법"
+                    android:text = "@={view.howTO}"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/accent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id = "@+id/btn_selectImage"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_camera"
+                        android:background="#00FFFFFF"
+                        android:onClick="@{(v) -> view.onButtonClick(v)}"
+                        app:tint="@color/accent"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id = "@+id/imageLL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_uploadHandWriting"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/theme_button"
+                    android:drawableEnd="@drawable/ic_chevron_right"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/white"
+                    android:elevation="15dp"
+                    android:onClick="@{(v) -> view.onButtonClick(v)}"
+                    android:text="수기 작성하기"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:indeterminate="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    android:id = "@+id/progressView"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

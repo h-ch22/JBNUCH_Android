@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.more.view.IntroduceView" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/toolbar"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_logo_no_slogan" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총학생회 소개"
+                    android:textColor="@color/txtColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_greet"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "인사말"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_greeting"
+                    app:iconTint="#00FFFFFF"
+                    app:iconTintMode="add"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_department"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "국별 소개"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_department"
+                    app:iconTint="#00FFFFFF"
+                    app:iconTintMode="add"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_youtube"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "총학생회 유튜브"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_youtube"
+                    app:iconTint="#00FFFFFF"
+                    app:iconTintMode="add"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_linkTree"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "총학생회 링크트리"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_link"
+                    app:iconTint="#00FFFFFF"
+                    app:iconTintMode="add"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id = "@+id/btn_map"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:text = "찾아오시는 길"
+                    android:elevation="5dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:textColor="@color/txtColor"
+                    android:textAlignment="textStart"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    app:iconPadding="15dp"
+                    app:icon="@drawable/ic_map"
+                    app:iconTint="#00FFFFFF"
+                    app:iconTintMode="add"
+                    app:iconSize="20dp"
+                    app:iconGravity="start"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

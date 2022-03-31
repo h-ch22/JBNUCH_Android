@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">JBNU-CH</string>
+    <string name="txt_welcome">반가워요!</string>
+    <string name="txt_signIn_description">계속 진행하려면 로그인이 필요합니다.</string>
+    <string name="txt_email">E-Mail</string>
+    <string name="txt_password">비밀번호</string>
+    <string name="txt_signIn">로그인</string>
+    <string name="txt_resetPassword">비밀번호 재설정</string>
+    <string name="txt_signUp">회원가입</string>
+    <string name="txt_nextStep">다음 단계로</string>
+    <string name="txt_privacyLicense">전북대 총학생회 애플리케이션 개인정보 처리 방침</string>
+    <string name="txt_read">읽기</string>
+    <string name="txt_EULA">전북대 총학생회 애플리케이션 최종 사용자 계약서</string>
+    <string name="txt_checkPassword">비밀번호 확인</string>
+    <string name="txt_toolbarTitle">ToolbarTitle</string>
+    <string name="txt_register">가입하기</string>
+    <string name="txt_requestUserInfo">학우님의 정보를 입력해주세요.</string>
+    <string name="txt_name">이름</string>
+    <string name="txt_studentNo">학번</string>
+    <string name="txt_phone">연락처</string>
+    <string name="txt_requestSelectCollege">소속 단과대학을 선택해주세요.</string>
+    <string name="txt_requestToLoadIDCard">모바일 학생증 캡처 이미지를 불러와주세요.</string>
+    <string name="txt_load">불러오기</string>
+    <string name="txt_legacyUser_contents">전북대 공대앱은 이제 총학생회 앱과 통합되었습니다.\n아래 버튼을 눌러 학우님의 데이터를 이관하시면, 별도 가입 없이 계속 서비스를 이용하실 수 있습니다.</string>
+    <string name="txt_legacyUser_title">전북대 공대앱 이용자이셨나요?</string>
+    <string name="txt_transferData">데이터 이관하기</string>
+    <string name="txt_removeData">데이터 제거</string>
+    <string name="txt_nameWithColon">이름 :</string>
+    <string name="txt_deptWithColon">학과 :</string>
+    <string name="txt_studentNoWithColon">학번 :</string>
+    <string name="txt_phoneWithColon">연락처 :</string>
+    <string name="txt_title_convertData">데이터 변환 시작</string>
+    <string name="txt_contents_convertData">먼저 학우님의 정보가 맞는지 확인해주세요.</string>
+    <string name="txt_checkEmail">E-Mail을 확인해주세요!</string>
+    <string name="txt_switchToSignIn">로그인 화면으로 이동</string>
+    <string name="txt_openEmail">E-Mail 열기</string>
+    <string name="txt_home">홈</string>
+    <string name="txt_affiliates">제휴 업체</string>
+    <string name="txt_timeTable">시간표</string>
+    <string name="txt_notice">공지사항</string>
+    <string name="txt_more">더 보기</string>
+    <string name="txt_noticeType_StudentAssociation">학생회 공지</string>
+    <string name="txt_noticeType_Internal">교내 공지</string>
+    <string name="txt_feedbackHub">피드백 허브</string>
+    <string name="txt_sentFeedback">보낸 피드백</string>
+    <string name="txt_allFeedbacks">전체 피드백</string>
+    <string name="txt_others">기타</string>
+    <string name="txt_App">앱</string>
+    <string name="txt_festival">행사</string>
+    <string name="txt_pledges">공약</string>
+    <string name="txt_communicate">소통</string>
+    <string name="txt_welfare">복지</string>
+    <string name="txt_facility">시설</string>
+    <string name="txt_sendFeedback">피드백 전송</string>
+    <string name="txt_collegeStudentAssociation">단대 학생회</string>
+    <string name="txt_start_petition">전대 청원제도 시작하기</string>
+    <string name="txt_description_petition">전대 청원제도는 학우님들이 정책과 의견을 자유롭게 제시할 수 있는 제도입니다.\n게시된 의견은 청원 수에 따라 중앙운영위원회 및 대학본부와 협의할 예정입니다.</string>
+    <string name="txt_title_abuse">욕설 및 비속어를 사용하지 마세요.</string>
+    <string name="txt_description_abuse">청원이 관리자에 의해 삭제될 수 있습니다.</string>
+    <string name="txt_description_others">그 외 허위사실 유포, 정보통신망에 공개되기\n부적절한 내용은 사전 통보 없이\n삭제될 수 있습니다.</string>
+    <string name="txt_title_notorious">특정 집단에 대한 혐오, 폭력적,\n선정적인 표현을 사용하지 마세요.</string>
+    <string name="txt_uploadPetition">청원 업로드</string>
+    <string name="map_id">e0586c1ff834a705</string>
+    <string name="txt_sports_inProcess">모집 중인 방</string>
+    <string name="txt_sports_inManagement">참여 중인 방</string>
+    <string name="txt_selectDate">날짜 및 시간 선택</string>
+
+    <string-array name="header_timeTable">
+
+        <item></item>
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+
+    </string-array>
+
+</resources>

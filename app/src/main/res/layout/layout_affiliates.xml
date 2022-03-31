@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.affiliates.view.AffiliateView" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id = "@+id/affiliatesView"
+        android:gravity="center_horizontal"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text = "@string/txt_affiliates"
+            android:textColor="@color/txtColor"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id = "@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text = "원하시는 카테고리를 선택하세요!"
+            android:textColor="@color/txtColor"
+            android:textSize="15sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="4.5"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/btnGroup_firstRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_all"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:padding="10dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:drawableTop="@drawable/ic_all_resized"
+                    android:gravity="center"
+                    android:text="전체"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:textColor="@color/txtColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_meal"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:padding="10dp"
+                    android:layout_toEndOf="@id/btn_all"
+                    android:backgroundTint="@color/btnColor"
+                    android:layout_marginStart="10dp"
+                    android:drawableTop="@drawable/ic_meal_resized"
+                    android:gravity="center"
+                    android:text="식사"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:textColor="@color/txtColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cafe"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:padding="10dp"
+                    android:layout_toEndOf="@id/btn_meal"
+                    android:backgroundTint="@color/btnColor"
+                    android:layout_marginStart="10dp"
+                    android:drawableTop="@drawable/ic_cafe_resized"
+                    android:gravity="center"
+                    android:text="카페"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:textColor="@color/txtColor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnGroup_firstRow"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_liquor"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:padding="10dp"
+                    android:backgroundTint="@color/btnColor"
+                    android:layout_marginStart="10dp"
+                    android:drawableTop="@drawable/ic_liquor_resized"
+                    android:gravity="center"
+                    android:text="술"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:textColor="@color/txtColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_convenience"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:padding="10dp"
+                    android:layout_toEndOf="@id/btn_liquor"
+                    android:backgroundTint="@color/btnColor"
+                    android:layout_marginStart="10dp"
+                    android:drawableTop="@drawable/ic_convenience_resized"
+                    android:gravity="center"
+                    android:text="편의"
+                    android:onClick="@{(v) -> view.onClick(v)}"
+                    android:textColor="@color/txtColor" />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

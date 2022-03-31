@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.petition.view.AddPetitionMainView" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout = "@layout/toolbar"
+            android:id = "@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:id = "@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_start_petition"
+                    android:textColor="@color/txtColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id = "@+id/txt_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_description_petition"
+                    android:textColor="@color/txtColor"
+                    android:textSize="12sp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title"/>
+
+                <ImageView
+                    android:id = "@+id/img_abuse"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_abuse"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_description"/>
+
+                <TextView
+                    android:id = "@+id/txt_abuse_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_title_abuse"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_abuse"
+                    app:layout_constraintTop_toBottomOf="@id/txt_description"/>
+
+                <TextView
+                    android:id = "@+id/txt_abuse_contents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_description_abuse"
+                    android:textColor="@color/txtColor"
+                    android:textSize="13sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_abuse"
+                    app:layout_constraintTop_toBottomOf="@id/txt_abuse_title"/>
+
+                <ImageView
+                    android:id = "@+id/img_duplicate"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_duplicate"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_abuse"/>
+
+                <TextView
+                    android:id = "@+id/txt_duplicate_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "중복된 청원은 1개로 합쳐질 수 있어요."
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_abuse"
+                    app:layout_constraintTop_toTopOf="@id/img_duplicate"/>
+
+                <ImageView
+                    android:id = "@+id/img_notorious"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_notorious"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_duplicate"/>
+
+                <TextView
+                    android:id = "@+id/txt_notorious_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_title_notorious"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_notorious"
+                    app:layout_constraintTop_toBottomOf="@id/img_duplicate"/>
+
+                <TextView
+                    android:id = "@+id/txt_notorious_contents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_description_abuse"
+                    android:textColor="@color/txtColor"
+                    android:textSize="13sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_abuse"
+                    app:layout_constraintTop_toBottomOf="@id/txt_notorious_title"/>
+
+                <ImageView
+                    android:id = "@+id/img_warning"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_warning"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_notorious"/>
+
+                <TextView
+                    android:id = "@+id/txt_warning_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "@string/txt_description_others"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/img_warning"
+                    app:layout_constraintTop_toBottomOf="@id/img_notorious"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_nextStep"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/theme_button"
+                    android:drawableEnd="@drawable/ic_chevron_right"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/white"
+                    android:elevation="15dp"
+                    android:onClick="@{(v) -> view.changeView()}"
+                    android:text="@string/txt_nextStep"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_warning"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

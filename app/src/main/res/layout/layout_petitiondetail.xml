@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs = "http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="view"
+            type="kr.ac.jbnu.ch.petition.view.PetitionDetailView" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+>
+
+            <include
+                layout = "@layout/toolbar"
+                android:id = "@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id = "@+id/petitionProgressLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/progress_inProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="30dp"
+                        android:paddingVertical="20dp"
+                        android:background="@drawable/shape_circle"
+                        android:backgroundTint="@color/accent"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_inProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "청원 진행 중"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/progress_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="30dp"
+                        android:paddingVertical="20dp"
+                        android:background="@drawable/shape_circle"
+                        android:backgroundTint="@color/accent"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "청원 종료"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/progress_answered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="30dp"
+                        android:paddingVertical="20dp"
+                        android:background="@drawable/shape_circle"
+                        android:backgroundTint="@color/accent"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_answered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "답변 완료"/>
+
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id = "@+id/imgList"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:paddingTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/petitionProgressLL"/>
+
+            <com.rd.PageIndicatorView
+                android:id="@+id/pageIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                app:piv_animationType="scale"
+                app:piv_dynamicCount="true"
+                app:piv_interactiveAnimation="true"
+                app:piv_selectedColor="@color/accent"
+                app:piv_unselectedColor="@color/gray"
+                app:piv_viewPager="@id/imgList"
+                app:layout_constraintTop_toBottomOf="@id/imgList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                attrs:piv_padding="12dp"
+                attrs:piv_radius="8dp" />
+
+            <TextView
+                android:id="@+id/txt_contents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="@color/txtColor"
+                android:textSize="15sp"
+                android:padding="20dp"
+                android:lineSpacingExtra="5dp"
+                app:layout_constraintTop_toBottomOf="@id/imgList"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id = "@+id/margin_contents"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_contents"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                style = "?attr/materialButtonOutlinedStyle"
+                android:visibility="gone"
+                android:id="@+id/btn_recommend"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:text = "추천"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@id/margin_contents"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:icon="@drawable/ic_baseline_thumb_up_24"
+                app:iconSize="40sp"
+                app:iconTint="@color/blue"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                style = "?attr/materialButtonOutlinedStyle"
+                android:visibility="gone"
+                android:id="@+id/btn_remove"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:text = "삭제"
+                android:textColor="@color/red"
+                app:layout_constraintTop_toBottomOf="@id/margin_contents"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:icon="@drawable/ic_delete"
+                app:iconSize="40sp"
+                app:iconTint="@color/red"
+                app:strokeColor="@color/red"
+                app:strokeWidth="1dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
