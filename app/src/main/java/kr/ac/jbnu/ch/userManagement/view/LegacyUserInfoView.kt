@@ -81,7 +81,7 @@ class LegacyUserInfoView(val email : String?) : Fragment() {
 
         val helper = UserManagement()
 
-        helper.registerLegacyUser(email!!.replace(System.getProperty("line.separator"), ""), getRandomString(128), UserManagement.legacyUserInfo!!.college, UserManagement.legacyUserInfo!!.name, UserManagement.legacyUserInfo!!.studentNo, UserManagement.legacyUserInfo!!.phone){
+        helper.registerLegacyUser(email!!.replace(System.getProperty("line.separator"), ""), getRandomString(128), "공과대학", UserManagement.legacyUserInfo!!.name, UserManagement.legacyUserInfo!!.studentNo, UserManagement.legacyUserInfo!!.phone){
             if(it){
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)

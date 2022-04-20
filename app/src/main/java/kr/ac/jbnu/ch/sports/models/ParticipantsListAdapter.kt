@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.frameworks.helper.AES256Util
 import kr.ac.jbnu.ch.sports.helper.SportsHelper
+import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 
-class ParticipantsListAdapter : RecyclerView.Adapter<ParticipantsListAdapter.ViewHolder>() {
+class ParticipantsListAdapter(sportsData: SportsDataModel) : RecyclerView.Adapter<ParticipantsListAdapter.ViewHolder>() {
     private lateinit var context : Context
+    private val sportsData : SportsDataModel = sportsData
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -39,10 +41,15 @@ class ParticipantsListAdapter : RecyclerView.Adapter<ParticipantsListAdapter.Vie
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val name : TextView = view.findViewById(R.id.sportsParticipants_name)
         val info : TextView = view.findViewById(R.id.sportsParticipants_info)
+        val phone : TextView = view.findViewById(R.id.sportsParticipants_phone)
 
         fun bind(data : SportsParticipantsModel){
             name.text = AES256Util.decrypt(data.name)
             info.text = "${AES256Util.decrypt(data.college)} ${AES256Util.decrypt(data.studentNo)}"
+
+            if(sportsData.manager == UserManagement.userInfo?.uid){
+                phone.text = AES256Util.decrypt(data.phone)
+            }
         }
     }
 }

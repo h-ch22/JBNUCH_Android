@@ -1,6 +1,7 @@
 package kr.ac.jbnu.ch.petition.models
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ class PetitionListAdapter :
     private var searchList : ArrayList<PetitionDataModel>? = null
 
     init{
-        searchList = PetitionHelper.petitionList
+        searchList = PetitionHelper.filteredList
     }
 
     interface OnItemClickListener{
@@ -56,8 +57,10 @@ class PetitionListAdapter :
         val title : TextView = view.findViewById(R.id.title)
         val date : TextView = view.findViewById(R.id.date)
         val recommend : TextView = view.findViewById(R.id.recommend)
+        val category : TextView = view.findViewById(R.id.petitionCategory)
 
         fun bind(data : PetitionDataModel){
+            category.text = data.category
             title.text = AES256Util.decrypt(data.title)
             date.text = data.timeStamp
             recommend.text = data.recommend.toString()
@@ -74,17 +77,52 @@ class PetitionListAdapter :
 
     }
 
+    fun sortByCategory(category : String){
+        PetitionHelper.filteredList.clear()
+
+        if(category != "전체"){
+            Log.d("PetitionListAdapter", "original List : ${PetitionHelper.petitionList}")
+
+            for(data in PetitionHelper.petitionList){
+                Log.d("PetitionListAdapter", "category : ${category}, data.category : ${data.category}")
+
+                if(data.category == category){
+                    PetitionHelper.filteredList.add(data)
+                    Log.d("PetitionListAdapter", "Added : ${data}")
+                }
+            }
+
+            notifyDataSetChanged()
+
+        }
+
+        else{
+            PetitionHelper.filteredList.addAll(PetitionHelper.petitionList)
+            Log.d("PetitionListAdapter", "Added : ${PetitionHelper.filteredList}")
+
+            notifyDataSetChanged()
+        }
+    }
+
+    private fun updateList(newList : ArrayList<PetitionDataModel>){
+        searchList?.clear()
+        searchList?.addAll(newList)
+        Log.d("PetitionHelper", "newList : ${newList}")
+        Log.d("PetitionHelper", "searchList : ${searchList}")
+        notifyDataSetChanged()
+    }
+
     override fun getFilter(): Filter {
         return object : Filter(){
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 val charString = p0.toString()
 
                 if(charString.isEmpty()){
-                    searchList = PetitionHelper.petitionList
+                    searchList = PetitionHelper.filteredList
                 } else{
                     val filteredList = ArrayList<PetitionDataModel>()
 
-                    for(petition in PetitionHelper.petitionList){
+                    for(petition in PetitionHelper.filteredList){
                         if(petition.title.contains(charString)){
                             filteredList.add(petition)
                         }

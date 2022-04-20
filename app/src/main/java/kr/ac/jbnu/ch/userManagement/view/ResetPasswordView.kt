@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
@@ -31,6 +32,11 @@ class ResetPasswordView : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         progressView = layout.progressView
 

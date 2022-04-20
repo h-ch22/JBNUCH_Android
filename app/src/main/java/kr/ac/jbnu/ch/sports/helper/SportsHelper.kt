@@ -53,7 +53,7 @@ class SportsHelper {
                 val data = SportsDataModel(id, sportsType, roomName, allPeople, currentPeople, locationDescription, others, manager, location, dateTime, UserInfoModel(name, phone, studentNo, college, "", null, null, null, null), address, isOnline, "")
 
                 if(type == "My"){
-                    if(manager == UserManagement.userInfo?.uid && diff > 0){
+                    if(manager == UserManagement.userInfo?.uid){
                         sportsList.add(data)
                     }
 
@@ -71,7 +71,9 @@ class SportsHelper {
                 }
 
                 else{
-                    sportsList.add(data)
+                    if(diff > 0){
+                        sportsList.add(data)
+                    }
                 }
             }
 

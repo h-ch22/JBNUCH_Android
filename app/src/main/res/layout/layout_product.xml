@@ -29,15 +29,56 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <include
                         layout="@layout/toolbar_products"
                         android:id="@+id/toolbar"/>
 
+                    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                        android:id="@+id/toggleGroup_productCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        app:tbgCheckedButton="@+id/btn_collegeCategory_CH"
+                        app:layout_constraintTop_toBottomOf="@id/toolbar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="총학생회"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_collegeCategory_CH"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="단과대학 학생회"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_collegeCategory_college"/>
+
+                    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                    </LinearLayout>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -80,588 +121,603 @@
                         android:layout_width="match_parent"
                         android:layout_height="10dp"/>
 
-                    <androidx.cardview.widget.CardView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/College_productListLL"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
+                        android:layout_height="wrap_content">
 
-                        <LinearLayout
+
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <LinearLayout
+                        android:id="@+id/CH_productListLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_basketball"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_basketball"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="농구공"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_basketball"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="농구공"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_basketball"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    app:tint="@color/txtColor"
-                                    android:src="@drawable/ic_soccerball"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        app:tint="@color/txtColor"
+                                        android:src="@drawable/ic_soccerball"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="축구공"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_soccerball"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="축구공"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_soccerball"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    app:tint="@color/txtColor"
-                                    android:src="@drawable/ic_football"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        app:tint="@color/txtColor"
+                                        android:src="@drawable/ic_football"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="족구공"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_football"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="족구공"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_football"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    app:tint="@color/txtColor"
-                                    android:src="@drawable/ic_football"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        app:tint="@color/txtColor"
+                                        android:src="@drawable/ic_football"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="풋살공"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_futsal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="풋살공"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_futsal"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_curlingiron"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_curlingiron"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="고데기"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_curlingIron"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="고데기"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_curlingIron"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_flag"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_flag"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="부심기"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_flag"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="부심기"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_flag"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_mat"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_mat"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="돗자리"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_mat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="돗자리"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_mat"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_net"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_net"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="족구 네트"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_net"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="족구 네트"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_net"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_uniform_b"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_uniform_b"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="형광조끼 (파랑)"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_uniform_B"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="형광조끼 (파랑)"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_uniform_B"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_uniform_g"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_uniform_g"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="형광조끼 (초록)"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_uniform_G"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="형광조끼 (초록)"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_uniform_G"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardBackgroundColor="@color/btnColor"
-                        app:cardCornerRadius="8dp"
-                        app:contentPadding="10dp">
-
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/btnColor"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_unifrom_p"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_unifrom_p"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="형광조끼 (핑크)"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/txtColor"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="10dp"/>
+
+                                </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/txt_late_uniform_P"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="형광조끼 (핑크)"
                                     android:textStyle="bold"
                                     android:textColor="@color/txtColor"
-                                    android:textSize="15sp"
-                                    android:layout_marginTop="10dp"/>
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/txt_late_uniform_P"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textColor="@color/txtColor"
-                                android:textSize="12sp" />
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </ScrollView>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="200dp"

@@ -49,25 +49,25 @@ class MoreView : Fragment() {
             layout.txtAdmin.visibility = View.VISIBLE
         }
 
-        if(UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH){
-            layout.btnStudyRoom.visibility = View.VISIBLE
-            layout.marginStudyRoom.visibility = View.VISIBLE
-        }
-
-        else{
-            layout.btnStudyRoom.visibility = View.GONE
-            layout.marginStudyRoom.visibility = View.GONE
-        }
-
-        if(UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH){
-            layout.btnLibrary.visibility = View.VISIBLE
-            layout.marginLibrary.visibility = View.VISIBLE
-        }
-
-        else{
-            layout.btnLibrary.visibility = View.GONE
-            layout.marginLibrary.visibility = View.GONE
-        }
+//        if(UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH){
+//            layout.btnStudyRoom.visibility = View.VISIBLE
+//            layout.marginStudyRoom.visibility = View.VISIBLE
+//        }
+//
+//        else{
+//            layout.btnStudyRoom.visibility = View.GONE
+//            layout.marginStudyRoom.visibility = View.GONE
+//        }
+//
+//        if(UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH){
+//            layout.btnLibrary.visibility = View.VISIBLE
+//            layout.marginLibrary.visibility = View.VISIBLE
+//        }
+//
+//        else{
+//            layout.btnLibrary.visibility = View.GONE
+//            layout.marginLibrary.visibility = View.GONE
+//        }
 
         img_Profile = layout.profile
 
@@ -136,23 +136,23 @@ class MoreView : Fragment() {
                 transaction.commit()
             }
 
-            R.id.btn_calendar -> {
-                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-                transaction.addToBackStack(null)
+//            R.id.btn_calendar -> {
+//                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+//                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+//                transaction.addToBackStack(null)
+//
+//                transaction.replace(R.id.mainViewArea, CalendarView())
+//                transaction.commit()
+//            }
 
-                transaction.replace(R.id.mainViewArea, CalendarView())
-                transaction.commit()
-            }
-
-            R.id.btn_meal -> {
-                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-                transaction.addToBackStack(null)
-
-                transaction.replace(R.id.mainViewArea, MealView())
-                transaction.commit()
-            }
+//            R.id.btn_meal -> {
+//                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+//                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+//                transaction.addToBackStack(null)
+//
+//                transaction.replace(R.id.mainViewArea, MealView())
+//                transaction.commit()
+//            }
 
             R.id.btn_handWriting -> {
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
@@ -172,17 +172,17 @@ class MoreView : Fragment() {
                 transaction.commit()
             }
 
-            R.id.btn_studyRoom -> {
-
-            }
-
-            R.id.btn_library -> {
-
-            }
-
-            R.id.btn_store -> {
-
-            }
+//            R.id.btn_studyRoom -> {
+//
+//            }
+//
+//            R.id.btn_library -> {
+//
+//            }
+//
+//            R.id.btn_store -> {
+//
+//            }
 
             R.id.btn_products -> {
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()

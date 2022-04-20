@@ -2,6 +2,8 @@ package kr.ac.jbnu.ch.petition.view
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,6 +11,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -18,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import com.example.awesomedialog.*
 import com.google.android.material.snackbar.Snackbar
 import com.theartofdev.edmodo.cropper.CropImage
@@ -34,11 +38,19 @@ import kr.ac.jbnu.ch.userManagement.view.SignUpView
 class WritePetitionView : Fragment() {
     var title = ObservableField<String>("")
     var contents = ObservableField<String>("")
+    var selectedCategory = MutableLiveData<String>()
 
     private lateinit var view : ConstraintLayout
     private lateinit var layout : LayoutWritepetitionBinding
+    private lateinit var dialog : AlertDialog
+
     private val helper = PetitionHelper()
     private var uriList : MutableList<Uri> = ArrayList<Uri>()
+    private val categoryList = arrayOf("학사", "시설", "복지", "문화 및 예술", "기타")
+
+    init{
+        selectedCategory.value = "카테고리 선택"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,9 +66,26 @@ class WritePetitionView : Fragment() {
         layout.lifecycleOwner = this
         view = layout.writePetitionView
 
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
+
         title.text = "청원 업로드하기"
 
         return layout.root
+    }
+
+    fun showDialog(){
+        dialog = AlertDialog.Builder(context)
+            .setItems(categoryList,
+            DialogInterface.OnClickListener { dialogInterface, i ->
+                selectedCategory.value = categoryList[i]
+            })
+            .setTitle("카테고리 선택")
+            .create()
+
+        dialog.show()
     }
 
     fun loadPicker(){
@@ -131,7 +160,7 @@ class WritePetitionView : Fragment() {
     fun onButtonClick(v : View){
         when(v.id){
             R.id.btn_nextStep -> {
-                if(title.get() == "" || contents.get() == "" || title.get() == null || contents.get() == null){
+                if(title.get() == "" || contents.get() == "" || title.get() == null || contents.get() == null || selectedCategory.value == "카테고리 선택"){
                     AwesomeDialog.build(activity as MainActivity)
                         .title("공백 필드", null, resources.getColor(R.color.black))
                         .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
@@ -144,7 +173,7 @@ class WritePetitionView : Fragment() {
                     layout.btnNextStep.visibility = View.GONE
                     layout.progressView.visibility = View.VISIBLE
 
-                    helper.uploadPetition(title.get()!!, contents.get()!!, uriList){
+                    helper.uploadPetition(selectedCategory.value ?: "", title.get()!!, contents.get()!!, uriList){
                         layout.progressView.visibility = View.GONE
 
                         if(it){

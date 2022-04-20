@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -166,7 +167,10 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
         this.campusMapView = layout.campusMapView
         this.mapView = layout.mapView
 
-
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         if(context?.let { ContextCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) } != PackageManager.PERMISSION_GRANTED){
             requestPermission()

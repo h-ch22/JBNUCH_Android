@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.awesomedialog.*
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.firebase.firestore.auth.User
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -44,8 +45,9 @@ class SportsDetailView(private val data : SportsDataModel) : Fragment(), OnMapRe
     private lateinit var participantsLL : RecyclerView
     private lateinit var progressView : CircularProgressIndicator
 
+    private var IS_ALREADY_PARTICIPATED = false
+
     private val helper = SportsHelper()
-    private val listAdapter = ParticipantsListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +56,11 @@ class SportsDetailView(private val data : SportsDataModel) : Fragment(), OnMapRe
     ): View? {
         val layout : LayoutSportsdetailBinding = DataBindingUtil.inflate(inflater, R.layout.layout_sportsdetail, container, false)
         layout.view = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         this.mapView = layout.mapView
         this.progressView = layout.progressView
@@ -71,11 +78,36 @@ class SportsDetailView(private val data : SportsDataModel) : Fragment(), OnMapRe
             mapView.visibility = View.GONE
         }
 
+        if(data.manager != UserManagement.userInfo?.uid){
+            for(participant in SportsHelper.particiapntsList){
+                if(participant.uid == UserManagement.userInfo?.uid){
+                    IS_ALREADY_PARTICIPATED = true
+
+                    btn_cancel.visibility = View.VISIBLE
+                    layout.btnParticipate.visibility = View.GONE
+                }
+            }
+
+            if(!IS_ALREADY_PARTICIPATED){
+                btn_cancel.visibility = View.GONE
+            }
+        }
+
         helper.getSportsDetails(data){
             if(it){
+                val decorationHeight = ListViewDecoration(20)
+                val listAdapter = ParticipantsListAdapter(data)
+
+                participantsLL.apply{
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = listAdapter
+                    addItemDecoration(decorationHeight)
+                }
+
                 if(data.manager == UserManagement.userInfo?.uid){
                     layout.btnParticipate.visibility = View.GONE
                     btn_cancel.visibility = View.VISIBLE
+                    layout.participantsLL.visibility = View.VISIBLE
                 }
 
                 else{
@@ -83,6 +115,7 @@ class SportsDetailView(private val data : SportsDataModel) : Fragment(), OnMapRe
                         if(it.uid == UserManagement.userInfo?.uid){
                             layout.btnParticipate.visibility = View.GONE
                             btn_cancel.visibility = View.VISIBLE
+                            layout.participantsLL.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -171,13 +204,7 @@ class SportsDetailView(private val data : SportsDataModel) : Fragment(), OnMapRe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val decorationHeight = ListViewDecoration(20)
 
-        participantsLL.apply{
-            layoutManager = LinearLayoutManager(activity)
-            adapter = listAdapter
-            addItemDecoration(decorationHeight)
-        }
     }
 
     private fun putData(){

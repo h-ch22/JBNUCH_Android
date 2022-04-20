@@ -43,6 +43,11 @@ class HandWritingView : Fragment() {
         btn_add = layout.toolbar.findViewById(R.id.btn_add)
         title.text = "합격자 수기 공유"
 
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
+
                 layout.swipeLayout.setColorSchemeColors(resources.getColor(R.color.accent))
 
         layout.swipeLayout.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener{

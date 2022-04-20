@@ -68,60 +68,29 @@ class HandWritingHelper {
     }
 
     fun getHandWritingList(completion : (Boolean) -> Unit){
-        db.collection("HandWriting").addSnapshotListener{snapshot, e ->
-            if(e != null){
-                e.printStackTrace()
-                completion(false)
-            }
+        handWritingList.clear()
 
-            for(dc in snapshot!!.documentChanges){
+        db.collection("HandWriting").get().addOnSuccessListener{result ->
+            for(document in result){
                 val data = HandWritingDataModel(
-                    dc.document.id,
-                    dc.document.data.get("college") as? String ?: "",
-                    dc.document.data.get("date") as? String ?: "",
-                    dc.document.data.get("examDate") as? String ?: "",
-                    dc.document.data.get("examName") as? String ?: "",
-                    dc.document.data.get("howTO") as? String ?: "",
-                    (dc.document.data.get("imageIndex") as? Long ?: 0).toInt(),
-                    dc.document.data.get("meter") as? String ?: "",
-                    dc.document.data.get("name") as? String ?: "",
-                    (dc.document.data.get("recommend") as? Long ?: 0).toInt(),
-                    dc.document.data.get("review") as? String ?: "",
-                    dc.document.data.get("studentNo") as? String ?: "",
-                    dc.document.data.get("term") as? String ?: "",
-                    dc.document.data.get("title") as? String ?: "",
-                    dc.document.data.get("uid") as? String ?: ""
+                    document.id,
+                    document.data.get("college") as? String ?: "",
+                    document.data.get("date") as? String ?: "",
+                    document.data.get("examDate") as? String ?: "",
+                    document.data.get("examName") as? String ?: "",
+                    document.data.get("howTO") as? String ?: "",
+                    (document.data.get("imageIndex") as? Long ?: 0).toInt(),
+                    document.data.get("meter") as? String ?: "",
+                    document.data.get("name") as? String ?: "",
+                    (document.data.get("recommend") as? Long ?: 0).toInt(),
+                    document.data.get("review") as? String ?: "",
+                    document.data.get("studentNo") as? String ?: "",
+                    document.data.get("term") as? String ?: "",
+                    document.data.get("title") as? String ?: "",
+                    document.data.get("uid") as? String ?: ""
                 )
 
-                when(dc.type){
-                    DocumentChange.Type.ADDED -> {
-                        if(!handWritingList.contains(data)){
-                            handWritingList.add(data)
-                        }
-                    }
-
-                    DocumentChange.Type.MODIFIED -> {
-                        if(!handWritingList.contains(data)){
-                            handWritingList.add(data)
-                        }
-
-                        else{
-                            val index = handWritingList.indexOf(data)
-
-                            if(index != null){
-                                handWritingList[index] = data
-                            }
-                        }
-                    }
-
-                    DocumentChange.Type.REMOVED -> {
-                        val index = handWritingList.indexOf(data)
-
-                        if(index != null){
-                            handWritingList.removeAt(index)
-                        }
-                    }
-                }
+                handWritingList.add(data)
             }
 
             handWritingList.sortByDescending { it.date }

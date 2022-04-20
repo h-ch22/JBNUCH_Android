@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -59,6 +60,11 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
         this.affiliateMapView = layout.affiliateMapView
         this.mapView = layout.mapView
 
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
+
         if(context?.let { ContextCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) } != PackageManager.PERMISSION_GRANTED){
             requestPermission()
         }
@@ -100,18 +106,30 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
     }
 
     fun placeMarkers(){
-
         list.forEach{data ->
             val location = data.location?.split(", ")
 
             if(location != null && location.size == 2){
                 Marker().apply{
                     position = LatLng(location[0].toDouble(), location[1].toDouble())
-                    icon = MarkerIcons.BLACK
-                    iconTintColor = resources.getColor(R.color.accent)
 
-                    captionText = data.storeName ?: ""
-                    captionColor = resources.getColor(R.color.accent)
+                    when(data.affiliateType){
+                        "CH" -> {
+                            icon = MarkerIcons.BLACK
+                            iconTintColor = resources.getColor(R.color.accent)
+
+                            captionText = data.storeName ?: ""
+                            captionColor = resources.getColor(R.color.accent)
+                        }
+
+                        else -> {
+                            icon = MarkerIcons.BLACK
+                            iconTintColor = resources.getColor(R.color.orange)
+
+                            captionText = data.storeName ?: ""
+                            captionColor = resources.getColor(R.color.orange)
+                        }
+                    }
 
                     subCaptionText = data.benefits ?: ""
                     subCaptionColor = resources.getColor(R.color.black)

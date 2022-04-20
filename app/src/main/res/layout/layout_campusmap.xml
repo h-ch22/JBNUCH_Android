@@ -160,6 +160,17 @@
                 <com.nex3z.togglebuttongroup.button.LabelToggle
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:text="특성화"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_collegeCategory_IKSAN"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="대학병원"
                     android:textColor="@color/txtColor"
                     android:id="@+id/btn_collegeCategory_Hospital"/>

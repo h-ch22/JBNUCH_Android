@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import com.nex3z.togglebuttongroup.ToggleButtonGroup
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutPledgeBinding
 import kr.ac.jbnu.ch.frameworks.models.LicenseTypeModel
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.frameworks.view.PDFViewer
 import kr.ac.jbnu.ch.pledge.helper.PledgeHelper
 import kr.ac.jbnu.ch.pledge.models.PledgeDataModel
@@ -39,6 +41,10 @@ class PledgeView : Fragment() {
 
         listAdapter = PledgeListAdapter(false)
 
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         layout.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextChange(p0: String?): Boolean {

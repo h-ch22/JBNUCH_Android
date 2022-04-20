@@ -42,6 +42,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+            android:id="@+id/toggleGroup_productCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:tbgCheckedButton="@+id/btn_collegeCategory_CH"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="총학생회"
+                android:textColor="@color/txtColor"
+                android:id="@+id/btn_collegeCategory_CH"/>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="단과대학 학생회"
+                android:textColor="@color/txtColor"
+                android:id="@+id/btn_collegeCategory_college"/>
+
+        </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progressView"
             android:layout_width="200dp"

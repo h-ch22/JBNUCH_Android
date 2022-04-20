@@ -92,7 +92,6 @@ class MainActivity : AppCompatActivity(), onKeyBackPressedListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = DataBindingUtil.setContentView(this, R.layout.layout_main)
         navigationBar = binding.navigationBar
         viewArea = binding.mainViewArea
@@ -109,15 +108,15 @@ class MainActivity : AppCompatActivity(), onKeyBackPressedListener{
                     setCurrentFragment(AffiliateView())
                 }
 
-                2 -> {
-                    setCurrentFragment(TimeTableView())
-                }
+//                2 -> {
+//                    setCurrentFragment(TimeTableView())
+//                }
 
-                3 -> {
+                2 -> {
                     setCurrentFragment(NoticeView())
                 }
 
-                4 -> {
+                3 -> {
                     setCurrentFragment(MoreView())
                 }
 

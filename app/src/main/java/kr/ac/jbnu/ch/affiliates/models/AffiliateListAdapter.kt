@@ -15,11 +15,13 @@ import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.frameworks.models.GlideApp
 import kr.ac.jbnu.ch.frameworks.models.MyAppGlideModule
+import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 
 class AffiliateListAdapter :
     RecyclerView.Adapter<AffiliateListAdapter.ViewHolder>(), Filterable {
     private lateinit var context : Context
     private var searchList : ArrayList<AffiliateDataModel>? = null
+    private val userManagement = UserManagement()
 
     init{
         searchList = AffiliateHelper.storeList
@@ -82,7 +84,7 @@ class AffiliateListAdapter :
                 }
 
                 "College" -> {
-                    type.text = "단대"
+                    type.text = userManagement.convertCollegeCodeAsShortString(UserManagement.userInfo?.collegeCode)
                     type.background = ContextCompat.getDrawable(context, R.drawable.model_affiliate_college)
                     type.visibility = View.VISIBLE
                 }

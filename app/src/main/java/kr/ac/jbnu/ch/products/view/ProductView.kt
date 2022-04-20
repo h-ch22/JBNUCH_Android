@@ -4,16 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.awesomedialog.*
 import com.google.android.material.button.MaterialButton
+import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutProductBinding
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.pledge.view.PledgeView
 import kr.ac.jbnu.ch.products.helper.ProductsHelper
+import kr.ac.jbnu.ch.products.models.CollegeProductListAdapter
+import kr.ac.jbnu.ch.userManagement.helper.UserManagement
+import kr.ac.jbnu.ch.userManagement.models.CollegeCodeModel
 import java.util.*
 
 class ProductView : Fragment() {
@@ -28,6 +35,23 @@ class ProductView : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
+
+        if(UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC ||
+                UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH ||
+                UserManagement.userInfo?.collegeCode == CollegeCodeModel.CHE ||
+                UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC ||
+                UserManagement.userInfo?.collegeCode == CollegeCodeModel.CON){
+            layout.toggleGroupProductCategory.visibility = View.VISIBLE
+        }
+
+        else{
+            layout.toggleGroupProductCategory.visibility = View.GONE
+        }
 
         val btn_logList : MaterialButton = layout.toolbar.findViewById(R.id.btn_showLog)
 
@@ -77,6 +101,118 @@ class ProductView : Fragment() {
 
             }
         }
+
+        layout.toggleGroupProductCategory.setOnCheckedChangeListener(object : SingleSelectToggleGroup.OnCheckedChangeListener{
+            override fun onCheckedChanged(group: SingleSelectToggleGroup?, checkedId: Int) {
+                when(checkedId){
+                    R.id.btn_collegeCategory_CH -> {
+                        layout.CHProductListLL.visibility = View.VISIBLE
+                        layout.CollegeProductListLL.visibility = View.GONE
+
+                        helper.getProductList("CH"){
+                            if(!it){
+                                layout.swipeLayout.isRefreshing = false
+
+
+                                AwesomeDialog.build(activity as MainActivity)
+                                    .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
+                                    .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .icon(R.drawable.ic_warning)
+                                    .onPositive("확인"){
+
+                                    }
+                            }
+
+                            else{
+                                for(product in ProductsHelper.productList){
+                                    when(product.productName){
+                                        "CurlingIron" -> {
+                                            layout.txtLateCurlingIron.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "basketBall" -> {
+                                            layout.txtLateBasketball.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "flag" -> {
+                                            layout.txtLateFlag.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "footBall" -> {
+                                            layout.txtLateFootball.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "futsalBall" -> {
+                                            layout.txtLateFutsal.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "mat" -> {
+                                            layout.txtLateMat.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "net" -> {
+                                            layout.txtLateNet.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "soccerBall" -> {
+                                            layout.txtLateSoccerball.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "uniform_blue" -> {
+                                            layout.txtLateUniformB.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "uniform_green" -> {
+                                            layout.txtLateUniformG.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        "uniform_pink" -> {
+                                            layout.txtLateUniformP.text = "${product.late} / ${product.all}"
+                                        }
+
+                                        else -> {}
+                                    }
+                                }
+
+                                layout.swipeLayout.isRefreshing = false
+                            }
+                        }
+                    }
+
+                    R.id.btn_collegeCategory_college -> {
+                        layout.CHProductListLL.visibility = View.GONE
+                        layout.CollegeProductListLL.visibility = View.VISIBLE
+
+                        helper.getProductList("College"){
+                            if(!it){
+                                layout.swipeLayout.isRefreshing = false
+
+
+                                AwesomeDialog.build(activity as MainActivity)
+                                    .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
+                                    .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .icon(R.drawable.ic_warning)
+                                    .onPositive("확인"){
+
+                                    }
+                            }
+
+                            else{
+                                layout.CollegeProductListLL.apply{
+                                    layoutManager = LinearLayoutManager(activity)
+                                    adapter = CollegeProductListAdapter()
+                                }
+
+                                layout.swipeLayout.isRefreshing = false
+                            }
+                        }
+                    }
+                }
+            }
+
+        })
+
+
 
         helper.getProductList("CH"){
             if(!it){

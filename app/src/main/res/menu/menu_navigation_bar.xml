@@ -11,10 +11,10 @@
         android:title = "@string/txt_affiliates"
         android:icon = "@drawable/ic_affiliates"/>
 
-    <item
-        android:id = "@+id/menu_timeTable"
-        android:title = "@string/txt_timeTable"
-        android:icon = "@drawable/ic_timetable"/>
+<!--    <item-->
+<!--        android:id = "@+id/menu_timeTable"-->
+<!--        android:title = "@string/txt_timeTable"-->
+<!--        android:icon = "@drawable/ic_timetable"/>-->
 
     <item
         android:id = "@+id/menu_notice"

@@ -12,13 +12,26 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.withCross
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.storage.StorageReference
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.frameworks.models.GlideApp
+import kr.ac.jbnu.ch.frameworks.view.FullScreenImageView
 import kr.ac.jbnu.ch.notice.helper.NoticeHelper
+import java.net.URL
 
 class NoticeImageAdapter(private val context : Context, private val data : NoticeDataModel) : PagerAdapter() {
     private lateinit var inflater : LayoutInflater
+
+    interface OnItemClickListener{
+        fun onItemClick(v : View, url : StorageReference)
+    }
+
+    private var listener : OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener : OnItemClickListener){
+        this.listener = listener
+    }
 
     override fun getCount(): Int {
         return data.imageIndex
@@ -43,6 +56,10 @@ class NoticeImageAdapter(private val context : Context, private val data : Notic
             .into(imgView)
 
         val pager = container as ViewPager
+
+        view.setOnClickListener {
+            listener?.onItemClick(view, NoticeHelper.imgList[position])
+        }
 
         pager.addView(view)
 

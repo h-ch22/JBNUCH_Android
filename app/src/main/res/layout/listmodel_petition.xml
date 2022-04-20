@@ -26,6 +26,17 @@
             android:paddingVertical="10dp">
 
             <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/petitionCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:background="@drawable/model_affiliate_ch"
+                android:textColor="@color/white"
+                android:padding="4dp"/>
+
+            <TextView
                 android:id = "@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,7 +44,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/txtColor"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/petitionCategory"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView

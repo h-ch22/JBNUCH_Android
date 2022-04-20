@@ -6,11 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutGreetBinding
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import java.io.IOException
 import java.io.InputStream
 
@@ -26,6 +28,11 @@ class GreetView : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         layout.txtGreet.movementMethod = ScrollingMovementMethod()
 

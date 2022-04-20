@@ -51,6 +51,14 @@
                     android:textSize="15sp"
                     android:textColor="@color/gray"/>
 
+                <TextView
+                    android:id = "@+id/sportsParticipants_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray"/>
+
             </LinearLayout>
 
         </LinearLayout>

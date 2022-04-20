@@ -12,6 +12,8 @@ import kr.ac.jbnu.ch.databinding.LayoutIntroduceBinding
 import kr.ac.jbnu.ch.sports.view.SportsDetailView
 import android.content.Intent
 import android.net.Uri
+import android.widget.ImageButton
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 
 
 class IntroduceView : Fragment() {
@@ -24,6 +26,11 @@ class IntroduceView : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         return layout.root
     }
@@ -40,7 +47,8 @@ class IntroduceView : Fragment() {
             }
 
             R.id.btn_department -> {
-
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://jbnuch.co.kr"))
+                startActivity(browserIntent)
             }
 
             R.id.btn_youtube -> {

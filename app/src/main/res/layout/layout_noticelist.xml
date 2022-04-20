@@ -18,21 +18,62 @@
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/toggleGroup_noticeCategory"
+                app:layout_constraintTop_toBottomOf="@id/search_view"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="40dp"
                 android:id="@+id/swipeLayout">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id = "@+id/noticeList"
-                    android:visibility="gone"
-                    android:paddingVertical="?attr/actionBarSize">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                </androidx.recyclerview.widget.RecyclerView>
+                    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                        android:id="@+id/toggleGroup_noticeCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="?attr/actionBarSize"
+                        app:tbgCheckedButton="@+id/btn_noticeCategory_CH"
+                        app:layout_constraintTop_toBottomOf="@id/search_view"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="총학생회"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_noticeCategory_CH"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="단과대학 학생회"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_noticeCategory_college"/>
+
+                    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="?attr/actionBarSize"
+                        android:visibility="gone"
+                        android:id = "@+id/noticeList">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
+
+
 
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -57,37 +98,6 @@
                 android:layout_alignParentTop="true"
                 app:iconifiedByDefault="false"
                 app:queryHint="공지사항 검색" />
-
-            <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-                android:id="@+id/toggleGroup_noticeCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                app:tbgCheckedButton="@+id/btn_noticeCategory_CH"
-                app:layout_constraintTop_toBottomOf="@id/search_view"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <com.nex3z.togglebuttongroup.button.LabelToggle
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="총학생회"
-                    android:textColor="@color/txtColor"
-                    android:id="@+id/btn_noticeCategory_CH"/>
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
-
-                <com.nex3z.togglebuttongroup.button.LabelToggle
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="단과대학 학생회"
-                    android:textColor="@color/txtColor"
-                    android:id="@+id/btn_noticeCategory_college"/>
-
-            </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

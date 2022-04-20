@@ -81,7 +81,7 @@
                     android:id = "@+id/btn_department"
                     android:layout_width="350dp"
                     android:layout_height="70dp"
-                    android:text = "국별 소개"
+                    android:text = "총학생회 사이트"
                     android:elevation="5dp"
                     android:backgroundTint="@color/btnColor"
                     android:textColor="@color/txtColor"

@@ -20,6 +20,7 @@ import kr.ac.jbnu.ch.affiliates.models.AffiliateListAdapter
 import kr.ac.jbnu.ch.databinding.LayoutAffiliatesListBinding
 import kr.ac.jbnu.ch.databinding.LayoutLicenseBinding
 import kr.ac.jbnu.ch.frameworks.models.onKeyBackPressedListener
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 
 class AffiliateListView(private val category : String, private val categoryAsKorean : String) : Fragment(), onKeyBackPressedListener {
     private val helper = AffiliateHelper()
@@ -67,6 +68,11 @@ class AffiliateListView(private val category : String, private val categoryAsKor
                 layout.progressLL.visibility = View.GONE
                 layout.affiliateListLL.visibility = View.VISIBLE
             }
+        }
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
         }
 
         return layout.root

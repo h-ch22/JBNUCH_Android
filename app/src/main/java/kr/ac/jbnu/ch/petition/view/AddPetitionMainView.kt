@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -11,6 +12,7 @@ import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutAddpetitionMainBinding
 import kr.ac.jbnu.ch.databinding.LayoutNoticelistBinding
 import kr.ac.jbnu.ch.feedbackhub.view.FeedbackHubView
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 
 class AddPetitionMainView : Fragment() {
 
@@ -23,6 +25,11 @@ class AddPetitionMainView : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         return layout.root
     }

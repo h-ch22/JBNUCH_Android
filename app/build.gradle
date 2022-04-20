@@ -19,7 +19,7 @@ android {
         applicationId "kr.ac.jbnu.ch"
         minSdk 26
         targetSdk 31
-        versionCode 3037
+        versionCode 3551
         versionName "1.0.0"
 
 
@@ -45,7 +45,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation("com.naver.maps:map-sdk:3.14.0")
     implementation 'org.jsoup:jsoup:1.14.2'
-    implementation "com.github.skydoves:expandablelayout:1.0.7"
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
@@ -62,7 +61,6 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.10.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.ornach.nobobutton:nobobutton:1.6'
     implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
     implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.android.gms:play-services-location:19.0.1'

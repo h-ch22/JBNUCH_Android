@@ -12,6 +12,8 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
@@ -88,16 +90,33 @@ class AddSportsView : Fragment(){
         layout.view = this
         this.progressView = layout.progressView
 
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
+
         val title : TextView = layout.toolbar.findViewById(R.id.txt_toolbarTitle)
         title.text = "용병 구인 신청하기"
 
-        if(onlineChecked){
-            layout.btnSelectLocation.visibility = View.GONE
-        }
+        layout.isOnline.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                if(p1){
+                    layout.btnSelectLocation.visibility = GONE
+                    btn_selectLocation.visibility = View.GONE
+                    btn_selectLocation.isEnabled = false
+                    onlineChecked = true
+                }
 
-        else{
-            layout.btnSelectLocation.visibility = View.VISIBLE
-        }
+                else{
+                    layout.btnSelectLocation.visibility = VISIBLE
+                    btn_selectLocation.visibility = View.VISIBLE
+                    btn_selectLocation.isEnabled = true
+                    onlineChecked = false
+                }
+            }
+
+        })
 
         btn_selectDate = layout.btnSelectDate
         btn_selectLocation = layout.btnSelectLocation
@@ -134,7 +153,21 @@ class AddSportsView : Fragment(){
             }
 
             R.id.btn_confirm -> {
-                if(roomName.get() == "" || type.get() == "" || allPeople.get() == "" || currentPeople.get() == "" || selectedAddress == "" || selectedLatLng == "" || date == ""){
+                if(onlineChecked){
+                    locationDescription = "온라인 진행"
+                }
+
+                if(!onlineChecked && (roomName.get() == "" || type.get() == "" || allPeople.get() == "" || currentPeople.get() == "" || selectedAddress == "" || selectedLatLng == "" || date == "")){
+                    AwesomeDialog.build(activity as MainActivity)
+                        .title("공백 필드", null, resources.getColor(R.color.black))
+                        .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
+                        .icon(R.drawable.ic_warning)
+                        .onPositive("확인"){
+
+                        }
+                }
+
+                else if(onlineChecked && (roomName.get() == "" || type.get() == "" || allPeople.get() == "" || currentPeople.get() == "" || date == "")){
                     AwesomeDialog.build(activity as MainActivity)
                         .title("공백 필드", null, resources.getColor(R.color.black))
                         .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))

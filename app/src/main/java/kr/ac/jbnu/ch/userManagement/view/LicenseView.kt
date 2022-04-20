@@ -6,6 +6,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +18,7 @@ import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutLicenseBinding
 import kr.ac.jbnu.ch.frameworks.models.LicenseTypeModel
 import kr.ac.jbnu.ch.frameworks.models.onKeyBackPressedListener
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.frameworks.view.PDFViewer
 import kr.ac.jbnu.ch.frameworks.view.StartActivity
 import kr.ac.jbnu.ch.userManagement.models.SignUpChangeViewModel
@@ -38,6 +40,11 @@ class LicenseView(val type : SignUpChangeViewModel, val email : String?) : Fragm
         title.text = "이용 약관"
         layout.view = this
         this.view = layout.licenseLayout
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         return layout.root
     }

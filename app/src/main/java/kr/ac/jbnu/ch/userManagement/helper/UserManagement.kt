@@ -633,6 +633,32 @@ class UserManagement {
         return collegeCode
     }
 
+    fun convertCollegeCodeAsShortString(collegeCodeModel : CollegeCodeModel?) : String{
+        if(collegeCodeModel == null){
+            return ""
+        }
+
+        when(collegeCodeModel){
+            CollegeCodeModel.ENG -> return "공과대"
+            CollegeCodeModel.COM -> return "상과대"
+            CollegeCodeModel.CON -> return "자연대"
+            CollegeCodeModel.CHE -> return "생활대"
+            CollegeCodeModel.COH -> return "인문대"
+            CollegeCodeModel.SOC -> return "사회대"
+            CollegeCodeModel.AGR -> return "농생대"
+            CollegeCodeModel.ART -> return "예술대"
+            CollegeCodeModel.COB -> return "환생대"
+            CollegeCodeModel.COD -> return "치과대"
+            CollegeCodeModel.COE -> return "사범대"
+            CollegeCodeModel.COF -> return "스마트팜"
+            CollegeCodeModel.GFC -> return "글융대"
+            CollegeCodeModel.MED -> return "의과대"
+            CollegeCodeModel.NUR -> return "간호대"
+            CollegeCodeModel.PHA -> return "약학대"
+            CollegeCodeModel.VET -> return "수의대"
+        }
+    }
+
     fun convertCollegeCodeAsString(collegeCodeModel: CollegeCodeModel?) : String?{
         if(collegeCodeModel == null){
             return null

@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutSportsBinding
 import kr.ac.jbnu.ch.frameworks.models.ListViewDecoration
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.sports.helper.SportsHelper
 import kr.ac.jbnu.ch.sports.models.SportsDataModel
 import kr.ac.jbnu.ch.sports.models.SportsListAdapter
@@ -37,6 +38,11 @@ class SportsView : Fragment(), View.OnClickListener {
         list = layout.sportsListLL
         val title : TextView = layout.toolbar.findViewById(R.id.txt_toolbarTitle)
         title.text = "스포츠 용병 제도"
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         helper.getSportsList("All") {
             if(it){

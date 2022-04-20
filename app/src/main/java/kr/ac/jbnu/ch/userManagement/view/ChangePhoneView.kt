@@ -6,6 +6,7 @@ import android.os.UserManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
 import androidx.fragment.app.Fragment
@@ -25,6 +26,11 @@ class ChangePhoneView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val layout : LayoutChangephoneBinding = DataBindingUtil.inflate(inflater , R.layout.layout_changephone , container , false)
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         return layout.root
     }

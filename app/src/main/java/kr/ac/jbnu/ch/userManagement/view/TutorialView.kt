@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutTutorialBinding
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.userManagement.models.TutorialImageAdapter
 
 class TutorialView : Fragment() {
@@ -25,6 +27,11 @@ class TutorialView : Fragment() {
         val adapter = context?.let{ TutorialImageAdapter(it) }
 
         layout.imgList.adapter = adapter
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         layout.imgList.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
             override fun onPageScrolled(

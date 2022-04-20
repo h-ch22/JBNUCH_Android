@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -34,6 +35,11 @@ class FeedbackHubView() : Fragment() {
         this.layout = layout
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         if(UserManagement.userInfo?.admin == AdminCodeModel.CH_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.CH_PRD_VicePresident ||
             UserManagement.userInfo?.admin == AdminCodeModel.CH_Affairs_President || UserManagement.userInfo?.admin == AdminCodeModel.CH_Affairs_VicePresident ||

@@ -10,6 +10,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kr.ac.jbnu.ch.frameworks.helper.AES256Util
 import kr.ac.jbnu.ch.petition.models.PetitionDataModel
+import kr.ac.jbnu.ch.petition.models.PetitionRecommendModel
 import kr.ac.jbnu.ch.petition.models.PetitionStatusModel
 import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 import java.text.SimpleDateFormat
@@ -24,6 +25,8 @@ class PetitionHelper {
     companion object{
         var petitionList = ArrayList<PetitionDataModel>()
         var imgList = ArrayList<StorageReference>()
+        var recommendList = ArrayList<PetitionRecommendModel>()
+        var filteredList = ArrayList<PetitionDataModel>()
     }
 
     fun getImage(id : String, imageIndex : Int, completion : (Boolean) -> Unit){
@@ -36,8 +39,7 @@ class PetitionHelper {
         completion(true)
     }
 
-
-    fun uploadPetition(title : String, contents : String, uri : MutableList<Uri>, completion : (Boolean) -> Unit){
+    fun uploadPetition(category : String, title : String, contents : String, uri : MutableList<Uri>, completion : (Boolean) -> Unit){
         val formatter = SimpleDateFormat("yyyy. MM. dd. kk:mm:ss.SSSS")
 
         db.collection("Petition").add(
@@ -46,7 +48,8 @@ class PetitionHelper {
                 "contents" to AES256Util.encrypt(contents).replace(System.getProperty("line.separator"), ""),
                 "imageIndex" to uri.size,
                 "timeStamp" to formatter.format(Date()),
-                "author" to AES256Util.encrypt(FirebaseAuth.getInstance().currentUser?.uid)
+                "author" to AES256Util.encrypt(FirebaseAuth.getInstance().currentUser?.uid),
+                "category" to category
             )
         ).addOnSuccessListener {
             if(uri.size > 0){
@@ -67,15 +70,81 @@ class PetitionHelper {
         }
     }
 
-    fun getPetitionList(completion : (Boolean) -> Unit){
-        db.collection("Petition").addSnapshotListener{snapshot, e ->
-            if( e != null ){
-                e.printStackTrace()
-                completion(false)
+    fun remove(data : PetitionDataModel, completion: (Boolean) -> Unit){
+        db.collection("Petition").document(data.id).delete().addOnCompleteListener {
+            if(it.isSuccessful){
+                completion(true)
             }
 
-            for(dc in snapshot!!.documentChanges){
-                val statusAsString = dc.document.data.get("status") as? String ?: ""
+            else{
+                completion(false)
+            }
+        }.addOnFailureListener {
+            it.printStackTrace()
+            completion(false)
+        }
+    }
+
+    fun recommend(data : PetitionDataModel, completion : (Boolean) -> Unit){
+        val dateFormatter = SimpleDateFormat("yyyy. MM. dd. kk:mm:ss.SSSS")
+
+        db.collection("Petition").document(data.id).collection("Recommends").add(
+            hashMapOf(
+                "date" to dateFormatter.format(Date()),
+                "college" to AES256Util.encrypt(UserManagement.userInfo?.college?.replace(System.getProperty("line.separator"), "")).replace(System.getProperty("line.separator"), ""),
+                "name" to AES256Util.encrypt(UserManagement.userInfo?.name?.replace(System.getProperty("line.separator"), "")).replace(System.getProperty("line.separator"), ""),
+                "studentNo" to AES256Util.encrypt(UserManagement.userInfo?.studentNo?.replace(System.getProperty("line.separator"), "")).replace(System.getProperty("line.separator"), ""),
+                "uid" to UserManagement.userInfo?.uid
+            )
+        ).addOnCompleteListener {
+            if(it.isSuccessful){
+                completion(true)
+            }
+
+            else{
+                completion(false)
+            }
+        }.addOnFailureListener {
+            it.printStackTrace()
+            completion(false)
+        }
+    }
+
+    fun getRecommender(data : PetitionDataModel, completion: (Boolean) -> Unit){
+        recommendList.clear()
+
+        db.collection("Petition").document(data.id).collection("Recommends").get().addOnSuccessListener { result ->
+            for(document in result){
+                val docData = PetitionRecommendModel(
+                    document.get("uid") as? String ?: "",
+                    document.get("college") as? String ?: "",
+                    document.get("name") as? String ?: "",
+                    document.get("studentNo") as? String ?: "",
+                    document.get("date") as? String ?: ""
+                )
+
+                Log.d("PetitionHelper", docData.toString())
+
+                recommendList.add(docData)
+            }
+
+            Log.d("PetitionHelper", PetitionHelper.recommendList.toString())
+            completion(true)
+        }.addOnFailureListener {
+            it.printStackTrace()
+            completion(false)
+        }
+
+
+    }
+
+    fun getPetitionList(completion : (Boolean) -> Unit){
+        petitionList.clear()
+        filteredList.clear()
+
+        db.collection("Petition").get().addOnSuccessListener { result ->
+            for(document in result){
+                val statusAsString = document.data.get("status") as? String ?: ""
                 var statusAsModel : PetitionStatusModel? = null
 
                 when(statusAsString){
@@ -89,47 +158,25 @@ class PetitionHelper {
                         statusAsModel = PetitionStatusModel.INPROCESS
                 }
 
-                val data = PetitionDataModel(dc.document.id,
-                    dc.document.data.get("author") as? String ?: "",
-                    dc.document.data.get("contents") as? String ?: "",
-                    (dc.document.data.get("imageIndex") as? Long ?: 0.0).toInt(),
-                    (dc.document.data.get("recommend") as? Long ?: 0.0).toInt(),
-                    dc.document.data.get("timeStamp") as? String ?: "",
-                    dc.document.data.get("title") as? String ?: "",
+                val data = PetitionDataModel(document.get("category") as? String ?: "",
+                    document.id,
+                    document.data.get("author") as? String ?: "",
+                    document.data.get("contents") as? String ?: "",
+                    (document.data.get("imageIndex") as? Long ?: 0.0).toInt(),
+                    (document.data.get("recommend") as? Long ?: 0.0).toInt(),
+                    document.data.get("timeStamp") as? String ?: "",
+                    document.data.get("title") as? String ?: "",
                     statusAsModel!!)
 
-                when(dc.type){
-                    DocumentChange.Type.ADDED -> {
-                        if(!petitionList.contains(data)){
-                            petitionList.add(data)
-                        }
-                    }
-
-                    DocumentChange.Type.MODIFIED -> {
-                        if(!petitionList.contains(data)){
-                            petitionList.add(data)
-                        }
-
-                        else{
-                            val index = petitionList.indexOf(data)
-
-                            if(index != null){
-                                petitionList[index] = data
-                            }
-                        }
-                    }
-
-                    DocumentChange.Type.REMOVED -> {
-                        val index = petitionList.indexOf(data)
-
-                        if(index != null){
-                            petitionList.removeAt(index)
-                        }
-                    }
-                }
+                petitionList.add(data)
             }
 
-            petitionList.sortByDescending { it.timeStamp }
+            filteredList.addAll(petitionList)
+
+            filteredList.sortByDescending { it.timeStamp }
+
+            Log.d("PetitionHelper", filteredList.toString())
+
             completion(true)
         }
     }

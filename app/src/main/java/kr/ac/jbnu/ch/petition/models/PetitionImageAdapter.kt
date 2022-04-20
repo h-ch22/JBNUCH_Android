@@ -12,12 +12,24 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.withCross
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.storage.StorageReference
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.frameworks.models.GlideApp
+import kr.ac.jbnu.ch.notice.helper.NoticeHelper
 import kr.ac.jbnu.ch.petition.helper.PetitionHelper
 
 class PetitionImageAdapter(private val context : Context, private val data : PetitionDataModel) : PagerAdapter() {
     private lateinit var inflater : LayoutInflater
+
+    interface OnItemClickListener{
+        fun onItemClick(v : View, url : StorageReference)
+    }
+
+    private var listener : OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener : OnItemClickListener){
+        this.listener = listener
+    }
 
     override fun getCount(): Int {
         return data.imageIndex
@@ -42,6 +54,10 @@ class PetitionImageAdapter(private val context : Context, private val data : Pet
             .into(imgView)
 
         val pager = container as ViewPager
+
+        view.setOnClickListener {
+            listener?.onItemClick(view, PetitionHelper.imgList[position])
+        }
 
         pager.addView(view)
 

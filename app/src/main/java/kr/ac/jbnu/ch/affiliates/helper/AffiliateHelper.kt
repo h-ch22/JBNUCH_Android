@@ -50,7 +50,7 @@ class AffiliateHelper {
             }
 
         if(category == "All"){
-            if (UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CON || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CHE){
+            if (UserManagement.userInfo?.collegeCode == CollegeCodeModel.ENG || UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CON || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CHE){
                 affiliate_College?.get()?.addOnCompleteListener {
                     if(it.isSuccessful){
                         val snapshot = it.result
@@ -126,7 +126,7 @@ class AffiliateHelper {
         }
 
         else{
-            if (UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CON || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CHE) {
+            if (UserManagement.userInfo?.collegeCode == CollegeCodeModel.ENG || UserManagement.userInfo?.collegeCode == CollegeCodeModel.SOC || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COM || UserManagement.userInfo?.collegeCode == CollegeCodeModel.COH || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CON || UserManagement.userInfo?.collegeCode == CollegeCodeModel.CHE) {
                 affiliate_College?.get()?.addOnCompleteListener {
                     if(it.isSuccessful){
                         val snapshot = it.result

@@ -194,27 +194,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="20dp"/>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id = "@+id/btn_gpsLicense"
-                        android:layout_width="350dp"
-                        android:layout_height="70dp"
-                        android:text = "위치기반서비스 이용약관"
-                        android:elevation="5dp"
-                        android:backgroundTint="@color/btnColor"
-                        android:textColor="@color/txtColor"
-                        android:textAlignment="textStart"
-                        android:onClick="@{(v) -> view.changeView(v)}"
-                        app:iconPadding="15dp"
-                        app:icon="@drawable/ic_gps_license"
-                        app:iconTint="#00FFFFFF"
-                        app:iconTintMode="add"
-                        app:iconSize="20dp"
-                        app:iconGravity="start"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

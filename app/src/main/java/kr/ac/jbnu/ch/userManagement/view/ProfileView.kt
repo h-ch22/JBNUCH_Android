@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ScrollView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -58,6 +59,11 @@ class ProfileView : Fragment() {
         val layout : LayoutProfileBinding = DataBindingUtil.inflate(inflater, R.layout.layout_profile, container, false)
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         this.view = layout.profileView
         this.progressView = layout.progressView

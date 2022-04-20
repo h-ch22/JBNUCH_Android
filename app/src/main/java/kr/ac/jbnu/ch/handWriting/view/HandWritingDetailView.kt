@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutHandwritingdetailsBinding
 import kr.ac.jbnu.ch.frameworks.helper.AES256Util
+import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.handWriting.helper.HandWritingHelper
 import kr.ac.jbnu.ch.handWriting.models.HandWritingDataModel
 import kr.ac.jbnu.ch.handWriting.models.HandWritingImageAdapter
@@ -27,6 +29,11 @@ class HandWritingDetailView(val data : HandWritingDataModel) : Fragment() {
 
         layout.view = this
         layout.lifecycleOwner = this
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         if(data.imageIndex > 0){
             val adapter = context?.let {HandWritingImageAdapter(it, data)}

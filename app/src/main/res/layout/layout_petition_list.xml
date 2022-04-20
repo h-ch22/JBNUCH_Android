@@ -23,17 +23,102 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/swipeLayout">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/search_view"
-                android:id = "@+id/petitionList"
-                android:visibility="gone">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <HorizontalScrollView
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                        android:id="@+id/toggleGroup_petitionCategory"
+                        android:paddingHorizontal="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:tbgCheckedButton="@+id/btn_petitionCategory_All"
+                        app:layout_constraintTop_toBottomOf="@id/search_view"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="전체"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_All"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="학사"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_Bachelor"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="시설"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_Facility"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="복지"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_Welfare"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="문화 및 예술"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_Culture"/>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+
+                        <com.nex3z.togglebuttongroup.button.LabelToggle
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="기타"
+                            android:textColor="@color/txtColor"
+                            android:id="@+id/btn_petitionCategory_Others"/>
+
+                    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+                </HorizontalScrollView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/petitionList">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -49,14 +134,15 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
             app:iconifiedByDefault="false"
             app:queryHint="청원 검색" />
+
 
         <include
             layout = "@layout/toolbar_with_add"

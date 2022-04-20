@@ -178,47 +178,47 @@
                 app:iconSize="20dp"
                 app:iconGravity="start"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="10dp"/>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id = "@+id/btn_calendar"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text = "취업/대외활동/학사일정 캘린더"
-                android:elevation="5dp"
-                android:backgroundTint="@color/btnColor"
-                android:textColor="@color/txtColor"
-                android:textAlignment="textStart"
-                android:onClick="@{(v) -> view.changeView(v)}"
-                app:iconPadding="15dp"
-                app:icon="@drawable/ic_calendar"
-                app:iconTint="#00FFFFFF"
-                app:iconTintMode="add"
-                app:iconSize="20dp"
-                app:iconGravity="start"/>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id = "@+id/btn_calendar"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:text = "취업/대외활동/학사일정 캘린더"-->
+<!--                android:elevation="5dp"-->
+<!--                android:backgroundTint="@color/btnColor"-->
+<!--                android:textColor="@color/txtColor"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
+<!--                app:iconPadding="15dp"-->
+<!--                app:icon="@drawable/ic_calendar"-->
+<!--                app:iconTint="#00FFFFFF"-->
+<!--                app:iconTintMode="add"-->
+<!--                app:iconSize="20dp"-->
+<!--                app:iconGravity="start"/>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="10dp"/>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id = "@+id/btn_meal"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text = "이 주의 학식"
-                android:elevation="5dp"
-                android:backgroundTint="@color/btnColor"
-                android:textColor="@color/txtColor"
-                android:textAlignment="textStart"
-                android:onClick="@{(v) -> view.changeView(v)}"
-                app:iconPadding="15dp"
-                app:icon="@drawable/ic_meal"
-                app:iconTint="#00FFFFFF"
-                app:iconTintMode="add"
-                app:iconSize="20dp"
-                app:iconGravity="start"/>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id = "@+id/btn_meal"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:text = "이 주의 학식"-->
+<!--                android:elevation="5dp"-->
+<!--                android:backgroundTint="@color/btnColor"-->
+<!--                android:textColor="@color/txtColor"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
+<!--                app:iconPadding="15dp"-->
+<!--                app:icon="@drawable/ic_meal"-->
+<!--                app:iconTint="#00FFFFFF"-->
+<!--                app:iconTintMode="add"-->
+<!--                app:iconSize="20dp"-->
+<!--                app:iconGravity="start"/>-->
 
             <View
                 android:layout_width="match_parent"
@@ -267,71 +267,71 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id = "@+id/btn_studyRoom"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text = "스터디룸 예약"
-                android:visibility="gone"
-                android:elevation="5dp"
-                android:backgroundTint="@color/btnColor"
-                android:textColor="@color/txtColor"
-                android:textAlignment="textStart"
-                android:onClick="@{(v) -> view.changeView(v)}"
-                app:iconPadding="15dp"
-                app:icon="@drawable/ic_studyroom"
-                app:iconTint="#00FFFFFF"
-                app:iconTintMode="add"
-                app:iconSize="20dp"
-                app:iconGravity="start"/>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id = "@+id/btn_studyRoom"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:text = "스터디룸 예약"-->
+<!--                android:visibility="gone"-->
+<!--                android:elevation="5dp"-->
+<!--                android:backgroundTint="@color/btnColor"-->
+<!--                android:textColor="@color/txtColor"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
+<!--                app:iconPadding="15dp"-->
+<!--                app:icon="@drawable/ic_studyroom"-->
+<!--                app:iconTint="#00FFFFFF"-->
+<!--                app:iconTintMode="add"-->
+<!--                app:iconSize="20dp"-->
+<!--                app:iconGravity="start"/>-->
 
-            <View
-                android:id="@+id/margin_library"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+<!--            <View-->
+<!--                android:id="@+id/margin_library"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="10dp"/>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id = "@+id/btn_library"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:visibility="gone"
-                android:text = "인문대 독서실 좌석 예약"
-                android:elevation="5dp"
-                android:backgroundTint="@color/btnColor"
-                android:textColor="@color/txtColor"
-                android:textAlignment="textStart"
-                android:onClick="@{(v) -> view.changeView(v)}"
-                app:iconPadding="15dp"
-                app:icon="@drawable/ic_library"
-                app:iconTint="#00FFFFFF"
-                app:iconTintMode="add"
-                app:iconSize="20dp"
-                app:iconGravity="start"/>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id = "@+id/btn_library"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:visibility="gone"-->
+<!--                android:text = "인문대 독서실 좌석 예약"-->
+<!--                android:elevation="5dp"-->
+<!--                android:backgroundTint="@color/btnColor"-->
+<!--                android:textColor="@color/txtColor"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
+<!--                app:iconPadding="15dp"-->
+<!--                app:icon="@drawable/ic_library"-->
+<!--                app:iconTint="#00FFFFFF"-->
+<!--                app:iconTintMode="add"-->
+<!--                app:iconSize="20dp"-->
+<!--                app:iconGravity="start"/>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="10dp"/>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id = "@+id/btn_store"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text = "중고 장터"
-                android:elevation="5dp"
-                android:backgroundTint="@color/btnColor"
-                android:textColor="@color/txtColor"
-                android:textAlignment="textStart"
-                android:onClick="@{(v) -> view.changeView(v)}"
-                app:iconPadding="15dp"
-                app:icon="@drawable/ic_market"
-                app:iconTint="#00FFFFFF"
-                app:iconTintMode="add"
-                app:iconSize="20dp"
-                app:iconGravity="start"/>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id = "@+id/btn_store"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:text = "중고 장터"-->
+<!--                android:elevation="5dp"-->
+<!--                android:backgroundTint="@color/btnColor"-->
+<!--                android:textColor="@color/txtColor"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
+<!--                app:iconPadding="15dp"-->
+<!--                app:icon="@drawable/ic_market"-->
+<!--                app:iconTint="#00FFFFFF"-->
+<!--                app:iconTintMode="add"-->
+<!--                app:iconSize="20dp"-->
+<!--                app:iconGravity="start"/>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="10dp"/>-->
 
             <com.google.android.material.button.MaterialButton
                 android:id = "@+id/btn_products"

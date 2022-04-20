@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -21,6 +22,11 @@ class FullScreenImageView(val url : StorageReference) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val layout : LayoutFullscreenimgviewBinding = DataBindingUtil.inflate(inflater , R.layout.layout_fullscreenimgview , container , false)
+
+        val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
+        backBtn.setOnClickListener {
+            (activity as MainActivity).onBackPressed()
+        }
 
         context?.let {
             GlideApp.with(it)
