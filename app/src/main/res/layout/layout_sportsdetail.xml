@@ -72,7 +72,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="참가자 정보"
+                    android:text="@string/TXT_PETITION_AGREEMENT"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
@@ -95,7 +95,7 @@
                     android:drawableTint="@color/white"
                     android:elevation="15dp"
                     android:onClick="@{(v) -> view.onClick(v)}"
-                    android:text="참여하기"
+                    android:text="@string/TXT_JOIN"
                     android:textColor="@color/white" />
 
             </LinearLayout>

@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
             app:iconifiedByDefault="false"
-            app:queryHint="수기 검색" />
+            app:queryHint="@string/TXT_QUERYHINT_HANDWRITING" />
 
         <include
             layout = "@layout/toolbar_with_add"

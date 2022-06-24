@@ -34,7 +34,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상황실 연결"
+            android:text="@string/TXT_CALL_SECURITY_OFFICE"
             android:textColor="@color/white"
             android:layout_gravity="end"
             app:icon = "@drawable/ic_call"

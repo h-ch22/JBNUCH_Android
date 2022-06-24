@@ -189,6 +189,8 @@ class UserManagement {
 
                 return@addOnSuccessListener
             }
+        }.addOnFailureListener{
+            it.printStackTrace()
         }
     }
 
@@ -448,7 +450,6 @@ class UserManagement {
         var processStatus = false
 
         try{
-
             val options = FirebaseVisionCloudTextRecognizerOptions.Builder()
                 .setLanguageHints(listOf("ko"))
                 .build()
@@ -471,31 +472,35 @@ class UserManagement {
                         var lineText = block.text.replace("\\s".toRegex(), "")
                         var lineText_fin = lineText.replace("\n", "")
 
-                        Log.d("validate", lineText_fin)
+                        for(line in block.lines){
+                            Log.d("validate", "${line.text}\n")
 
-                        if(lineText_fin == college){
-                            processCollege = true
+                            if(line.text.contains(college)){
+                                processCollege = true
 
-                            Log.d("validate", "college equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
+                                Log.d("validate", "college equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
+                            }
+
+                            else if(line.text.contains(name)){
+                                processName = true
+
+                                Log.d("validate", "name equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
+                            }
+
+                            else if(line.text.contains(studentNo)){
+                                processStudentNo = true
+
+                                Log.d("validate", "studentNo equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
+                            }
+
+                            else if(line.text == "재학생" || line.text == "휴학생"){
+                                processStatus = true
+
+                                Log.d("validate", "status equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
+                            }
                         }
 
-                        else if(lineText_fin == name){
-                            processName = true
 
-                            Log.d("validate", "name equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
-                        }
-
-                        else if(lineText_fin == studentNo){
-                            processStudentNo = true
-
-                            Log.d("validate", "studentNo equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
-                        }
-
-                        else if(lineText_fin == "재학생" || lineText_fin == "휴학생"){
-                            processStatus = true
-
-                            Log.d("validate", "status equaled : college - ${processCollege}, name - ${processName}, studentNo - ${processStudentNo}, status - ${processStatus}")
-                        }
                     }
 
                     if(processCollege && processName && processStudentNo && processStatus){
@@ -512,6 +517,7 @@ class UserManagement {
                     }
                 }
                 .addOnFailureListener {
+                    Log.d("validate", "Validate Error : ${it.printStackTrace()}")
                     it.printStackTrace()
                     completion(false)
 

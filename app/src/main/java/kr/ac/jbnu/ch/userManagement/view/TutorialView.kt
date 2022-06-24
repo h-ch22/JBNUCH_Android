@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutTutorialBinding
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
+import kr.ac.jbnu.ch.frameworks.view.StartActivity
 import kr.ac.jbnu.ch.userManagement.models.TutorialImageAdapter
 
 class TutorialView : Fragment() {
@@ -30,7 +31,7 @@ class TutorialView : Fragment() {
 
         val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
         backBtn.setOnClickListener {
-            (activity as MainActivity).onBackPressed()
+            (activity as StartActivity).onBackPressed()
         }
 
         layout.imgList.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{

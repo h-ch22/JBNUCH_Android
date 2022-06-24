@@ -69,7 +69,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="전북대 총학생회"
+                                    android:text="@string/TXT_APPNAME"
                                     android:textColor="@color/txtColor"
                                     android:textSize="18sp"
                                     android:textStyle="bold"/>
@@ -82,7 +82,7 @@
                                     android:id="@+id/txt_version"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="버전 : "
+                                    android:text="@string/TXT_VERSION"
                                     android:textColor="@color/txtColor"
                                     android:textSize="12sp"/>
 
@@ -94,7 +94,7 @@
                                     android:id="@+id/txt_build"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="빌드 번호 : "
+                                    android:text="@string/TXT_BUILD"
                                     android:textColor="@color/txtColor"
                                     android:textSize="12sp"/>
 
@@ -117,7 +117,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone"
-                                    android:text="업데이트"
+                                    android:text="@string/TXT_UPDATE"
                                     android:textColor="@color/accent"
                                     android:background="#00FFFFFF"/>
 
@@ -135,7 +135,7 @@
                         android:id = "@+id/btn_EULA"
                         android:layout_width="350dp"
                         android:layout_height="70dp"
-                        android:text = "서비스 이용 약관 읽기"
+                        android:text = "@string/TXT_READ_EULA"
                         android:elevation="5dp"
                         android:backgroundTint="@color/btnColor"
                         android:textColor="@color/txtColor"
@@ -156,7 +156,7 @@
                         android:id = "@+id/btn_privacy"
                         android:layout_width="350dp"
                         android:layout_height="70dp"
-                        android:text = "개인정보 처리 방침 읽기"
+                        android:text = "@string/TXT_READ_PRIVACYPOLICY"
                         android:elevation="5dp"
                         android:backgroundTint="@color/btnColor"
                         android:textColor="@color/txtColor"
@@ -177,7 +177,7 @@
                         android:id = "@+id/btn_openSource"
                         android:layout_width="350dp"
                         android:layout_height="70dp"
-                        android:text = "오픈소스 라이센스 정보"
+                        android:text = "@string/TXT_OPENSOURCE_LICENSE"
                         android:elevation="5dp"
                         android:backgroundTint="@color/btnColor"
                         android:textColor="@color/txtColor"
@@ -200,7 +200,7 @@
                         android:padding = "10dp"
                         android:gravity="center"
                         android:layout_weight="1"
-                        android:text="© 2022 Public Relations Department of Jeonbuk National University Student Association."
+                        android:text="@string/TXT_COPYRIGHT"
                         android:textColor="@color/gray"
                         android:textSize="12sp" />
 

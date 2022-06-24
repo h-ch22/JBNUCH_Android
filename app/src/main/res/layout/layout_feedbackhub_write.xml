@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "학우님의 의견을 들려주세요."
+                    android:text = "@string/TXT_TITLE_WRITE_FEEDBACKHUB"
                     android:textColor="@color/txtColor"
                     android:textStyle="bold"
                     android:textSize="20sp"/>
@@ -72,7 +72,7 @@
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/btnColor"
                             android:gravity="center"
-                            android:text="칭찬해요"
+                            android:text="@string/TXT_FEEDBACKHUB_GOOD"
                             app:icon="@drawable/ic_heart"
                             app:iconGravity="top"
                             app:iconTint="@color/gray"
@@ -102,7 +102,7 @@
                             app:iconGravity="top"
                             app:iconTint="@color/gray"
                             android:gravity="center"
-                            android:text="개선해주세요"
+                            android:text="@string/TXT_FEEDBACKHUB_IMPROVE"
                             android:textSize="12sp"
                             android:onClick="@{(v) -> view.onClick(v)}"
                             android:textColor="@color/gray"/>
@@ -129,7 +129,7 @@
                             app:iconGravity="top"
                             app:iconTint="@color/gray"
                             android:gravity="center"
-                            android:text="궁금해요"
+                            android:text="@string/TXT_FEEDBACKHUB_QUESTION"
                             android:textSize="12sp"
                             android:onClick="@{(v) -> view.onClick(v)}"
                             android:textColor="@color/gray"/>
@@ -150,7 +150,7 @@
                     android:layout_height="60dp"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="피드백 제목"
+                    android:hint="@string/TXT_HINT_FEEDBACK_TITLE"
                     android:text = "@={view.title}"
                     android:inputType="text"
                     android:paddingHorizontal="10dp"
@@ -167,7 +167,7 @@
                     android:paddingVertical="20dp"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="피드백의 내용을 입력해주세요."
+                    android:hint="@string/TXT_HINT_FEEDBACK_CONTENTS"
                     android:lineSpacingExtra="5dp"
                     android:text = "@={view.contents}"
                     android:inputType="textMultiLine"

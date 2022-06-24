@@ -25,7 +25,7 @@
             android:id = "@+id/txt_toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "대여 물품 잔여 수량 확인"
+            android:text = "@string/TXT_RENTAL_GOODS"
             android:textColor="@color/txtColor"
             android:layout_gravity="center"/>
 
@@ -33,7 +33,7 @@
             android:id = "@+id/btn_showLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "대여 기록"
+            android:text = "@string/TXT_RENTAL_LOG"
             android:textColor="@color/accent"
             android:background="#00FFFFFF"
             android:layout_gravity="end"

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                android:id="@+id/toggleGroup_pledgeCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                app:tbgCheckedButton="@+id/btn_pledgeType_CH">
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/CH"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_pledgeType_CH"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_COLLEGE"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_pledgeType_College"/>
+
+            </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_pledge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</layout>

@@ -56,7 +56,7 @@
             <com.nex3z.togglebuttongroup.button.LabelToggle
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="총학생회"
+                android:text="@string/CH"
                 android:textColor="@color/txtColor"
                 android:id="@+id/btn_collegeCategory_CH"/>
 
@@ -67,7 +67,7 @@
             <com.nex3z.togglebuttongroup.button.LabelToggle
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="단과대학 학생회"
+                android:text="@string/TXT_COLLEGE_STUDENT_ASSOCIATION"
                 android:textColor="@color/txtColor"
                 android:id="@+id/btn_collegeCategory_college"/>
 

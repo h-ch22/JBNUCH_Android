@@ -41,7 +41,7 @@
                 android:layout_weight="0.5"
                 android:background="@drawable/theme_edittext"
                 android:elevation="5dp"
-                android:hint="공지사항 제목"
+                android:hint="@string/AddNotice_Title"
                 android:text = "@={view.title}"
                 android:inputType="text"
                 android:paddingHorizontal="10dp"
@@ -61,7 +61,7 @@
                 android:scrollbars="vertical"
                 android:background="@drawable/theme_edittext"
                 android:elevation="5dp"
-                android:hint="공지사항의 내용을 입력해주세요."
+                android:hint="@string/AddNotice_Contents"
                 android:lineSpacingExtra="5dp"
                 android:text = "@={view.contents}"
                 android:inputType="textMultiLine"
@@ -124,7 +124,7 @@
                 android:drawableTint="@color/white"
                 android:elevation="15dp"
                 android:onClick="@{(v) -> view.onButtonClick(v)}"
-                android:text="업로드"
+                android:text="@string/AddNotice_Upload"
                 android:textColor="@color/white" />
 
         </LinearLayout>

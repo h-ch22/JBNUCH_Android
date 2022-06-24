@@ -152,7 +152,7 @@
                 android:padding = "10dp"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:text="© 2022 Public Relations Department of Jeonbuk National University Student Association."
+                android:text="@string/TXT_COPYRIGHT"
                 android:textColor="@color/gray"
                 android:textSize="12sp" />
 

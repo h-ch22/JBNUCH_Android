@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             app:iconifiedByDefault="false"
-            app:queryHint="피드백 검색" />
+            app:queryHint="@string/TXT_QUERYHINT_FEEDBACKHUB" />
 
         <include
             layout = "@layout/toolbar"

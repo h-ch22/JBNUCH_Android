@@ -1,6 +1,7 @@
 package kr.ac.jbnu.ch.frameworks.helper
 
 import android.util.Base64
+import java.security.KeyStore
 import java.security.spec.AlgorithmParameterSpec
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec

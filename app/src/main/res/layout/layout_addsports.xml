@@ -54,7 +54,7 @@
                     android:textColor="@color/txtColor"
                     android:background="@drawable/theme_edittext"
                     android:text = "@={view.roomName}"
-                    android:hint="방 이름"/>
+                    android:hint="@string/txt_roomName"/>
 
                 <EditText
                     android:id="@+id/field_type"
@@ -66,7 +66,7 @@
                     android:textColor="@color/txtColor"
                     android:background="@drawable/theme_edittext"
                     android:text = "@={view.type}"
-                    android:hint="종목"/>
+                    android:hint="@string/txt_sportsEvent"/>
 
                 <EditText
                     android:id="@+id/field_allPeople"
@@ -79,7 +79,7 @@
                     android:background="@drawable/theme_edittext"
                     android:inputType="phone"
                     android:text = "@={view.allPeople}"
-                    android:hint="전체 인원 (본인 포함)"/>
+                    android:hint="@string/txt_allPeople"/>
 
                 <EditText
                     android:id="@+id/field_currentPeople"
@@ -92,7 +92,7 @@
                     android:inputType="phone"
                     android:text = "@={view.currentPeople}"
                     android:background="@drawable/theme_edittext"
-                    android:hint="현재 인원 (본인 포함)"/>
+                    android:hint="@string/txt_currentPeople"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="비대면 진행"
+                        android:text="@string/txt_isOnline"
                         android:textColor="@color/txtColor"/>
 
                 </LinearLayout>
@@ -126,7 +126,7 @@
                     app:icon="@drawable/ic_affiliates"
                     app:iconSize="20dp"
                     app:iconTint="@color/txtColor"
-                    android:text="장소 선택"
+                    android:text="@string/txt_selectLocation"
                     android:textColor="@color/txtColor"
                     android:backgroundTint="@color/btnColor"/>
 
@@ -140,7 +140,7 @@
                     android:text = "@={view.others}"
                     android:textColor="@color/txtColor"
                     android:background="@drawable/theme_edittext"
-                    android:hint="기타"/>
+                    android:hint="@string/txt_others"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -162,7 +162,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="제3자 개인정보 제공 사항"
+                            android:text="@string/txt_privacy_to_thirdParty"
                             android:textColor="@color/txtColor"
                             android:textStyle="bold"
                             android:textSize="18sp"/>
@@ -176,7 +176,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="5dp"
                             android:gravity="start"
-                            android:text="제공 정보 : 성명, 학과, 학번, 연락처\n제공 목적 : 신원 확인 및 개별 연락\n아래 버튼을 클릭함으로 위 정보를 제3자에게 제공하는 것에 대해 동의하는 것으로 간주합니다."
+                            android:text="@string/txt_privacy_to_thirdParty_contents"
                             android:textColor="@color/txtColor"
                             android:textSize="15sp"/>
 
@@ -189,7 +189,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="5dp"
                             android:gravity="start"
-                            android:text="총학생회는 용병 구인 과정에서 중계 역할만 진행하며, 용병의 구인 ~ 스포츠 진행 과정에서 발생하는 모든 문제에 대해 책임을 지지 않습니다."
+                            android:text="@string/txt_warning_sports"
                             android:textColor="@color/gray"
                             android:textSize="12sp"/>
 
@@ -211,7 +211,7 @@
                     android:drawableTint="@color/white"
                     android:elevation="15dp"
                     android:onClick="@{(v) -> view.onClick(v)}"
-                    android:text="용병 구인 신청하기"
+                    android:text="@string/txt_addSports_confirm"
                     android:textColor="@color/white" />
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator

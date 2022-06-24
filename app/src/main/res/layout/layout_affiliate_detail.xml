@@ -73,7 +73,6 @@
                         android:gravity="start"
                         android:textStyle="bold"
                         android:textSize="20sp"
-                        android:text="Store Name"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -84,7 +83,6 @@
                         android:textColor="@color/gray"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:text="benefits"
                         android:textSize="15sp"
                         app:layout_constraintTop_toBottomOf="@id/txt_storeName"
                         app:layout_constraintStart_toStartOf="parent"/>

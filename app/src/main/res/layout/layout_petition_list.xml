@@ -46,7 +46,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="전체"
+                            android:text="@string/TXT_ALL"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_All"/>
 
@@ -57,7 +57,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="학사"
+                            android:text="@string/TXT_BACHELOR"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_Bachelor"/>
 
@@ -68,7 +68,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="시설"
+                            android:text="@string/TXT_FACILITY"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_Facility"/>
 
@@ -79,7 +79,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="복지"
+                            android:text="@string/TXT_WELFARE"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_Welfare"/>
 
@@ -90,7 +90,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="문화 및 예술"
+                            android:text="@string/TXT_CULTURE"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_Culture"/>
 
@@ -101,7 +101,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="기타"
+                            android:text="@string/txt_others"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_petitionCategory_Others"/>
 
@@ -141,7 +141,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:iconifiedByDefault="false"
-            app:queryHint="청원 검색" />
+            app:queryHint="@string/TXT_QUERYHINT_PETITION" />
 
 
         <include

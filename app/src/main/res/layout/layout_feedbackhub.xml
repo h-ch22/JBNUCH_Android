@@ -46,7 +46,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "먼저 카테고리를 선택해주세요."
+                    android:text = "@string/TXT_FEEDBACK_CATEGORYSELECTION"
                     android:textColor="@color/txtColor"
                     android:textStyle="bold"
                     android:textSize="20sp"/>

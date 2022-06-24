@@ -103,7 +103,7 @@
                     android:id = "@+id/txt_duplicate_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "중복된 청원은 1개로 합쳐질 수 있어요."
+                    android:text = "@string/txt_description_duplicate"
                     android:textColor="@color/txtColor"
                     android:textSize="15sp"
                     android:textStyle="bold"

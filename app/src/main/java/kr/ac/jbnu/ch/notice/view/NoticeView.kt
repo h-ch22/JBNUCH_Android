@@ -33,7 +33,13 @@ class NoticeView : Fragment() {
             || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_VicePresident
             || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_VicePresident
             || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_VicePresident
-            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident){
+            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.CH_President || UserManagement.userInfo?.admin == AdminCodeModel.CH_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.CHE_President || UserManagement.userInfo?.admin == AdminCodeModel.CHE_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.COH_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.COM_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.CON_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_VicePresident
+            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_VicePresident){
             layout.btnAddNotice.visibility = View.VISIBLE
         }
 
@@ -57,7 +63,13 @@ class NoticeView : Fragment() {
                             || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_VicePresident
                             || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_VicePresident
                             || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_VicePresident
-                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident){
+                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CH_President || UserManagement.userInfo?.admin == AdminCodeModel.CH_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CHE_President || UserManagement.userInfo?.admin == AdminCodeModel.CHE_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.COH_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.COM_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CON_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_VicePresident){
                             layout.btnAddNotice.visibility = View.VISIBLE
                         }
 
@@ -90,7 +102,13 @@ class NoticeView : Fragment() {
                             || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_PRD_VicePresident
                             || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_PRD_VicePresident
                             || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_PRD_VicePresident
-                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident){
+                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_PRD_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CH_President || UserManagement.userInfo?.admin == AdminCodeModel.CH_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CHE_President || UserManagement.userInfo?.admin == AdminCodeModel.CHE_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.COH_President || UserManagement.userInfo?.admin == AdminCodeModel.COH_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.COM_President || UserManagement.userInfo?.admin == AdminCodeModel.COM_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.CON_President || UserManagement.userInfo?.admin == AdminCodeModel.CON_VicePresident
+                            || UserManagement.userInfo?.admin == AdminCodeModel.SOC_President || UserManagement.userInfo?.admin == AdminCodeModel.SOC_VicePresident){
                             layout.btnAddNotice.visibility = View.VISIBLE
                         }
                         val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()

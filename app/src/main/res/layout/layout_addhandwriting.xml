@@ -37,7 +37,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📝 게시글 제목"
+                    android:text="@string/AddHandWriting_Header_Title"
                     android:textColor="@color/txtColor"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
@@ -50,7 +50,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="게시글 제목"
+                    android:hint="@string/AddHandWriting_Title"
                     android:text = "@={view.title}"
                     android:inputType="text"
                     android:paddingHorizontal="10dp"
@@ -59,7 +59,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="✏️ 시험 이름"
+                    android:text="@string/AddHandWriting_Header_examName"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -73,7 +73,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="시험 이름"
+                    android:hint="@string/AddHandWriting_examName"
                     android:text = "@={view.examName}"
                     android:inputType="text"
                     android:paddingHorizontal="10dp"
@@ -82,7 +82,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🗓 시험 날짜"
+                    android:text="@string/AddHandWriting_Header_examDate"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -104,7 +104,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="💭 시험을 준비하게 된 계기"
+                    android:text="@string/AddHandWriting_Header_Meter"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -118,7 +118,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="시험을 준비하게 된 계기"
+                    android:hint="@string/AddHandWriting_Meter"
                     android:text = "@={view.meter}"
                     android:inputType="textMultiLine"
                     android:paddingHorizontal="10dp"
@@ -127,7 +127,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="⏰ 시험 준비 기간"
+                    android:text="@string/AddHandWriting_Header_Term"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -141,7 +141,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="시험 준비 기간"
+                    android:hint="@string/AddHandWriting_Term"
                     android:text = "@={view.term}"
                     android:inputType="text"
                     android:paddingHorizontal="10dp"
@@ -150,7 +150,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🙋🏻‍ 시험을 본 후기"
+                    android:text="@string/AddHandWriting_Header_Review"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -164,7 +164,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="시험을 본 후기"
+                    android:hint="@string/AddHandWriting_Review"
                     android:text = "@={view.review}"
                     android:inputType="textMultiLine"
                     android:paddingHorizontal="10dp"
@@ -173,7 +173,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📚 자신만의 공부법"
+                    android:text="@string/AddHandWriting_Header_howTO"
                     android:textColor="@color/txtColor"
                     android:layout_marginTop="20dp"
                     android:textSize="15sp"
@@ -187,7 +187,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/theme_edittext"
                     android:elevation="5dp"
-                    android:hint="자신만의 공부법"
+                    android:hint="@string/AddHandWriting_howTO"
                     android:text = "@={view.howTO}"
                     android:inputType="textMultiLine"
                     android:paddingHorizontal="10dp"
@@ -238,7 +238,7 @@
                     android:drawableTint="@color/white"
                     android:elevation="15dp"
                     android:onClick="@{(v) -> view.onButtonClick(v)}"
-                    android:text="수기 작성하기"
+                    android:text="@string/AddHandWriting_Confirm"
                     android:textColor="@color/white" />
 
                 <com.google.android.material.progressindicator.CircularProgressIndicator

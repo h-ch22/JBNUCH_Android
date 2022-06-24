@@ -50,7 +50,6 @@
                     android:gravity="center"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:text = "주소 : "
                     android:textColor="@color/txtColor"
                     android:layout_gravity="center"/>
 
@@ -68,7 +67,7 @@
                     android:text = "@={view.description}"
                     android:textColor="@color/txtColor"
                     android:background="@drawable/theme_edittext"
-                    android:hint="장소 설명"/>
+                    android:hint="@string/TXT_FIELD_DESCRIPTION"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -84,7 +83,7 @@
                     android:drawableTint="@color/white"
                     android:elevation="15dp"
                     android:onClick="@{(v) -> view.onClick(v)}"
-                    android:text="설정 완료"
+                    android:text="@string/TXT_DONE_SETTING"
                     android:textColor="@color/white" />
 
             </LinearLayout>

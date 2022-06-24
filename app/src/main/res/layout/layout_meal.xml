@@ -92,7 +92,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="진수원"
+                            android:text="@string/TXT_JINSOO"
                             android:textStyle="bold"
                             android:textColor="@color/txtColor"/>
 
@@ -148,7 +148,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="의대 식당"
+                            android:text="@string/TXT_MEDICAL_RESTAURANT"
                             android:textStyle="bold"
                             android:textColor="@color/txtColor"/>
 
@@ -192,7 +192,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="참빛관"
+                            android:text="@string/TXT_CHAMBIT_RESTAURANT"
                             android:textStyle="bold"
                             android:textColor="@color/txtColor"/>
 
@@ -260,7 +260,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="기존관"
+                            android:text="@string/TXT_DORM_RESTAURANT"
                             android:textStyle="bold"
                             android:textColor="@color/txtColor"/>
 
@@ -329,7 +329,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="특성화 캠퍼스 생활관"
+                            android:text="@string/TXT_DORM_IKSAN_RESTAURANT"
                             android:textStyle="bold"
                             android:textColor="@color/txtColor"/>
 

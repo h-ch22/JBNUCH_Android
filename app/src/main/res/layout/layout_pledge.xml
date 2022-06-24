@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:text = "전체 공약 이행률"
+                        android:text = "@string/TXT_PLEDGE_FULFILLMENT_ALL"
                         android:textStyle="bold"
                         android:textColor="@color/gray"
                         android:textSize="18sp"/>
@@ -71,7 +71,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="정책 자료집"
+                        android:text="@string/TXT_PLEDGE_BOOK"
                         android:textColor="@color/accent"
                         android:textSize="12sp"
                         android:background="#00FFFFFF"
@@ -174,7 +174,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="70dp"
                             android:layout_height="match_parent"
-                            android:text="전체"
+                            android:text="@string/TXT_ALL"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_All"/>
 
@@ -185,7 +185,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="취/창업 및 학사"
+                            android:text="@string/TXT_PLEDGECATEGORY_BACHELOR"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_Bachelor"/>
 
@@ -196,7 +196,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="문화 및 예술"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_CULTURE"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_Culture"/>
 
@@ -207,7 +207,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="70dp"
                             android:layout_height="match_parent"
-                            android:text="복지"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_WELFARE"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_Welfare"/>
 
@@ -218,7 +218,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="생활관"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_DORM"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_Dorm"/>
 
@@ -229,7 +229,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="시설 및 안전"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_FACILITY"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_Facility"/>
 
@@ -240,7 +240,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="앱 (App.)"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_APP"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_App"/>
 
@@ -251,7 +251,7 @@
                         <com.nex3z.togglebuttongroup.button.LabelToggle
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="인권"
+                            android:text="@string/TXT_PLEDGE_CATEGORY_HUMAN_RIGHTS"
                             android:textColor="@color/txtColor"
                             android:id="@+id/btn_pledgeCategory_HumanRights"/>
 

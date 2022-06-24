@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text = "원하시는 카테고리를 선택하세요!"
+            android:text = "@string/txt_affiliates_categorySelection"
             android:textColor="@color/txtColor"
             android:textSize="15sp"/>
 
@@ -65,7 +65,7 @@
                     android:backgroundTint="@color/btnColor"
                     android:drawableTop="@drawable/ic_all_resized"
                     android:gravity="center"
-                    android:text="전체"
+                    android:text="@string/txt_all"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:textColor="@color/txtColor" />
 
@@ -79,7 +79,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableTop="@drawable/ic_meal_resized"
                     android:gravity="center"
-                    android:text="식사"
+                    android:text="@string/txt_meal"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:textColor="@color/txtColor" />
 
@@ -93,7 +93,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableTop="@drawable/ic_cafe_resized"
                     android:gravity="center"
-                    android:text="카페"
+                    android:text="@string/txt_cafe"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:textColor="@color/txtColor" />
 
@@ -114,7 +114,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableTop="@drawable/ic_liquor_resized"
                     android:gravity="center"
-                    android:text="술"
+                    android:text="@string/txt_alcohol"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:textColor="@color/txtColor" />
 
@@ -128,7 +128,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableTop="@drawable/ic_convenience_resized"
                     android:gravity="center"
-                    android:text="편의"
+                    android:text="@string/txt_convenience"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:textColor="@color/txtColor" />
 

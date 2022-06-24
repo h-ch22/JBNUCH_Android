@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
-                    android:text="안녕하세요 학우님!"
+                    android:text="@string/TXT_LICENSE_GREET"
                     android:textColor="@color/txtColor"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
-                    android:text="계속 하려면 이용약관을 읽고 동의해주세요."
+                    android:text="@string/TXT_LICENSE_CONTENTS"
                     android:textColor="@color/txtColor"
                     android:textSize="12sp" />
 
