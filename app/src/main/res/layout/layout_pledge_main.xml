@@ -8,7 +8,7 @@
 
         <variable
             name="view"
-            type="" />
+            type="kr.ac.jbnu.ch.pledge.view.PledgeMainView" />
 
     </data>
 

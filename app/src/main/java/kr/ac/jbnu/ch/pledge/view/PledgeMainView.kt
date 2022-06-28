@@ -23,7 +23,7 @@ class PledgeMainView : Fragment() {
             CollegeCodeModel.SOC, CollegeCodeModel.COH, CollegeCodeModel.CON, CollegeCodeModel.COM, CollegeCodeModel.CHE -> {
                 layout.toggleGroupPledgeCategory.visibility = View.VISIBLE
 
-                layout.framePledge.addView(PledgeView())
+                layout.framePledge.addView(PledgeView().view)
             }
 
             else -> {

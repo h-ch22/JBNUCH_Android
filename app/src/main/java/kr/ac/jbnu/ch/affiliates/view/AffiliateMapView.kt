@@ -33,7 +33,6 @@ import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.affiliates.models.AffiliateDataModel
 import kr.ac.jbnu.ch.databinding.LayoutStoremapBinding
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
-import net.daum.mf.map.api.MapView
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledThreadPoolExecutor
