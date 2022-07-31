@@ -220,6 +220,11 @@
     <string name="TXT_HINT_PETITION_CONTENTS">Please enter the contents of the petition.</string>
     <string name="TXT_CALL_SECURITY_OFFICE">Connecting to the Security Office</string>
     <string name="TXT_RENTAL_LOG">Rental history</string>
+    <string name="TXT_SET_COUNTRY">Set Country</string>
+    <string name="TXT_CALL">Call</string>
+    <string name="TXT_DELIVERY">Delivery</string>
+    <string name="TXT_STORE_INFO">info</string>
+    <string name="TXT_TITLE_SELECT_LANGUAGE_TO_TRANSLATE">Select a language to translate</string>
 
     <string-array name="header_timeTable">
 

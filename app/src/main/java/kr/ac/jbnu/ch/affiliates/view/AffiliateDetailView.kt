@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -49,10 +50,20 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
         this.view = layout.storeDetailLL
         this.mapView = layout.mapView
 
+        if(data.URL_Baemin == ""){
+            layout.btnDeliver.visibility = View.GONE
+        }
+
+        if(data.URL_Naver == ""){
+            layout.btnNaver.visibility = View.GONE
+        }
+
         mapView.getMapAsync(this)
 
         layout.txtStoreName.text = data.storeName
         layout.txtBenefits.text = data.benefits
+
+        layout.txtBenefits.movementMethod = ScrollingMovementMethod()
 
         var requestOptions = RequestOptions()
         requestOptions = requestOptions.transforms( CenterCrop(), RoundedCorners(16))
@@ -85,6 +96,16 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
             startActivity(call_Intent)
         }
 
+    }
+
+    fun openInfo(){
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(data.URL_Naver))
+        startActivity(browserIntent)
+    }
+
+    fun openDelivery(){
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(data.URL_Baemin))
+        startActivity(browserIntent)
     }
 
     fun requestPermission(){

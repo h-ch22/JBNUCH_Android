@@ -93,8 +93,19 @@ class SignInView : Fragment(), onKeyBackPressedListener {
                         progressView.visibility = View.GONE
                         btn_signIn.visibility = View.VISIBLE
 
-                        val intent = Intent(activity as StartActivity, MainActivity :: class.java)
-                        startActivity(intent)
+                        if(UserManagement.userInfo?.country == null){
+                            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+                            transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+                            transaction.addToBackStack(null)
+
+                            transaction.replace(R.id.viewArea, CountrySelectionView())
+                            transaction.commit()
+                        }
+
+                        else{
+                            val intent = Intent(activity as StartActivity, MainActivity :: class.java)
+                            startActivity(intent)
+                        }
                     }
 
                     UserManagementResultModel.legacyUser -> {

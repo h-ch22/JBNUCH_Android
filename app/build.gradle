@@ -19,8 +19,8 @@ android {
         applicationId "kr.ac.jbnu.ch"
         minSdk 26
         targetSdk 31
-        versionCode 3554
-        versionName "1.0.1"
+        versionCode 3564
+        versionName "1.1.0"
 
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -76,6 +76,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'com.nex3z:toggle-button-group:1.2.3'
+    implementation 'com.google.mlkit:translate:17.0.0'
     kapt 'com.android.databinding:compiler:7.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

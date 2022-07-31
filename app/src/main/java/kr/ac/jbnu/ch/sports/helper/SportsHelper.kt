@@ -50,7 +50,7 @@ class SportsHelper {
                 val date = formatter.parse(dateTime)
                 val diff = date.time - currentDate.time
 
-                val data = SportsDataModel(id, sportsType, roomName, allPeople, currentPeople, locationDescription, others, manager, location, dateTime, UserInfoModel(name, phone, studentNo, college, "", null, null, null, null), address, isOnline, "")
+                val data = SportsDataModel(id, sportsType, roomName, allPeople, currentPeople, locationDescription, others, manager, location, dateTime, UserInfoModel(name, phone, studentNo, college, "", null, null, null, null, null), address, isOnline, "")
 
                 if(type == "My"){
                     if(manager == UserManagement.userInfo?.uid){

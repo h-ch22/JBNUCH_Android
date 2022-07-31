@@ -75,8 +75,10 @@ class AffiliateHelper {
                                         val openTime = storeMap.get("openTime") as? String ?: ""
                                         val price = storeMap.get("price") as? String ?: ""
                                         val tel = storeMap.get("tel") as? String ?: ""
+                                        val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
+                                        val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
 
-                                        storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College"))
+                                        storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
                                     }
                                 }
                             }
@@ -111,8 +113,10 @@ class AffiliateHelper {
                                     val openTime = storeMap.get("openTime") as? String ?: ""
                                     val price = storeMap.get("price") as? String ?: ""
                                     val tel = storeMap.get("tel") as? String ?: ""
+                                    val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
+                                    val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
 
-                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"CH"))
+                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
                                 }
                             }
 
@@ -149,7 +153,10 @@ class AffiliateHelper {
                                     val price = storeMap.get("price") as? String ?: ""
                                     val tel = storeMap.get("tel") as? String ?: ""
 
-                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College"))
+                                    val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
+                                    val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+
+                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
                                 }
                             }
 
@@ -179,7 +186,10 @@ class AffiliateHelper {
                             val price = storeMap.get("price") as? String ?: ""
                             val tel = storeMap.get("tel") as? String ?: ""
 
-                            storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"CH"))
+                            val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
+                            val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+
+                            storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
                         }
 
                         completion(true)

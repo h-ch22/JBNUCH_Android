@@ -232,5 +232,10 @@
         <item>토</item>
 
     </string-array>
+    <string name="TXT_SET_COUNTRY">국가 설정</string>
+    <string name="TXT_CALL">전화</string>
+    <string name="TXT_DELIVERY">배달</string>
+    <string name="TXT_STORE_INFO">정보</string>
+    <string name="TXT_TITLE_SELECT_LANGUAGE_TO_TRANSLATE">번역할 언어 선택</string>
 
 </resources>

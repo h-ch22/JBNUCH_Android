@@ -16,6 +16,7 @@ import kr.ac.jbnu.ch.databinding.LayoutStartBinding
 import kr.ac.jbnu.ch.frameworks.models.onKeyBackPressedListener
 import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 import kr.ac.jbnu.ch.userManagement.models.UserManagementResultModel
+import kr.ac.jbnu.ch.userManagement.view.CountrySelectionView
 import kr.ac.jbnu.ch.userManagement.view.SignInView
 import kr.ac.jbnu.ch.userManagement.view.LicenseView
 
@@ -58,10 +59,19 @@ class StartActivity : AppCompatActivity(), onKeyBackPressedListener {
             helper.getUserInfo{
                 when(it){
                     UserManagementResultModel.success -> {
-                        val intent = Intent(applicationContext, MainActivity :: class.java)
-                        startActivity(intent)
+                        if(UserManagement.userInfo?.country == "" || UserManagement?.userInfo?.country == null){
+                            fragmentManager = supportFragmentManager
+                            transaction = fragmentManager.beginTransaction()
+                            transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top);
+                            transaction.replace(R.id.viewArea, CountrySelectionView()).commitAllowingStateLoss()
+                        }
 
-                        finish()
+                        else{
+                            val intent = Intent(applicationContext, MainActivity :: class.java)
+                            startActivity(intent)
+
+                            finish()
+                        }
                     }
 
                     else -> {

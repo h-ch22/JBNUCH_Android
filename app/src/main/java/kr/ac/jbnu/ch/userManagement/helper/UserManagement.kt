@@ -45,7 +45,7 @@ class UserManagement {
                         val phone = document.get("phone") as String? ?: ""
                         val studentNo = document.get("studentNo") as String? ?: ""
 
-                        legacyUserInfo = UserInfoModel(name, phone, studentNo, dept, "", "", null, null, null)
+                        legacyUserInfo = UserInfoModel(name, phone, studentNo, dept, "", "", null, null, null, null)
 
                         completion(true)
                     }
@@ -65,11 +65,25 @@ class UserManagement {
         }
     }
 
-    fun removeLegarycUserData(email : String, completion : (Boolean) -> Unit){
+    fun removeLegacyUserData(email : String, completion : (Boolean) -> Unit){
         db.collection("User").document(email).delete().addOnSuccessListener {
             completion(true)
         }.addOnFailureListener {
             completion(false)
+        }
+    }
+
+    fun updateCountry(country : String, completion : (Boolean) -> Unit){
+        db.collection("Users").document(this.auth.currentUser?.uid ?: "").update("country", country).addOnCompleteListener {
+            if(it.isSuccessful){
+                completion(true)
+                return@addOnCompleteListener
+            }
+        }.addOnFailureListener {
+            it.printStackTrace()
+            completion(false)
+
+            return@addOnFailureListener
         }
     }
 
@@ -412,7 +426,7 @@ class UserManagement {
                     val college = AES256Util.decrypt(document.get("college") as? String ?: "")
                     val admin = document.get("admin") as? String ?: ""
                     val belong = document.get("belong") as? String ?: ""
-
+                    val country = document.get("country") as? String
                     var adminAsModel : AdminCodeModel? = null
                     var spotAsString : String? = null
 
@@ -430,7 +444,7 @@ class UserManagement {
 
                     val profileRef = this.storageRef.reference.child("Profile/" + this.auth.currentUser?.uid + ".png")
 
-                    userInfo = UserInfoModel(name, phone, studentNo, college, auth.currentUser?.uid ?: "", spotAsString, profileRef, convertCollegeToCollegeCode(college), adminAsModel )
+                    userInfo = UserInfoModel(name, phone, studentNo, college, auth.currentUser?.uid ?: "", spotAsString, profileRef, convertCollegeToCollegeCode(college), adminAsModel, country )
 
                     completion(UserManagementResultModel.success)
                 }
