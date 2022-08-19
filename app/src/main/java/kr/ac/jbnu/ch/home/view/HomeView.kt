@@ -55,7 +55,7 @@ class HomeView : Fragment(){
         layout.view = this
         layout.lifecycleOwner = this
 
-        layout.txtGreet.text = "안녕하세요,\n${UserManagement.userInfo?.name ?: ""}님!"
+        layout.txtGreet.text = "${resources.getString(R.string.TXT_HOME_GREET)}\n${UserManagement.userInfo?.name ?: ""}${resources.getString(R.string.TXT_HOME_GREET_FIN)}"
 
         noticeList = layout.latestNoticeLL
         petitionList = layout.petitionLL

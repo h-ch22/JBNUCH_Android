@@ -82,11 +82,11 @@ class AddHandWritingView : Fragment() {
         else{
             TedBottomPicker.with(activity as MainActivity)
                 .showCameraTile(true)
-                .setTitle("이미지를 선택해주세요")
+                .setTitle(resources.getString(R.string.TXT_ALERT_TITLE_SELECT_IMAGE))
                 .setPeekHeight(1600)
-                .setCompleteButtonText("완료")
+                .setCompleteButtonText(resources.getString(R.string.TXT_DONE))
                 .setSelectedUriList(uriList)
-                .setEmptySelectionText("선택된 이미지가 없습니다.")
+                .setEmptySelectionText(resources.getString(R.string.TXT_ALERT_CONTENTS_NO_IMAGE_SELECTED))
                 .showMultiImage {
                     if(!it.isEmpty()){
                         for(image in it){
@@ -115,7 +115,7 @@ class AddHandWritingView : Fragment() {
         when(requestCode){
             SignUpView.PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(view, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -123,7 +123,7 @@ class AddHandWritingView : Fragment() {
                 }
 
                 else{
-                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(view, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
             }
         }
@@ -131,15 +131,15 @@ class AddHandWritingView : Fragment() {
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("갤러리 이미지 로드를 위해 권한을 허용해주세요!", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_GALLERY_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     SignUpView.PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     fun onButtonClick(v : View){
@@ -167,16 +167,16 @@ class AddHandWritingView : Fragment() {
 
             R.id.btn_uploadHandWriting -> {
                 AwesomeDialog.build(activity as MainActivity)
-                    .title("수기 업로드 확인", null, resources.getColor(R.color.black))
-                    .body("합격자 수기를 업로드하시겠습니까?", null, resources.getColor(R.color.black))
+                    .title(resources.getString(R.string.TXT_ALERT_TITLE_CONFIRM_UPLOAD), null, resources.getColor(R.color.black))
+                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_CONFIRM_UPLOAD), null, resources.getColor(R.color.black))
                     .icon(R.drawable.ic_select)
-                    .onPositive("예"){
+                    .onPositive(resources.getString(R.string.TXT_YES)){
                         if(title.get()!! == "" || examName.get()!! == "" || meter.get()!! == "" || term.get()!! == "" || review.get()!! == "" || howTO.get()!! == "" || date == ""){
                             AwesomeDialog.build(activity as MainActivity)
-                                .title("공백 필드", null, resources.getColor(R.color.black))
-                                .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
+                                .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                                .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                                 .icon(R.drawable.ic_warning)
-                                .onPositive("확인")
+                                .onPositive(resources.getString(R.string.TXT_OK))
                         }
 
                         else{
@@ -204,18 +204,18 @@ class AddHandWritingView : Fragment() {
                             ),uriList){
                                 if(it){
                                     AwesomeDialog.build(activity as MainActivity)
-                                        .title("업로드 완료", null, resources.getColor(R.color.black))
-                                        .body("수기가 업로드되었습니다.", null, resources.getColor(R.color.black))
+                                        .title(resources.getString(R.string.TXT_ALERT_TITLE_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
+                                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
                                         .icon(R.drawable.ic_select)
-                                        .onPositive("확인")
+                                        .onPositive(resources.getString(R.string.TXT_OK))
                                 }
 
                                 else{
                                     AwesomeDialog.build(activity as MainActivity)
-                                        .title("오류", null, resources.getColor(R.color.black))
-                                        .body("요청한 작업을 처리하는 중 문제가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                        .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                         .icon(R.drawable.ic_warning)
-                                        .onPositive("확인")
+                                        .onPositive(resources.getString(R.string.TXT_OK))
                                 }
 
                                 layout.btnUploadHandWriting.visibility = View.VISIBLE
@@ -223,7 +223,7 @@ class AddHandWritingView : Fragment() {
                             }
                         }
                     }
-                    .onNegative("아니오"){
+                    .onNegative(resources.getString(R.string.TXT_NO)){
 
                     }
             }

@@ -56,10 +56,10 @@ class FeedbackHubListView(private val type : String) : Fragment() {
                                 layout.swipeLayout.isRefreshing = false
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("오류", null, resources.getColor(R.color.black))
-                                    .body("피드백 목록을 받아오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인")
+                                    .onPositive(resources.getString(R.string.TXT_OK))
                             }
 
                             else{
@@ -75,10 +75,10 @@ class FeedbackHubListView(private val type : String) : Fragment() {
                                 layout.swipeLayout.isRefreshing = false
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("오류", null, resources.getColor(R.color.black))
-                                    .body("피드백 목록을 받아오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인")
+                                    .onPositive(resources.getString(R.string.TXT_OK))
                             }
 
                             else{
@@ -99,10 +99,10 @@ class FeedbackHubListView(private val type : String) : Fragment() {
                         layout.progressLL.visibility = View.GONE
 
                         AwesomeDialog.build(activity as MainActivity)
-                            .title("오류", null, resources.getColor(R.color.black))
-                            .body("피드백 목록을 받아오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인")
+                            .onPositive(resources.getString(R.string.TXT_OK))
                     }
 
                     else{
@@ -123,10 +123,10 @@ class FeedbackHubListView(private val type : String) : Fragment() {
                         layout.progressLL.visibility = View.GONE
 
                         AwesomeDialog.build(activity as MainActivity)
-                            .title("오류", null, resources.getColor(R.color.black))
-                            .body("피드백 목록을 받아오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인")
+                            .onPositive(resources.getString(R.string.TXT_OK))
                     }
 
                     else{

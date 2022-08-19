@@ -63,10 +63,10 @@ class SignInView : Fragment(), onKeyBackPressedListener {
     private fun processSignIn(){
         if(email.get() == null || password.get() == null || email.get().equals("") || password.get().equals("")){
             AwesomeDialog.build(activity as StartActivity)
-                .title("공백 필드", null, resources.getColor(R.color.black))
-                .body("모든 필드를 입력해주세요.", null, resources.getColor(R.color.black))
+                .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                 .icon(R.drawable.ic_warning)
-                .onPositive("확인")
+                .onPositive(resources.getString(R.string.TXT_OK))
         }
 
         else{
@@ -80,10 +80,10 @@ class SignInView : Fragment(), onKeyBackPressedListener {
                         btn_signIn.visibility = View.VISIBLE
 
                         AwesomeDialog.build(activity as StartActivity)
-                            .title("사용자를 찾을 수 없음", null, resources.getColor(R.color.black))
-                            .body("가입되지 않은 사용자입니다.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ALERT_TITLE_UNREGISTERED_USER), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNREGISTERED_USER), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인")
+                            .onPositive(resources.getString(R.string.TXT_OK))
                     }
 
                     UserManagementResultModel.success -> {
@@ -125,10 +125,10 @@ class SignInView : Fragment(), onKeyBackPressedListener {
                         btn_signIn.visibility = View.VISIBLE
 
                         AwesomeDialog.build(activity as StartActivity)
-                            .title("오류", null, resources.getColor(R.color.black))
-                            .body("알 수 없는 오류가 발생했습니다.\n나중에 다시 시도하세요.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNEXPECTED_ERROR), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인")
+                            .onPositive(resources.getString(R.string.TXT_OK))
                     }
                 }
             }

@@ -148,7 +148,7 @@ class LocationSelectionView : Fragment(), OnMapReadyCallback {
                         subCaptionText = "${position.latitude}, ${position.longitude}"
                     }
 
-                    txt_address.text = "주소 : ${address}"
+                    txt_address.text = "${resources.getString(R.string.TXT_ADDRESS)}${address}"
 
                     selectedAddress = address
                     selectedCoord = "${position.latitude}, ${position.longitude}"
@@ -178,7 +178,7 @@ class LocationSelectionView : Fragment(), OnMapReadyCallback {
                         marker.subCaptionText = "${p0.cameraPosition.target.latitude}, ${p0.cameraPosition.target.longitude}"
                     }
 
-                    txt_address.text = "주소 : ${address}"
+                    txt_address.text = "${resources.getString(R.string.TXT_ADDRESS)}${address}"
                     selectedAddress = address
                     selectedCoord = "${p0.cameraPosition.target.latitude}, ${p0.cameraPosition.target.longitude}"
                 }
@@ -253,15 +253,15 @@ class LocationSelectionView : Fragment(), OnMapReadyCallback {
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("현재 위치를 표시하기 위해 위치 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_LOCATION_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                     PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     override fun onRequestPermissionsResult(
@@ -272,7 +272,7 @@ class LocationSelectionView : Fragment(), OnMapReadyCallback {
         when(requestCode){
             PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Toast.makeText(context, "권한이 허용되지 않았습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Toast.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -286,7 +286,7 @@ class LocationSelectionView : Fragment(), OnMapReadyCallback {
                 }
 
                 else{
-                    Toast.makeText(context, "권한이 허용되지 않았습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Toast.LENGTH_LONG).show()
                 }
             }
         }

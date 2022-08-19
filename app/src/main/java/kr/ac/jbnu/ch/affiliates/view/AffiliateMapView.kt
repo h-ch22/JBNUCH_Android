@@ -94,7 +94,7 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
         this.naverMap = p0
 
         if(list.isEmpty()){
-            Snackbar.make(affiliateMapView, "업체 리스트를 받아올 수 없습니다.", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(affiliateMapView, resources.getString(R.string.TXT_ALERT_CONTENTS_CANNOT_LOAD_LIST), Snackbar.LENGTH_LONG).show()
             Log.d("AffiliateMapView", "List is Empty")
 
         }
@@ -156,15 +156,15 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("현재 위치를 표시하기 위해 위치 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_LOCATION_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                     PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     override fun onRequestPermissionsResult(
@@ -175,7 +175,7 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
         when(requestCode){
             AffiliateDetailView.PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Snackbar.make(affiliateMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(affiliateMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -187,7 +187,7 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
                 }
 
                 else{
-                    Snackbar.make(affiliateMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(affiliateMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
             }
         }

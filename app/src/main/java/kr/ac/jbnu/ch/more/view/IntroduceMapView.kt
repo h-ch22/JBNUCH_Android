@@ -92,7 +92,7 @@ class IntroduceMapView : Fragment(), OnMapReadyCallback {
             width = 150
             height = 150
 
-            captionText = "전북대학교 총학생회실 (3층)"
+            captionText = resources.getString(R.string.TXT_SOURCE_CH_OFFICE)
             captionColor = resources.getColor(R.color.accent)
 
             map = naverMap
@@ -101,15 +101,15 @@ class IntroduceMapView : Fragment(), OnMapReadyCallback {
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("현재 위치를 표시하기 위해 위치 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_LOCATION_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                     AffiliateMapView.PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     override fun onRequestPermissionsResult(
@@ -120,7 +120,7 @@ class IntroduceMapView : Fragment(), OnMapReadyCallback {
         when(requestCode){
             PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Snackbar.make(introduceMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(introduceMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -134,7 +134,7 @@ class IntroduceMapView : Fragment(), OnMapReadyCallback {
                 }
 
                 else{
-                    Snackbar.make(introduceMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(introduceMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
             }
         }

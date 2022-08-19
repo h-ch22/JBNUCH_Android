@@ -58,22 +58,22 @@ class FeedbackHubMainView(val category : FeedbackHubItemModel) : Fragment() {
 
         btn_send.setOnClickListener {
             AwesomeDialog.build(activity as MainActivity)
-                .title("피드백 확인", null, resources.getColor(R.color.black))
-                .body("피드백을 전송하시겠습니까?", null, resources.getColor(R.color.black))
+                .title(resources.getString(R.string.TXT_ALERT_TITLE_CONFIRM_UPLOAD), null, resources.getColor(R.color.black))
+                .body(resources.getString(R.string.TXT_ALERT_CONTENTS_CONFIRM_UPLOAD), null, resources.getColor(R.color.black))
                 .icon(R.drawable.ic_select)
-                .onPositive("예"){
+                .onPositive(resources.getString(R.string.TXT_YES)){
                     if(title.get()!! == "" || contents.get()!! == ""){
                         AwesomeDialog.build(activity as MainActivity)
-                            .title("공백 필드", null, resources.getColor(R.color.black))
-                            .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인")
+                            .onPositive(resources.getString(R.string.TXT_OK))
                     }
 
                     else if(selectedType == null){
                         AwesomeDialog.build(activity as MainActivity)
-                            .title("피드백 종류 선택", null, resources.getColor(R.color.black))
-                            .body("피드백의 종류를 선택해주세요.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ALERT_TITLE_SELECT_FEEDBACK_TYPE), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_SELECT_FEEDBACK_TYPE), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
                             .onPositive("확인")
                     }
@@ -86,25 +86,25 @@ class FeedbackHubMainView(val category : FeedbackHubItemModel) : Fragment() {
                                 layout.progressView.visibility = View.GONE
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("피드백 전송 완료", null, resources.getColor(R.color.black))
-                                    .body("피드백을 정상적으로 전송하였습니다.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ALERT_TITLE_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_select)
-                                    .onPositive("확인")
+                                    .onPositive(resources.getString(R.string.TXT_OK))
                             }
 
                             else{
                                 layout.progressView.visibility = View.GONE
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("오류", null, resources.getColor(R.color.black))
-                                    .body("요청하신 작업을 처리하는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인")
+                                    .onPositive(resources.getString(R.string.TXT_OK))
                             }
                         }
                     }
                 }
-                .onNegative("아니오")
+                .onNegative(resources.getString(R.string.TXT_NO))
         }
 
         btnList.add(layout.btnHeart)

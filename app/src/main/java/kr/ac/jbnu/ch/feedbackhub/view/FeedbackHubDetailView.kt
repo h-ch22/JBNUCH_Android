@@ -103,10 +103,10 @@ class FeedbackHubDetailView(val data : FeedbackHubDataModel, val type : String) 
             R.id.btn_writeAnswer -> {
                 if(answer.get()!! == ""){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("공백 필드", null, resources.getColor(R.color.black))
-                        .body("답변을 입력하세요.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_warning)
-                        .onPositive("확인")
+                        .onPositive(resources.getString(R.string.TXT_OK))
                 }
 
                 else{
@@ -128,20 +128,20 @@ class FeedbackHubDetailView(val data : FeedbackHubDataModel, val type : String) 
                                         progressView.visibility = View.GONE
 
                                         AwesomeDialog.build(activity as MainActivity)
-                                            .title("답변 등록 완료", null, resources.getColor(R.color.black))
-                                            .body("답변이 등록되었습니다.", null, resources.getColor(R.color.black))
+                                            .title(resources.getString(R.string.TXT_ALERT_TITLE_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
+                                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
                                             .icon(R.drawable.ic_select)
-                                            .onPositive("확인")
+                                            .onPositive(resources.getString(R.string.TXT_OK))
                                     }
 
                                     else{
                                         progressView.visibility = View.GONE
 
                                         AwesomeDialog.build(activity as MainActivity)
-                                            .title("오류", null, resources.getColor(R.color.black))
-                                            .body("요청하신 작업을 처리하는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나, 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                            .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                             .icon(R.drawable.ic_warning)
-                                            .onPositive("확인")
+                                            .onPositive(resources.getString(R.string.TXT_OK))
                                     }
                                 }
                             }

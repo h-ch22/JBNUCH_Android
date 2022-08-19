@@ -97,7 +97,7 @@ class AddSportsView : Fragment(){
         }
 
         val title : TextView = layout.toolbar.findViewById(R.id.txt_toolbarTitle)
-        title.text = "용병 구인 신청하기"
+        title.text = resources.getString(R.string.TXT_UPLOAD)
 
         layout.isOnline.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
             override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
@@ -154,35 +154,35 @@ class AddSportsView : Fragment(){
 
             R.id.btn_confirm -> {
                 if(onlineChecked){
-                    locationDescription = "온라인 진행"
+                    locationDescription = resources.getString(R.string.TXT_ISONLINE)
                 }
 
                 if(!onlineChecked && (roomName.get() == "" || type.get() == "" || allPeople.get() == "" || currentPeople.get() == "" || selectedAddress == "" || selectedLatLng == "" || date == "")){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("공백 필드", null, resources.getColor(R.color.black))
-                        .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_warning)
-                        .onPositive("확인"){
+                        .onPositive(resources.getString(R.string.TXT_OK)){
 
                         }
                 }
 
                 else if(onlineChecked && (roomName.get() == "" || type.get() == "" || allPeople.get() == "" || currentPeople.get() == "" || date == "")){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("공백 필드", null, resources.getColor(R.color.black))
-                        .body("모든 필드를 채워주세요.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_EMPTY_FIELD), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_EMPTY_FIELD), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_warning)
-                        .onPositive("확인"){
+                        .onPositive(resources.getString(R.string.TXT_OK)){
 
                         }
                 }
 
                 else if(allPeople.get()!!.toInt() <= currentPeople.get()!!.toInt()){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("인원 제한", null, resources.getColor(R.color.black))
-                        .body("현재 인원이 전체 인원보다 많을 수 없습니다.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_LIMIT_PEOPLE), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_LIMIT_PEOPLE), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_warning)
-                        .onPositive("확인"){
+                        .onPositive(resources.getString(R.string.TXT_OK)){
 
                         }
                 }
@@ -199,10 +199,10 @@ class AddSportsView : Fragment(){
                     ){
                         if(it){
                             AwesomeDialog.build(activity as MainActivity)
-                                .title("업로드 완료", null, resources.getColor(R.color.black))
-                                .body("업로드가 완료되었습니다.", null, resources.getColor(R.color.black))
+                                .title(resources.getString(R.string.TXT_ALERT_TITLE_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
+                                .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UPLOAD_SUCCESS), null, resources.getColor(R.color.black))
                                 .icon(R.drawable.ic_select)
-                                .onPositive("확인"){
+                                .onPositive(resources.getString(R.string.TXT_OK)){
                                     fragmentManager?.popBackStack()
 
                                 }
@@ -210,10 +210,10 @@ class AddSportsView : Fragment(){
 
                         else{
                             AwesomeDialog.build(activity as MainActivity)
-                                .title("오류", null, resources.getColor(R.color.black))
-                                .body("요청하신 작업을 처리하는 중 오류가 발생했습니다.\n나중에 다시 시도하시거나, 네트워크 상태를 확인하십시오.", null, resources.getColor(R.color.black))
+                                .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                 .icon(R.drawable.ic_warning)
-                                .onPositive("확인"){
+                                .onPositive(resources.getString(R.string.TXT_OK)){
                                     btn_confirm.visibility = View.VISIBLE
                                     progressView.visibility = View.GONE
                                 }

@@ -110,15 +110,15 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("전화를 걸기 위해 전화 걸기 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_CALL_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.CALL_PHONE),
                     PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     override fun onRequestPermissionsResult(
@@ -129,7 +129,7 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
         when(requestCode){
             PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(view, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -137,7 +137,7 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
                 }
 
                 else{
-                    Snackbar.make(view, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(view, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
             }
         }

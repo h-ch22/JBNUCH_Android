@@ -86,8 +86,8 @@ class FeedbackHubView() : Fragment() {
             R.id.btn_next -> {
                 if(selectedCategory == null){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("카테고리 선택", null, resources.getColor(R.color.black))
-                        .body("카테고리를 선택해주세요.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_SELECT_CATEGORY), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_SELECT_CATEGORY), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_warning)
                         .onPositive("확인")
                 }

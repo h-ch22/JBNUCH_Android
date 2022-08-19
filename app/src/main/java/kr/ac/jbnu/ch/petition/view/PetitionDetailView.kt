@@ -163,19 +163,19 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
 
                 if(checkExists != null){
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("이미 추천한 청원", null, resources.getColor(R.color.black))
-                        .body("이미 추천한 청원입니다.", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_PETITION_ALREADY_RECOMMENDED), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_PETITION_ALREADY_RECOMMENDED), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_select)
-                        .onPositive("확인"){
+                        .onPositive(resources.getString(R.string.TXT_OK)){
                         }
                 }
 
                 else{
                     AwesomeDialog.build(activity as MainActivity)
-                        .title("추천 확인", null, resources.getColor(R.color.black))
-                        .body("추천하시겠습니까?", null, resources.getColor(R.color.black))
+                        .title(resources.getString(R.string.TXT_ALERT_TITLE_CONFIRM_RECOMMEND), null, resources.getColor(R.color.black))
+                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_CONFIRM_RECOMMEND), null, resources.getColor(R.color.black))
                         .icon(R.drawable.ic_select)
-                        .onPositive("예"){
+                        .onPositive(resources.getString(R.string.TXT_YES)){
                             layout.progressView.visibility = View.VISIBLE
 
                             helper.recommend(data){
@@ -183,10 +183,10 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
                                     layout.progressView.visibility = View.GONE
 
                                     AwesomeDialog.build(activity as MainActivity)
-                                        .title("추천 완료", null, resources.getColor(R.color.black))
-                                        .body("정상 처리되었습니다.", null, resources.getColor(R.color.black))
+                                        .title(resources.getString(R.string.TXT_DONE), null, resources.getColor(R.color.black))
+                                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_COMPLETE_PROCESS), null, resources.getColor(R.color.black))
                                         .icon(R.drawable.ic_select)
-                                        .onPositive("확인"){
+                                        .onPositive(resources.getString(R.string.TXT_OK)){
                                             layout.progressView.visibility = View.GONE
                                         }
                                 }
@@ -195,15 +195,15 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
                                     layout.progressView.visibility = View.GONE
 
                                     AwesomeDialog.build(activity as MainActivity)
-                                        .title("오류", null, resources.getColor(R.color.black))
-                                        .body("요청하신 작업을 처리하는 중 문제가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                        .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                        .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                         .icon(R.drawable.ic_warning)
-                                        .onPositive("확인"){
+                                        .onPositive(resources.getString(R.string.TXT_OK)){
                                         }
                                 }
                             }
                         }
-                        .onNegative("아니오"){
+                        .onNegative(resources.getString(R.string.TXT_NO)){
 
                         }
                 }
@@ -211,10 +211,10 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
 
             R.id.btn_remove -> {
                 AwesomeDialog.build(activity as MainActivity)
-                    .title("삭제 확인", null, resources.getColor(R.color.black))
-                    .body("삭제하시겠습니까?", null, resources.getColor(R.color.black))
+                    .title(resources.getString(R.string.TXT_ALERT_TITLE_CONFIRM_REMOVE), null, resources.getColor(R.color.black))
+                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_CONFIRM_REMOVE), null, resources.getColor(R.color.black))
                     .icon(R.drawable.ic_select)
-                    .onPositive("예"){
+                    .onPositive(resources.getString(R.string.TXT_YES)){
                         layout.progressView.visibility = View.VISIBLE
 
                         helper.remove(data){
@@ -222,10 +222,10 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
                                 layout.progressView.visibility = View.GONE
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("삭제 완료", null, resources.getColor(R.color.black))
-                                    .body("정상 처리되었습니다.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_DONE), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_COMPLETE_PROCESS), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_select)
-                                    .onPositive("확인"){
+                                    .onPositive(resources.getString(R.string.TXT_OK)){
                                         layout.progressView.visibility = View.GONE
                                     }
                             }
@@ -234,16 +234,16 @@ class PetitionDetailView(private val data : PetitionDataModel): Fragment() {
                                 layout.progressView.visibility = View.GONE
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("오류", null, resources.getColor(R.color.black))
-                                    .body("요청하신 작업을 처리하는 중 문제가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ERROR), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_ERROR), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인"){
+                                    .onPositive(resources.getString(R.string.TXT_OK)){
                                         fragmentManager?.popBackStack()
                                     }
                             }
                         }
                     }
-                    .onNegative("아니오"){
+                    .onNegative(resources.getString(R.string.TXT_NO)){
 
                     }
             }

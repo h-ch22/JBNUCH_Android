@@ -214,15 +214,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "AGR_1" -> {
-                                    captionText = "농생대 1호관"
+                                    captionText = resources.getString(R.string.txt_AGR) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "AGR_2" -> {
-                                    captionText = "농생대 2호관"
+                                    captionText = resources.getString(R.string.txt_AGR) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
 
                                 "AGR_3" -> {
-                                    captionText = "농생대 3호관"
+                                    captionText = resources.getString(R.string.txt_AGR) + resources.getString(R.string.TXT_BUILDING_3)
                                 }
                             }
 
@@ -247,15 +247,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "ART_ART" -> {
-                                    captionText = "예술대 미술관"
+                                    captionText = resources.getString(R.string.txt_ART) + resources.getString(R.string.TXT_BUILDING_ART)
                                 }
 
                                 "ART_1" -> {
-                                    captionText = "예술대 본관"
+                                    captionText = resources.getString(R.string.txt_ART) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "ART_2" -> {
-                                    captionText = "예술대 2호관"
+                                    captionText = resources.getString(R.string.txt_ART) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
                             }
 
@@ -280,15 +280,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "Kookmin" -> {
-                                    captionText = "국민은행 ATM"
+                                    captionText = resources.getString(R.string.TXT_ATM_KOOKMIN)
                                 }
 
                                 "Jeonbuk" -> {
-                                    captionText = "전북은행 ATM"
+                                    captionText = resources.getString(R.string.TXT_ATM_JB)
                                 }
 
                                 "Post/NH" -> {
-                                    captionText = "우체국 / NH농협"
+                                    captionText = resources.getString(R.string.TXT_ATM_POST_NH)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -312,7 +312,7 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "CHE" -> {
-                                    captionText = "생활과학대학"
+                                    captionText = resources.getString(R.string.txt_CHE)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -336,15 +336,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "COE_1" -> {
-                                    captionText = "사범대 본관"
+                                    captionText = resources.getString(R.string.txt_COE) + resources.getString(R.string.TXT_BUILDING_MAIN)
                                 }
 
                                 "COE_Science" -> {
-                                    captionText = "사범대 과학관"
+                                    captionText = resources.getString(R.string.txt_COE) + resources.getString(R.string.TXT_BUILDING_ART)
                                 }
 
                                 "COE_ART" -> {
-                                    captionText = "사범대 예체능관"
+                                    captionText = resources.getString(R.string.txt_COE) + resources.getString(R.string.TXT_BUILDING_ART_COE)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -368,15 +368,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "COH_1" -> {
-                                    captionText = "인문대 1호관"
+                                    captionText = resources.getString(R.string.txt_COH) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "COH_2" -> {
-                                    captionText = "인문대 2호관"
+                                    captionText = resources.getString(R.string.txt_COH) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
 
                                 "COH_Social" -> {
-                                    captionText = "인문사회관"
+                                    captionText = resources.getString(R.string.TXT_BUILDING_HUMANITAS_SOCIAL)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -400,15 +400,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "COM_1" -> {
-                                    captionText = "상과대 1호관"
+                                    captionText = resources.getString(R.string.txt_COM) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "COM_2" -> {
-                                    captionText = "상과대 2호관"
+                                    captionText = resources.getString(R.string.txt_COM) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
 
                                 "COM_3" -> {
-                                    captionText = "상과대 3호관"
+                                    captionText = resources.getString(R.string.txt_COM) + resources.getString(R.string.TXT_BUILDING_3)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -432,27 +432,27 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "CON_Main" -> {
-                                    captionText = "자연대 본관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_MAIN)
                                 }
 
                                 "CON_1" -> {
-                                    captionText = "자연대 1호관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "CON_2" -> {
-                                    captionText = "자연대 2호관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
 
                                 "CON_3" -> {
-                                    captionText = "자연대 3호관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_3)
                                 }
 
                                 "CON_4" -> {
-                                    captionText = "자연대 4호관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_4)
                                 }
 
                                 "CON_5" -> {
-                                    captionText = "자연대 5호관"
+                                    captionText = resources.getString(R.string.txt_CON) + resources.getString(R.string.TXT_BUILDING_5)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -561,40 +561,40 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "ENG_1" -> {
-                                    captionText = "공과대학 1호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_1)
                                 }
 
                                 "ENG_2" -> {
-                                    captionText = "공과대학 2호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_2)
                                 }
 
                                 "ENG_3" -> {
-                                    captionText = "공과대학 3호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_3)
                                 }
 
                                 "ENG_4" -> {
-                                    captionText = "공과대학 4호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_4)
 
                                 }
 
                                 "ENG_5" -> {
-                                    captionText = "공과대학 5호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_5)
                                 }
 
                                 "ENG_6" -> {
-                                    captionText = "공과대학 6호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_6)
                                 }
 
                                 "ENG_7" -> {
-                                    captionText = "공과대학 7호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_7)
                                 }
 
                                 "ENG_8" -> {
-                                    captionText = "공과대학 8호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_8)
                                 }
 
                                 "ENG_9" -> {
-                                    captionText = "공과대학 9호관"
+                                    captionText = resources.getString(R.string.txt_ENG) + resources.getString(R.string.TXT_BUILDING_9)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -618,20 +618,20 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "Emergency" -> {
-                                    captionText = "전북대병원 권역응급의료센터"
+                                    captionText = resources.getString(R.string.TXT_EMERGENCY_CENTER)
                                 }
 
                                 "Dentist" -> {
-                                    captionText = "전북대치과병원"
+                                    captionText = resources.getString(R.string.TXT_DENTAL_CLINIC)
                                 }
 
 
                                 "Main" -> {
-                                    captionText = "전북대병원 본관"
+                                    captionText = resources.getString(R.string.TXT_JBNU_HOSPITAL_MAIN_BUILDING)
                                 }
 
                                 "Clinical" -> {
-                                    captionText = "전북대병원 임상연구지원센터"
+                                    captionText = resources.getString(R.string.TXT_Clinical_Laboratory)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -655,7 +655,7 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "NUR" -> {
-                                    captionText = "간호대학"
+                                    captionText = resources.getString(R.string.txt_NUR)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -765,11 +765,11 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "SOC" -> {
-                                    captionText = "사회과학대학"
+                                    captionText = resources.getString(R.string.txt_SOC)
                                 }
 
                                 "COH_Social" -> {
-                                    captionText = "인문사회관"
+                                    captionText = resources.getString(R.string.TXT_BUILDING_HUMANITAS_SOCIAL)
                                 }
                             }
                             captionColor = resources.getColor(R.color.accent)
@@ -793,11 +793,11 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
                             when(it.key){
                                 "MainLibrary" -> {
-                                    captionText = "중앙도서관"
+                                    captionText = resources.getString(R.string.TXT_MAIN_LIBRARY)
                                 }
 
                                 "SecondaryLibrary" -> {
-                                    captionText = "학습도서관"
+                                    captionText = resources.getString(R.string.TXT_SECOND_LIBRARY)
                                 }
 
                                 "BookStore" -> {
@@ -834,15 +834,15 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
 
     fun requestPermission(){
         AwesomeDialog.build(activity as MainActivity)
-            .title("권한 상승이 필요합니다.", null, resources.getColor(R.color.black))
-            .body("현재 위치를 표시하기 위해 위치 권한이 필요합니다.", null, resources.getColor(R.color.black))
+            .title(resources.getString(R.string.TXT_ALERT_TITLE_REQUEST_PERMISSION), null, resources.getColor(R.color.black))
+            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_LOCATION_PERMISSION), null, resources.getColor(R.color.black))
             .icon(R.drawable.ic_warning)
-            .onPositive("확인"){
+            .onPositive(resources.getString(R.string.TXT_OK)){
                 ActivityCompat.requestPermissions(context as MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                     PERMISSION_REQUEST_CODE
                 )
             }
-            .onNegative("취소")
+            .onNegative(resources.getString(R.string.TXT_CANCEL))
     }
 
     override fun onRequestPermissionsResult(
@@ -853,7 +853,7 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
         when(requestCode){
             AffiliateDetailView.PERMISSION_REQUEST_CODE -> {
                 if(grantResults.isEmpty()){
-                    Snackbar.make(campusMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(campusMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
 
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -867,7 +867,7 @@ class CampusMapView : Fragment(), OnMapReadyCallback {
                 }
 
                 else{
-                    Snackbar.make(campusMapView, "권한이 허용되지 않았습니다.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(campusMapView, resources.getString(R.string.TXT_ALERT_PERMISSION_NOT_GRANTED), Snackbar.LENGTH_LONG).show()
                 }
             }
         }

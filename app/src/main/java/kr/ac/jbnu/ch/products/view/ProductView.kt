@@ -72,19 +72,19 @@ class ProductView : Fragment() {
 
         if(currentHourIn24Format == 13){
             layout.imgStatus.setImageResource(R.drawable.ic_warning)
-            layout.txtStatus.text = "점심시간입니다. (평일 13시 ~ 14시)"
+            layout.txtStatus.text = resources.getString(R.string.TXT_PRODUCTS_LUNCH_TIME)
             layout.txtStatus.setTextColor(resources.getColor(R.color.red))
         }
 
         else if(currentHourIn24Format >= 9 && currentHourIn24Format < 18){
             layout.imgStatus.setImageDrawable(resources.getDrawable(R.drawable.ic_select))
-            layout.txtStatus.text = "민원사업을 정상적으로 이용하실 수 있습니다."
+            layout.txtStatus.text = resources.getString(R.string.TXT_PRODUCTS_STATUS_NORMAL)
             layout.txtStatus.setTextColor(resources.getColor(R.color.green))
         }
 
         else{
             layout.imgStatus.setImageResource(R.drawable.ic_warning)
-            layout.txtStatus.text = "지금은 민원사업을 이용하실 수 없습니다.\n(평일 09시 ~ 18시, 점심시간 : 12시 ~ 13시)"
+            layout.txtStatus.text = resources.getString(R.string.TXT_PRODUCTS_STATUS_UNAVAILABLE)
             layout.txtStatus.setTextColor(resources.getColor(R.color.red))
         }
 
@@ -93,7 +93,7 @@ class ProductView : Fragment() {
         when(dayNum){
             1, 7 -> {
                 layout.imgStatus.setImageResource(R.drawable.ic_warning)
-                layout.txtStatus.text = "지금은 민원사업을 이용하실 수 없습니다.\n(평일 09시 ~ 18시, 점심시간 : 12시 ~ 13시)"
+                layout.txtStatus.text = resources.getString(R.string.TXT_PRODUCTS_STATUS_UNAVAILABLE)
                 layout.txtStatus.setTextColor(resources.getColor(R.color.red))
             }
 
@@ -115,10 +115,10 @@ class ProductView : Fragment() {
 
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
-                                    .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ALERT_TITLE_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인"){
+                                    .onPositive(resources.getString(R.string.TXT_OK)){
 
                                     }
                             }
@@ -189,10 +189,10 @@ class ProductView : Fragment() {
 
 
                                 AwesomeDialog.build(activity as MainActivity)
-                                    .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
-                                    .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                                    .title(resources.getString(R.string.TXT_ALERT_TITLE_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
+                                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
                                     .icon(R.drawable.ic_warning)
-                                    .onPositive("확인"){
+                                    .onPositive(resources.getString(R.string.TXT_OK)){
 
                                     }
                             }
@@ -219,10 +219,10 @@ class ProductView : Fragment() {
                 layout.progressView.visibility = View.GONE
 
                 AwesomeDialog.build(activity as MainActivity)
-                    .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
-                    .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                    .title(resources.getString(R.string.TXT_ALERT_TITLE_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
+                    .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
                     .icon(R.drawable.ic_warning)
-                    .onPositive("확인"){
+                    .onPositive(resources.getString(R.string.TXT_OK)){
 
                     }
             }
@@ -291,10 +291,10 @@ class ProductView : Fragment() {
 
 
                         AwesomeDialog.build(activity as MainActivity)
-                            .title("데이터를 불러올 수 없음", null, resources.getColor(R.color.black))
-                            .body("데이터를 불러오는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오.", null, resources.getColor(R.color.black))
+                            .title(resources.getString(R.string.TXT_ALERT_TITLE_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
+                            .body(resources.getString(R.string.TXT_ALERT_CONTENTS_UNABLE_TO_LOAD_DATA), null, resources.getColor(R.color.black))
                             .icon(R.drawable.ic_warning)
-                            .onPositive("확인"){
+                            .onPositive(resources.getString(R.string.TXT_OK)){
 
                             }
                     }
