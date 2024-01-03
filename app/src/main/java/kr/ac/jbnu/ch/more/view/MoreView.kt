@@ -136,14 +136,14 @@ class MoreView : Fragment() {
                 transaction.commit()
             }
 
-//            R.id.btn_calendar -> {
-//                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-//                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-//                transaction.addToBackStack(null)
-//
-//                transaction.replace(R.id.mainViewArea, CalendarView())
-//                transaction.commit()
-//            }
+            R.id.btn_calendar -> {
+                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+                transaction.addToBackStack(null)
+
+                transaction.replace(R.id.mainViewArea, CalendarView())
+                transaction.commit()
+            }
 
 //            R.id.btn_meal -> {
 //                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()

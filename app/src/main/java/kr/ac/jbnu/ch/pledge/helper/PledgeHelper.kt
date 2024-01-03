@@ -73,6 +73,7 @@ class PledgeHelper {
             "Facility" -> categoryAsKorean = "시설 및 안전"
             "HumanRights" -> categoryAsKorean = "인권"
             "Welfare" -> categoryAsKorean = "복지"
+            "Communication" -> categoryAsKorean = "소통 및 학생자치"
         }
 
         return categoryAsKorean

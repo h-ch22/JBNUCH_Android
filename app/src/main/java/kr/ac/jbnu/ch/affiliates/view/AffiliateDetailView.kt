@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Layout
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
@@ -27,14 +28,16 @@ import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
 import kr.ac.jbnu.ch.R
+import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.affiliates.models.AffiliateDataModel
 import kr.ac.jbnu.ch.databinding.LayoutAffiliateDetailBinding
 import kr.ac.jbnu.ch.frameworks.models.GlideApp
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
 
-class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , OnMapReadyCallback{
+class AffiliateDetailView(private val data : AffiliateDataModel, private val helper : AffiliateHelper) : Fragment() , OnMapReadyCallback{
     private lateinit var view : LinearLayout
     private lateinit var mapView : MapView
+    private lateinit var layout : LayoutAffiliateDetailBinding
 
     companion object{
         const val PERMISSION_REQUEST_CODE = 1001
@@ -45,7 +48,7 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layout : LayoutAffiliateDetailBinding = DataBindingUtil.inflate(inflater , R.layout.layout_affiliate_detail , container , false)
+        this.layout = DataBindingUtil.inflate(inflater , R.layout.layout_affiliate_detail , container , false)
         layout.view = this
         this.view = layout.storeDetailLL
         this.mapView = layout.mapView
@@ -96,6 +99,22 @@ class AffiliateDetailView(private val data : AffiliateDataModel) : Fragment() , 
             startActivity(call_Intent)
         }
 
+    }
+
+    fun changeFavoriteStatus(){
+        helper.changeFavoriteStatus(data.isFavorite, data.id ?: ""){
+            if(it){
+                if(data.isFavorite){
+                    layout.btnFavorite.setColorFilter(resources.getColor(R.color.gray))
+                    data.isFavorite = false
+                }
+
+                else{
+                    layout.btnFavorite.setColorFilter(resources.getColor(R.color.accent))
+                    data.isFavorite = true
+                }
+            }
+        }
     }
 
     fun openInfo(){

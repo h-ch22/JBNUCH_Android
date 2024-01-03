@@ -152,7 +152,7 @@
     <string name="TXT_OPENSOURCE_LICENSE">Open Source License Information</string>
     <string name="TXT_COPYRIGHT">© 2022 Public Relations Department of Jeonbuk National University Student Association.</string>
     <string name="TXT_HEADER_INTRODUCE">Introduction to the student council</string>
-    <string name="TXT_GREET">Hi!</string>
+    <string name="TXT_GREET">Greetings</string>
     <string name="TXT_WEBSITE">Student Council Site</string>
     <string name="TXT_YOUTUBE">Student Council YouTube</string>
     <string name="TXT_LINKTREE">Student Council Link Tree</string>
@@ -195,6 +195,7 @@
     <string name="TXT_PLEDGE_CATEGORY_DORM">Dorm</string>
     <string name="TXT_PLEDGE_CATEGORY_FACILITY">Facility</string>
     <string name="TXT_PLEDGE_CATEGORY_APP">App.</string>
+    <string name="TXT_PLEDGE_CATEGORY_COMMUNICATION">Communication and student self-government</string>
     <string name="TXT_PLEDGE_CATEGORY_HUMAN_RIGHTS">Human rights</string>
     <string name="TXT_COLLEGE">College</string>
     <string name="TXT_PRODUCT_BASKETBALL">Basketball</string>
@@ -313,5 +314,13 @@
     <string name="TXT_ALERT_CONTENTS_CONFIRM_REMOVE">Are you sure to remove this petition?</string>
     <string name="TXT_ADDRESS">Address :</string>
     <string name="TXT_PETITION_CATEGORY_ALL">All</string>
+    <string name="TXT_AFFILIATE_POSITION_JBNU">JBNU</string>
+    <string name="TXT_AFFILIATE_POSITION_OLD_TOWN">Old Town</string>
+    <string name="TXT_AFFILIATE_POSITION_NEW_TOWN">New Town</string>
+    <string name="TXT_AFFILIATE_POSITION_FAVORITE">Favorite</string>
+    <string name="TXT_REQUEST_ACCEPT_LICENSE">Please read and accept EULA</string>
+    <string name="TXT_CALENDAR">Employment/external activities/bachelor\'s calendar</string>
+    <string name="TXT_HOME_CALENDAR">Calendar</string>
+    <string name="TXT_HOME_UPCOMING_CALENDAR">📆 Upcoming employment/external activities/schedule</string>
 
 </resources>

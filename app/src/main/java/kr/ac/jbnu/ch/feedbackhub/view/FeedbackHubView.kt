@@ -36,6 +36,16 @@ class FeedbackHubView() : Fragment() {
         layout.view = this
         layout.lifecycleOwner = this
 
+        if(layout.btnFacility.text != "시설"){
+            layout.btnFacility.textSize = 15F
+            layout.btnWelfare.textSize = 15F
+            layout.btnCommunication.textSize = 15F
+            layout.btnApp.textSize = 15F
+            layout.btnPledge.textSize = 15F
+            layout.btnFestival.textSize = 15F
+            layout.btnOthers.textSize = 15F
+        }
+
         val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
         backBtn.setOnClickListener {
             (activity as MainActivity).onBackPressed()

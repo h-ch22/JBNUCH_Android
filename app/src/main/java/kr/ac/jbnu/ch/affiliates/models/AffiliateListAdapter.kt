@@ -1,6 +1,7 @@
 package kr.ac.jbnu.ch.affiliates.models
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,16 +16,23 @@ import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.frameworks.models.GlideApp
 import kr.ac.jbnu.ch.frameworks.models.MyAppGlideModule
+import kr.ac.jbnu.ch.pledge.helper.PledgeHelper
 import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 
-class AffiliateListAdapter :
+class AffiliateListAdapter(private val isFiltered : Boolean) :
     RecyclerView.Adapter<AffiliateListAdapter.ViewHolder>(), Filterable {
     private lateinit var context : Context
     private var searchList : ArrayList<AffiliateDataModel>? = null
     private val userManagement = UserManagement()
 
     init{
-        searchList = AffiliateHelper.storeList
+        if(isFiltered){
+            searchList = AffiliateHelper.storeList_filtered
+        }
+
+        else{
+            searchList = AffiliateHelper.storeList
+        }
     }
 
     interface OnItemClickListener{
@@ -68,6 +76,7 @@ class AffiliateListAdapter :
         var closedLL : LinearLayout = view.findViewById(R.id.closedLL)
         var timeLL : LinearLayout = view.findViewById(R.id.timeLL)
         var type : TextView = view.findViewById(R.id.affiliate_type)
+        var isFavorite : ImageView = view.findViewById(R.id.img_favorite)
 
         fun bind(data : AffiliateDataModel){
             txt_storeName.text = data.storeName
@@ -112,6 +121,14 @@ class AffiliateListAdapter :
 
             }
 
+            if(data.isFavorite){
+                isFavorite.setColorFilter(ContextCompat.getColor(context, R.color.accent), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+
+            else{
+                isFavorite.setColorFilter(ContextCompat.getColor(context, R.color.gray), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+
             val pos = adapterPosition
 
             if(pos != RecyclerView.NO_POSITION){
@@ -128,17 +145,39 @@ class AffiliateListAdapter :
                 val charString = p0.toString()
 
                 if(charString.isEmpty()){
-                    searchList = AffiliateHelper.storeList
-                } else{
-                    val filteredList = ArrayList<AffiliateDataModel>()
-
-                    for(store in AffiliateHelper.storeList){
-                        if(store.storeName?.contains(charString) == true || store.benefits?.contains(charString) == true){
-                            filteredList.add(store)
-                        }
+                    if(isFiltered){
+                        searchList = AffiliateHelper.storeList_filtered
                     }
 
-                    searchList = filteredList
+                    else{
+                        searchList = AffiliateHelper.storeList
+                    }
+                } else{
+                    if(isFiltered){
+                        val filteredList = ArrayList<AffiliateDataModel>()
+
+                        for(store in AffiliateHelper.storeList_filtered){
+                            if(store.storeName?.contains(charString) == true || store.benefits?.contains(charString) == true){
+                                filteredList.add(store)
+                            }
+                        }
+
+                        searchList = filteredList
+                    }
+
+                    else{
+                        val filteredList = ArrayList<AffiliateDataModel>()
+
+                        for(store in AffiliateHelper.storeList){
+                            if(store.storeName?.contains(charString) == true || store.benefits?.contains(charString) == true){
+                                filteredList.add(store)
+                            }
+                        }
+
+                        searchList = filteredList
+                    }
+
+
                 }
 
                 val filterResults = FilterResults()

@@ -79,7 +79,7 @@
                     <TextView
                         android:id = "@+id/txt_benefits"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="40dp"
                         android:textColor="@color/gray"
                         android:scrollbars="vertical"
                         android:gravity="center_vertical"
@@ -88,6 +88,16 @@
                         app:layout_constraintTop_toBottomOf="@id/txt_storeName"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
+
+                    <ImageButton
+                        android:id="@+id/btn_favorite"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:onClick="@{(v) -> view.changeFavoriteStatus()}"
+                        android:src="@drawable/ic_favorite"
+                        app:layout_constraintStart_toEndOf="@id/txt_storeName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="#00000000"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"

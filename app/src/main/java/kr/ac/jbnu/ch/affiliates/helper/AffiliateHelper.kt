@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kr.ac.jbnu.ch.affiliates.models.AffiliateDataModel
+import kr.ac.jbnu.ch.pledge.helper.PledgeHelper
 import kr.ac.jbnu.ch.userManagement.helper.UserManagement
 import kr.ac.jbnu.ch.userManagement.models.CollegeCodeModel
 
@@ -13,11 +14,112 @@ class AffiliateHelper {
     companion object{
         var adList = ArrayList<StorageReference>()
         var storeList = ArrayList<AffiliateDataModel>()
+        var storeList_filtered  = ArrayList<AffiliateDataModel>()
     }
 
     private var storage = FirebaseStorage.getInstance()
     private var helper = UserManagement()
     private val db = FirebaseFirestore.getInstance()
+
+    fun changeFavoriteStatus(isFavorite : Boolean, id : String, completion: (Boolean) -> Unit){
+        val docRef = db.collection("Users").document(UserManagement.userInfo?.uid ?: "").collection("Favorites")
+
+        if(isFavorite){
+           docRef.document(id).delete().addOnCompleteListener {
+                if(it.isSuccessful){
+                    completion(true)
+                    return@addOnCompleteListener
+                }
+
+                else{
+                    completion(false)
+                    return@addOnCompleteListener
+                }
+            }
+        }
+
+        else{
+            val data = HashMap<String, Any>()
+            data.put("isFavorite", true)
+            docRef.document(id).set(data).addOnCompleteListener {
+                if(it.isSuccessful){
+                    completion(true)
+                    return@addOnCompleteListener
+                }
+
+                else{
+                    completion(false)
+                    return@addOnCompleteListener
+                }
+            }
+        }
+    }
+
+    fun getFavorite(id : String, completion: (Boolean) -> Unit){
+        val docRef = db.collection("Users").document(UserManagement.userInfo?.uid ?: "").collection("Favorites").document(id)
+
+        docRef.get().addOnCompleteListener {
+            if(it.isSuccessful){
+                val document = it.result
+
+                if(document.exists()){
+                    completion(true)
+                    return@addOnCompleteListener
+                }
+
+                else{
+                    completion(false)
+                    return@addOnCompleteListener
+                }
+            }
+
+            else{
+                completion(false)
+                return@addOnCompleteListener
+            }
+        }
+    }
+
+    fun getStoreByPos(pos : String, completion : (Boolean) -> Unit){
+        storeList_filtered.clear()
+
+        if(pos != "gosa" && pos != "hyoja" && pos != "deokjin"){
+            if(pos == "favorite"){
+                storeList.forEach{
+                    if(it.isFavorite){
+                        storeList_filtered.add(it)
+                    }
+                }
+            }
+
+            else{
+                storeList.forEach{
+                    if(it.pos != "gosa" && it.pos != "hyoja" && it.pos != "deokjin"){
+                        storeList_filtered.add(it)
+                    }
+                }
+            }
+
+            println(storeList_filtered)
+
+            completion(true)
+
+        }
+
+        else{
+            storeList.forEach{
+                if(it.pos == pos){
+                    storeList_filtered.add(it)
+                    println(storeList_filtered)
+
+                }
+            }
+
+            completion(true)
+
+        }
+
+    }
 
     fun getAdList(completion : (Boolean) -> Unit){
         adList.clear()
@@ -77,8 +179,22 @@ class AffiliateHelper {
                                         val tel = storeMap.get("tel") as? String ?: ""
                                         val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
                                         val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+                                        val pos = storeMap.get("pos") as? String ?: ""
+                                        var isFavorite = false
 
-                                        storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
+                                        getFavorite(id){
+                                            if(it){
+                                                isFavorite = true
+                                            }
+
+                                            else{
+                                                isFavorite = false
+                                            }
+                                        }
+
+                                        storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver, pos, isFavorite))
+
+
                                     }
                                 }
                             }
@@ -115,11 +231,27 @@ class AffiliateHelper {
                                     val tel = storeMap.get("tel") as? String ?: ""
                                     val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
                                     val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+                                    val pos = storeMap.get("pos") as? String ?: ""
 
-                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
+                                    var isFavorite = false
+
+                                    getFavorite(id){
+                                        if(it){
+                                            isFavorite = true
+                                        }
+
+                                        else{
+                                            isFavorite = false
+                                        }
+                                    }
+
+                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"CH", URL_Baemin, URL_Naver, pos, isFavorite))
+
+
+
                                 }
                             }
-
+                            println(storeList)
                             completion(true)
                         }
 
@@ -155,8 +287,22 @@ class AffiliateHelper {
 
                                     val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
                                     val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+                                    val pos = storeMap.get("pos") as? String ?: ""
+                                    var isFavorite = false
 
-                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
+                                    getFavorite(id){
+                                        if(it){
+                                            isFavorite = true
+                                        }
+
+                                        else{
+                                            isFavorite = false
+                                        }
+                                    }
+
+                                    storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"CH", URL_Baemin, URL_Naver, pos, isFavorite))
+
+
                                 }
                             }
 
@@ -188,8 +334,22 @@ class AffiliateHelper {
 
                             val URL_Baemin = storeMap.get("URL_Baemin") as? String ?: ""
                             val URL_Naver = storeMap.get("URL_Naver") as? String ?: ""
+                            val pos = storeMap.get("pos") as? String ?: ""
+                            var isFavorite = false
 
-                            storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"College", URL_Baemin, URL_Naver))
+                            getFavorite(id){
+                                if(it){
+                                    isFavorite = true
+                                }
+
+                                else{
+                                    isFavorite = false
+                                }
+                            }
+
+                            storeList.add(AffiliateDataModel(storeName, benefits, breakTime, closeTime, closed, id, location, menu, openTime, price, tel, storage.reference.child("storeLogo/${id}.png"),"CH", URL_Baemin, URL_Naver, pos, isFavorite))
+
+
                         }
 
                         completion(true)

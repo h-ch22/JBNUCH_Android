@@ -66,7 +66,7 @@ class InfoView : Fragment() {
     fun changeView(v : View){
         when(v.id){
             R.id.btn_EULA -> {
-                this.pdfViewer = PDFViewer(LicenseTypeModel.EULA)
+                this.pdfViewer = PDFViewer(LicenseTypeModel.EULA, null)
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.setCustomAnimations(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
                 transaction.addToBackStack(null)
@@ -76,7 +76,7 @@ class InfoView : Fragment() {
             }
 
             R.id.btn_privacy -> {
-                this.pdfViewer = PDFViewer(LicenseTypeModel.PrivacyLicense)
+                this.pdfViewer = PDFViewer(LicenseTypeModel.PrivacyLicense, null)
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.setCustomAnimations(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
                 transaction.addToBackStack(null)

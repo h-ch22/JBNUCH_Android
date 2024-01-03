@@ -313,5 +313,14 @@
     <string name="TXT_ALERT_CONTENTS_CONFIRM_REMOVE">삭제하시겠습니까?</string>
     <string name="TXT_ADDRESS">"주소 : "</string>
     <string name="TXT_PETITION_CATEGORY_ALL">전체</string>
+    <string name="TXT_PLEDGE_CATEGORY_COMMUNICATION">소통 및 학생자치</string>
+    <string name="TXT_AFFILIATE_POSITION_JBNU">전북대</string>
+    <string name="TXT_AFFILIATE_POSITION_OLD_TOWN">객사</string>
+    <string name="TXT_AFFILIATE_POSITION_NEW_TOWN">신시가지</string>
+    <string name="TXT_AFFILIATE_POSITION_FAVORITE">즐겨찾기</string>
+    <string name="TXT_REQUEST_ACCEPT_LICENSE">이용약관을 읽고 동의해주세요.</string>
+    <string name="TXT_CALENDAR">취업/대외활동/학사일정 캘린더</string>
+    <string name="TXT_HOME_CALENDAR">캘린더</string>
+    <string name="TXT_HOME_UPCOMING_CALENDAR">📆 다가올 취업/대외활동/학사일정</string>
 
 </resources>

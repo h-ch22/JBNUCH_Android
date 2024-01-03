@@ -37,7 +37,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
-class AffiliateMapView : Fragment(), OnMapReadyCallback {
+class AffiliateMapView(private val helper: AffiliateHelper) : Fragment(), OnMapReadyCallback {
     private lateinit var mapView : com.naver.maps.map.MapView
     private lateinit var affiliateMapView : FrameLayout
     private var naverMap : NaverMap? = null
@@ -150,7 +150,7 @@ class AffiliateMapView : Fragment(), OnMapReadyCallback {
         transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
         transaction.addToBackStack(null)
 
-        transaction.replace(R.id.mainViewArea, AffiliateDetailView(data))
+        transaction.replace(R.id.mainViewArea, AffiliateDetailView(data, helper))
         transaction.commit()
     }
 

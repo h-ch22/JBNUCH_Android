@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutTranslateSelectLanguageBinding
 import kr.ac.jbnu.ch.frameworks.helper.TranslationManager
+import kr.ac.jbnu.ch.frameworks.models.LanguageModel
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.notice.models.NoticeDataModel
 import kr.ac.jbnu.ch.notice.models.NoticeListAdapter
@@ -39,20 +40,24 @@ class TranslateLanguageSelectionView(val noticeData : NoticeDataModel) : Fragmen
             adapter = listAdapter
         }
 
-/*        listAdapter.setOnItemClickListener(object : TranslateLanguageSelectionViewAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: TranslationLanguageDataModel, pos: Int) {
+        listAdapter.setOnItemClickListener(object : TranslateLanguageSelectionViewAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, data: LanguageModel, pos: Int) {
                 val helper = TranslationManager()
 
-                val targetLanguage = helper.convertLanguageCode(data.languageCode)
+                val targetLanguage = data.languageCode
 
                 helper.translate(noticeData.noticeContents, targetLanguage){
-                    if(it != ""){
-                        TranslationManager.translatedText = it
-                        (activity as MainActivity).onBackPressed()
+                    if(it == true){
+                        (activity as MainActivity).runOnUiThread(object : Runnable{
+                            override fun run() {
+                                (activity as MainActivity).onBackPressed()
+                            }
+
+                        })
                     }
                 }
             }
-        })*/
+        })
 
         val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
         backBtn.setOnClickListener {

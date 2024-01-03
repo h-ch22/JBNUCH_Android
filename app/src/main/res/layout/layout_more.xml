@@ -178,26 +178,26 @@
                 app:iconSize="20dp"
                 app:iconGravity="start"/>
 
-<!--            <View-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="10dp"/>-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:id = "@+id/btn_calendar"-->
-<!--                android:layout_width="350dp"-->
-<!--                android:layout_height="70dp"-->
-<!--                android:text = "취업/대외활동/학사일정 캘린더"-->
-<!--                android:elevation="5dp"-->
-<!--                android:backgroundTint="@color/btnColor"-->
-<!--                android:textColor="@color/txtColor"-->
-<!--                android:textAlignment="textStart"-->
-<!--                android:onClick="@{(v) -> view.changeView(v)}"-->
-<!--                app:iconPadding="15dp"-->
-<!--                app:icon="@drawable/ic_calendar"-->
-<!--                app:iconTint="#00FFFFFF"-->
-<!--                app:iconTintMode="add"-->
-<!--                app:iconSize="20dp"-->
-<!--                app:iconGravity="start"/>-->
+            <com.google.android.material.button.MaterialButton
+                android:id = "@+id/btn_calendar"
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:text = "@string/TXT_CALENDAR"
+                android:elevation="5dp"
+                android:backgroundTint="@color/btnColor"
+                android:textColor="@color/txtColor"
+                android:textAlignment="textStart"
+                android:onClick="@{(v) -> view.changeView(v)}"
+                app:iconPadding="15dp"
+                app:icon="@drawable/ic_calendar"
+                app:iconTint="#00FFFFFF"
+                app:iconTintMode="add"
+                app:iconSize="20dp"
+                app:iconGravity="start"/>
 
 <!--            <View-->
 <!--                android:layout_width="match_parent"-->

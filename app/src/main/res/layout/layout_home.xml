@@ -39,6 +39,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_date"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_dayOfWeek"
+                    android:textColor="@color/txtColor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_date"/>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -164,10 +183,10 @@
                     android:layout_height="100dp"
                     android:onClick="@{(v) -> view.onClick(v)}"
                     android:background="@color/background"
-                    android:text="@string/TXT_PLEDGE"
+                    android:text="@string/TXT_HOME_CALENDAR"
                     android:textSize="15sp"
                     android:textColor="@color/txtColor"
-                    app:icon="@drawable/ic_percentage"
+                    app:icon="@drawable/ic_calendar"
                     app:iconTintMode="add"
                     app:iconGravity="top"
                     app:iconTint="#00FFFFFF"
@@ -216,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "@string/TXT_HOME_HEADER_SPORTS"
+                    android:text = "@string/TXT_HOME_UPCOMING_CALENDAR"
                     android:textColor="@color/txtColor"
                     android:textStyle="bold"
                     android:textSize="18sp"
@@ -231,7 +250,7 @@
                 android:layout_height="20dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/sportsLL"
+                android:id="@+id/calendarLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

@@ -56,19 +56,21 @@ class NoticeDetailView(val data : NoticeDataModel) : Fragment() {
 
         btn_translate.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
-                /*val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-                transaction.addToBackStack(null)
 
-                transaction.replace(R.id.mainViewArea, TranslateLanguageSelectionView(data))
-                transaction.commit()*/
 
                 val helper = TranslationManager()
                 helper.fetchSupportedLanguages {
                     if(it){
+                        val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+                        transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+                        transaction.addToBackStack(null)
 
+                        transaction.replace(R.id.mainViewArea, TranslateLanguageSelectionView(data))
+                        transaction.commit()
                     }
                 }
+
+
             }
 
         })
@@ -117,11 +119,16 @@ class NoticeDetailView(val data : NoticeDataModel) : Fragment() {
         return layout.root
     }
 
- /*   override fun onResume() {
+    override fun onResume() {
         super.onResume()
 
         if(TranslationManager.translatedText != ""){
             txt_contents.text = TranslationManager.translatedText
         }
-    }*/
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        TranslationManager.translatedText = ""
+    }
 }

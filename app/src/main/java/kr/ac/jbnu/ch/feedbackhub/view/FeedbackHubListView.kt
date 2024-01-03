@@ -45,7 +45,7 @@ class FeedbackHubListView(private val type : String) : Fragment() {
 
         layout.progressLL.visibility = View.VISIBLE
 
-                layout.swipeLayout.setColorSchemeColors(resources.getColor(R.color.accent))
+        layout.swipeLayout.setColorSchemeColors(resources.getColor(R.color.accent))
 
         layout.swipeLayout.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener{
             override fun onRefresh() {
@@ -113,7 +113,6 @@ class FeedbackHubListView(private val type : String) : Fragment() {
                             adapter = listAdapter
                         }
                     }
-
                 }
             }
 

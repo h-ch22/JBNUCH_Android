@@ -85,4 +85,10 @@ gen-external-apklibs
 hs_err_pid*
 replay_pid*
 
+app/build
+app/release
+google-services.json
+app/src/main/assets
+AES256Util.kt
+
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,android

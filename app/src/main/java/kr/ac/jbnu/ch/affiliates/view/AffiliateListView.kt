@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.affiliates.helper.AffiliateHelper
 import kr.ac.jbnu.ch.affiliates.models.AffiliateDataModel
@@ -24,8 +25,9 @@ import kr.ac.jbnu.ch.frameworks.view.MainActivity
 
 class AffiliateListView(private val category : String, private val categoryAsKorean : String) : Fragment(), onKeyBackPressedListener {
     private val helper = AffiliateHelper()
-    private val listAdapter = AffiliateListAdapter()
+    private lateinit var listAdapter : AffiliateListAdapter
     private lateinit var list : RecyclerView
+    private lateinit var toggleGroup : SingleSelectToggleGroup
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,15 +61,8 @@ class AffiliateListView(private val category : String, private val categoryAsKor
             transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
             transaction.addToBackStack(null)
 
-            transaction.replace(R.id.mainViewArea, AffiliateMapView())
+            transaction.replace(R.id.mainViewArea, AffiliateMapView(helper))
             transaction.commit()
-        }
-
-        helper.getStoreList(category){
-            if(it){
-                layout.progressLL.visibility = View.GONE
-                layout.affiliateListLL.visibility = View.VISIBLE
-            }
         }
 
         val backBtn = layout.toolbar.findViewById<ImageButton>(R.id.btn_toolbarBack)
@@ -75,26 +70,114 @@ class AffiliateListView(private val category : String, private val categoryAsKor
             (activity as MainActivity).onBackPressed()
         }
 
+        toggleGroup = layout.toggleGroupAffiliatePosition
+
+        toggleGroup.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.btn_affiliatePos_All -> {
+                    layout.progressLL.visibility = View.VISIBLE
+                    layout.affiliateListLL.visibility = View.GONE
+
+                    helper.getStoreList(category) {
+                        if(it){
+                            println(AffiliateHelper.storeList)
+                            layout.progressLL.visibility = View.GONE
+                            layout.affiliateListLL.visibility = View.VISIBLE
+
+                            listAdapter = AffiliateListAdapter(false)
+
+                            list.apply {
+                                layoutManager = LinearLayoutManager(activity)
+                                adapter = listAdapter
+                            }
+
+                            listAdapter.setOnItemClickListener(object :
+                                AffiliateListAdapter.OnItemClickListener {
+                                override fun onItemClick(v: View, data: AffiliateDataModel, pos: Int) {
+                                    val transaction: FragmentTransaction =
+                                        requireFragmentManager().beginTransaction()
+                                    transaction.setCustomAnimations(
+                                        R.anim.anim_slide_in_bottom,
+                                        R.anim.anim_slide_out_top
+                                    )
+                                    transaction.addToBackStack(null)
+
+                                    transaction.replace(R.id.mainViewArea, AffiliateDetailView(data, helper))
+                                    transaction.commit()
+                                }
+                            })
+                        }
+                    }
+                }
+
+                R.id.btn_affiliatePos_JBNU -> {
+                    sortStore("deokjin")
+
+
+                }
+
+                R.id.btn_affiliatePos_NewTown -> {
+                    sortStore("hyoja")
+
+                }
+
+                R.id.btn_affiliatePos_OldTown -> {
+                    sortStore("gosa")
+
+                }
+
+                R.id.btn_affiliatePos_Others -> {
+                    sortStore("others")
+                }
+
+                R.id.btn_affiliatePos_Favorite -> {
+                    sortStore("favorite")
+                }
+            }
+        }
+
         return layout.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun sortStore(pos : String){
+        helper.getStoreByPos(pos) {
+            if (it) {
+                Log.d("AffiliateListView", "Sort : Successful")
 
-        listAdapter.setOnItemClickListener(object : AffiliateListAdapter.OnItemClickListener{
-            override fun onItemClick(v : View, data : AffiliateDataModel, pos : Int){
-                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-                transaction.addToBackStack(null)
+                listAdapter = AffiliateListAdapter(true)
 
-                transaction.replace(R.id.mainViewArea, AffiliateDetailView(data))
-                transaction.commit()
+                list.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = listAdapter
+                }
+
+                listAdapter.setOnItemClickListener(object :
+                    AffiliateListAdapter.OnItemClickListener {
+                    override fun onItemClick(
+                        v: View,
+                        data: AffiliateDataModel,
+                        pos: Int
+                    ) {
+                        val transaction: FragmentTransaction =
+                            requireFragmentManager().beginTransaction()
+                        transaction.setCustomAnimations(
+                            R.anim.anim_slide_in_bottom,
+                            R.anim.anim_slide_out_top
+                        )
+                        transaction.addToBackStack(null)
+
+                        transaction.replace(
+                            R.id.mainViewArea,
+                            AffiliateDetailView(data, helper)
+                        )
+                        transaction.commit()
+                    }
+                })
             }
-        })
 
-        list.apply{
-            layoutManager = LinearLayoutManager(activity)
-            adapter = listAdapter
+            else{
+                Log.d("AffiliateListView", "Sort : Fail")
+            }
         }
     }
 

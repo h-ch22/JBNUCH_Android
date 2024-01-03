@@ -8,18 +8,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.frameworks.helper.TranslationManager
+import kr.ac.jbnu.ch.frameworks.models.LanguageModel
 
 class TranslateLanguageSelectionViewAdapter :
     RecyclerView.Adapter<TranslateLanguageSelectionViewAdapter.ViewHolder>(){
         private lateinit var context : Context
-        private var list : ArrayList<TranslationLanguageDataModel>? = null
+        private var list : ArrayList<LanguageModel>? = null
 
     init{
-        //list = TranslationManager.getLanguageList()
+        list = TranslationManager.languageList
     }
 
         interface OnItemClickListener{
-            fun onItemClick(v : View, data : TranslationLanguageDataModel, pos : Int)
+            fun onItemClick(v : View, data : LanguageModel, pos : Int)
         }
 
     private var listener : OnItemClickListener? = null
@@ -54,8 +55,8 @@ class TranslateLanguageSelectionViewAdapter :
         val language : TextView = view.findViewById(R.id.txt_language)
         val languageCode : TextView = view.findViewById(R.id.txt_language_code)
 
-        fun bind(data : TranslationLanguageDataModel){
-            language.text = data.language
+        fun bind(data : LanguageModel){
+            language.text = data.languageName
             languageCode.text = data.languageCode
 
             val pos = adapterPosition

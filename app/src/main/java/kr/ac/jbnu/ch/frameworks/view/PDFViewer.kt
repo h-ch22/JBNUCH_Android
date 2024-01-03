@@ -11,7 +11,7 @@ import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.databinding.LayoutPdfViewBinding
 import kr.ac.jbnu.ch.frameworks.models.LicenseTypeModel
 
-class PDFViewer(val type : LicenseTypeModel) : Fragment() {
+class PDFViewer(val type : LicenseTypeModel, val page : Int?) : Fragment() {
     private lateinit var pdfView : PDFView
     private var resID : Int? = null
 
@@ -47,7 +47,17 @@ class PDFViewer(val type : LicenseTypeModel) : Fragment() {
             LicenseTypeModel.PLEDGEBOOK -> {
                 val assetManager = resources.assets
                 val inputStream = assetManager.open("pledgeBook/PledgeBook.pdf")
-                pdfView.fromStream(inputStream).load()
+
+                if(page != null){
+                    pdfView.fromStream(inputStream).defaultPage(page).load()
+
+                }
+
+                else{
+                    pdfView.fromStream(inputStream).load()
+
+                }
+
             }
         }
     }

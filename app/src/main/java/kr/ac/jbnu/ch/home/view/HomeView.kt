@@ -1,6 +1,5 @@
 package kr.ac.jbnu.ch.home.view
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,40 +9,41 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.awesomedialog.*
 import kr.ac.jbnu.ch.R
 import kr.ac.jbnu.ch.affiliates.view.AffiliateListView
+import kr.ac.jbnu.ch.calendar.helper.CalendarDataHelper
+import kr.ac.jbnu.ch.calendar.models.CalendarDataModel
+import kr.ac.jbnu.ch.calendar.view.CalendarView
 import kr.ac.jbnu.ch.databinding.LayoutHomeBinding
-import kr.ac.jbnu.ch.feedbackhub.view.FeedbackHubMainView
 import kr.ac.jbnu.ch.feedbackhub.view.FeedbackHubView
 import kr.ac.jbnu.ch.frameworks.view.MainActivity
 import kr.ac.jbnu.ch.home.models.HomeNoticeAdapter
 import kr.ac.jbnu.ch.home.models.HomePetitionAdapter
-import kr.ac.jbnu.ch.home.models.HomeSportsAdapter
+import kr.ac.jbnu.ch.home.models.HomeCalendarAdapter
 import kr.ac.jbnu.ch.notice.helper.NoticeHelper
 import kr.ac.jbnu.ch.notice.models.NoticeDataModel
-import kr.ac.jbnu.ch.notice.models.NoticeListAdapter
 import kr.ac.jbnu.ch.notice.view.NoticeDetailView
 import kr.ac.jbnu.ch.notice.view.NoticeListView
 import kr.ac.jbnu.ch.petition.helper.PetitionHelper
 import kr.ac.jbnu.ch.petition.models.PetitionDataModel
 import kr.ac.jbnu.ch.petition.view.PetitionDetailView
 import kr.ac.jbnu.ch.petition.view.PetitionListView
-import kr.ac.jbnu.ch.pledge.view.PledgeView
 import kr.ac.jbnu.ch.products.view.ProductView
 import kr.ac.jbnu.ch.sports.helper.SportsHelper
 import kr.ac.jbnu.ch.sports.models.SportsDataModel
 import kr.ac.jbnu.ch.sports.view.SportsDetailView
 import kr.ac.jbnu.ch.userManagement.helper.UserManagement
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeView : Fragment(){
     private val noticeHelper = NoticeHelper()
     private val petitionHelper = PetitionHelper()
-    private val sportsHelper = SportsHelper()
+    private val calendarHelper = CalendarDataHelper()
 
     private lateinit var noticeList : RecyclerView
     private lateinit var petitionList : RecyclerView
-    private lateinit var sportsList : RecyclerView
+    private lateinit var calendarList : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,9 +57,18 @@ class HomeView : Fragment(){
 
         layout.txtGreet.text = "${resources.getString(R.string.TXT_HOME_GREET)}\n${UserManagement.userInfo?.name ?: ""}${resources.getString(R.string.TXT_HOME_GREET_FIN)}"
 
+        val formatter_day = SimpleDateFormat("MM/dd")
+        val day = formatter_day.format(Date())
+
+        val formatter_dayOfWeek = SimpleDateFormat("E")
+        val dayOfWeek = formatter_dayOfWeek.format(Date())
+
+        layout.txtDayOfWeek.text = dayOfWeek
+        layout.txtDate.text = day
+
         noticeList = layout.latestNoticeLL
         petitionList = layout.petitionLL
-        sportsList = layout.sportsLL
+        calendarList = layout.calendarLL
 
         val noticeLayoutManager = LinearLayoutManager(activity)
         noticeLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
@@ -67,12 +76,12 @@ class HomeView : Fragment(){
         val petitionLayoutManager = LinearLayoutManager(activity)
         petitionLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        val sportsLayoutManager = LinearLayoutManager(activity)
-        sportsLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        val calendarLayoutManager = LinearLayoutManager(activity)
+        calendarLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
         val noticeAdapter = HomeNoticeAdapter()
         val petitionAdapter = HomePetitionAdapter()
-        val sportsAdapter = HomeSportsAdapter()
+
 
         noticeHelper.getNotice("CH"){
             if(it){
@@ -94,6 +103,7 @@ class HomeView : Fragment(){
             }
         })
 
+
         petitionHelper.getPetitionList {
             if(it){
                 petitionList.apply{
@@ -114,26 +124,28 @@ class HomeView : Fragment(){
             }
         })
 
-        sportsHelper.getSportsList("All"){
+        calendarHelper.getResource(){
             if(it){
-                sportsList.apply{
-                    layoutManager = sportsLayoutManager
-                    adapter = sportsAdapter
+                val calendarAdapter = HomeCalendarAdapter()
+
+                calendarList.apply{
+                    layoutManager = calendarLayoutManager
+                    adapter = calendarAdapter
                 }
+
+                calendarAdapter.setOnItemClickListener(object : HomeCalendarAdapter.OnItemClickListener{
+                    override fun onItemClick(v : View, data : CalendarDataModel, pos : Int){
+                        val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+                        transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
+                        transaction.addToBackStack(null)
+
+                        transaction.replace(R.id.mainViewArea, CalendarView())
+                        transaction.commit()
+                    }
+                })
             }
 
         }
-
-        sportsAdapter.setOnItemClickListener(object : HomeSportsAdapter.OnItemClickListener{
-            override fun onItemClick(v : View, data : SportsDataModel, pos : Int){
-                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-                transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
-                transaction.addToBackStack(null)
-
-                transaction.replace(R.id.mainViewArea, SportsDetailView(data))
-                transaction.commit()
-            }
-        })
 
         return layout.root
     }
@@ -190,7 +202,7 @@ class HomeView : Fragment(){
                 transaction.setCustomAnimations(R.anim.anim_slide_in_bottom, R.anim.anim_slide_out_top)
                 transaction.addToBackStack(null)
 
-                transaction.replace(R.id.mainViewArea, PledgeView())
+                transaction.replace(R.id.mainViewArea, CalendarView())
                 transaction.commit()
             }
         }

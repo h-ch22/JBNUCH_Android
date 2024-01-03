@@ -54,6 +54,12 @@
                     android:textStyle="bold"
                     android:textColor="@color/txtColor"/>
 
+                <ImageView
+                    android:id="@+id/img_favorite"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_favorite"/>
+
             </LinearLayout>
 
             <TextView

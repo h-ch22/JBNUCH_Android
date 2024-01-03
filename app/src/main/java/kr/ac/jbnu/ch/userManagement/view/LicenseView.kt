@@ -52,7 +52,7 @@ class LicenseView(val type : SignUpChangeViewModel, val email : String?) : Fragm
     fun loadLicense(view : View){
         when(view.id){
             R.id.btn_readEULA -> {
-                this.pdfViewer = PDFViewer(LicenseTypeModel.EULA)
+                this.pdfViewer = PDFViewer(LicenseTypeModel.EULA, null)
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.setCustomAnimations(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
                 transaction.addToBackStack(null)
@@ -62,7 +62,7 @@ class LicenseView(val type : SignUpChangeViewModel, val email : String?) : Fragm
             }
 
             R.id.btn_readPrivacy -> {
-                this.pdfViewer = PDFViewer(LicenseTypeModel.PrivacyLicense)
+                this.pdfViewer = PDFViewer(LicenseTypeModel.PrivacyLicense, null)
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.setCustomAnimations(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
                 transaction.addToBackStack(null)
@@ -75,7 +75,7 @@ class LicenseView(val type : SignUpChangeViewModel, val email : String?) : Fragm
 
     fun changeView(){
         if(!acceptEULA || !acceptPrivacyLicense){
-            Snackbar.make(view, "이용 약관을 읽고 동의해주세요.", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(view, resources.getText(R.string.TXT_REQUEST_ACCEPT_LICENSE), Snackbar.LENGTH_LONG).show()
         }
 
         else{

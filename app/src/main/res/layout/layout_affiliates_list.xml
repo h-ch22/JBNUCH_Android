@@ -13,17 +13,97 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingHorizontal="10dp">
+
+            <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                android:id="@+id/toggleGroup_affiliatePosition"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:tbgCheckedButton="@+id/btn_affiliatePos_All">
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_ALL"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_All"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_AFFILIATE_POSITION_JBNU"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_JBNU"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_AFFILIATE_POSITION_OLD_TOWN"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_OldTown"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_AFFILIATE_POSITION_NEW_TOWN"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_NewTown"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/txt_others"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_Others"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <com.nex3z.togglebuttongroup.button.LabelToggle
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/TXT_AFFILIATE_POSITION_FAVORITE"
+                    android:textColor="@color/txtColor"
+                    android:id="@+id/btn_affiliatePos_Favorite"/>
+
+            </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id = "@+id/affiliateListLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
             android:background="@color/background"
-            android:paddingVertical="?attr/actionBarSize"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            app:layout_constraintTop_toBottomOf="@id/scrollView">
 
         </androidx.recyclerview.widget.RecyclerView>
 
