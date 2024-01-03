@@ -3,10 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("org.jetbrains.kotlin.kapt")
-//    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.devtools.ksp")
 }
 
 android {
+    namespace "kr.ac.jbnu.ch"
     compileSdk 34
     dataBinding{
         enabled = true
@@ -50,7 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-functions-ktx'
     implementation 'com.google.firebase:firebase-messaging-ktx'
-    implementation 'com.firebaseui:firebase-ui-storage:3.1.0'
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
     implementation 'com.github.kizitonwose:CalendarView:1.0.4'
@@ -60,7 +62,7 @@ dependencies {
     implementation 'me.relex:circleindicator:1.2.2'
     implementation 'org.jsoup:jsoup:1.14.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    ksp 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
     implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
@@ -79,7 +81,7 @@ dependencies {
     implementation 'com.google.mlkit:translate:17.0.0'
     implementation 'com.github.kizitonwose:CalendarView:1.0.4'
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
-    kapt 'com.android.databinding:compiler:7.0.2'
+    ksp 'com.android.databinding:compiler:7.0.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
