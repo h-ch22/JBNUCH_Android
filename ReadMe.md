@@ -79,61 +79,61 @@ graph TD
 <details>
     <summary>Show Contents</summary>
 
-    ### Home</br>
-    > Check out the features you use often and the latest news on one screen.</br>
+### Home</br>
+> Check out the features you use often and the latest news on one screen.</br>
 
-    ![](ReadMe/home.png)<br>
+![](ReadMe/home.png)<br>
 
-    ### Associate Stores</br>
-    > List of affiliates, location, benefits, representative menus, and everything from one touch to the phone.</br>
+### Associate Stores</br>
+> List of affiliates, location, benefits, representative menus, and everything from one touch to the phone.</br>
 
-    ![](ReadMe/affiliates.png)
-    ![](ReadMe/affiliatesMap.jpeg)
-    ![](ReadMe/affiliates_details.png)<br>
+![](ReadMe/affiliates.png)
+![](ReadMe/affiliatesMap.jpeg)
+![](ReadMe/affiliates_details.png)<br>
 
-    ### Notice</br>
-    > The quickest way to check student council announcements<br>
+### Notice</br>
+> The quickest way to check student council announcements<br>
 
-    ![](ReadMe/notice_details.PNG)<br>
+![](ReadMe/notice_details.PNG)<br>
 
-    ### JBNU Petitions</br>
-    > Revised school regulations that Shape university regulations with your own hands.<br>
+### JBNU Petitions</br>
+> Revised school regulations that Shape university regulations with your own hands.<br>
 
-    ![](ReadMe/petition.jpeg)<br>
+![](ReadMe/petition.jpeg)<br>
 
-    ### Remaining quantity of rental items</br>
-    > Even if you don't come to the student council room, check the items and rental records at a glance in real time<br>
+### Remaining quantity of rental items</br>
+> Even if you don't come to the student council room, check the items and rental records at a glance in real time<br>
 
-    ![](ReadMe/products.png)<br>
+![](ReadMe/products.png)<br>
 
-    ### Campus Map</br>
-    > Never get lost on campus again.</br>
+### Campus Map</br>
+> Never get lost on campus again.</br>
 
-    ![](ReadMe/campusMap.png)<br>
+![](ReadMe/campusMap.png)<br>
 
-    ### Sports mercenary system<br>
-    > Looking for someone to work out with anytime, anywhere</br>
+### Sports mercenary system<br>
+> Looking for someone to work out with anytime, anywhere</br>
 
-    ![](ReadMe/sports_1.jpeg)
-    ![](ReadMe/sports_2.png)<br>
+![](ReadMe/sports_1.jpeg)
+![](ReadMe/sports_2.png)<br>
 
-    ### HandWriting</br>
-    > A peek at the successful candidate's secret</br>
+### HandWriting</br>
+> A peek at the successful candidate's secret</br>
 
-    ![](ReadMe/handWriting.png)<br>
+![](ReadMe/handWriting.png)<br>
 
-    ### Real-time pledge fulfillment rate</br>
-    > Student council's promise fulfillment rate in real time<br>
+### Real-time pledge fulfillment rate</br>
+> Student council's promise fulfillment rate in real time<br>
 
-    ![](ReadMe/products.png)<br>
+![](ReadMe/products.png)<br>
 
-    ### Feedback Hub</br>
-    > From school facilities to apps, now make it with your ideas<br>
+### Feedback Hub</br>
+> From school facilities to apps, now make it with your ideas<br>
 
-    ![](ReadMe/feedbackHub.jpeg)
-    ![](ReadMe/feedbackHub_2.jpeg)<br>
+![](ReadMe/feedbackHub.jpeg)
+![](ReadMe/feedbackHub_2.jpeg)<br>
 
-    * Required Android 8.0 or up. </br>
-    * 500MB or higher storage required for install application.
+* Required Android 8.0 or up. </br>
+* 500MB or higher storage required for install application.
 
 </details>
